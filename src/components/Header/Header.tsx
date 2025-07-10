@@ -5,14 +5,22 @@ import Slider from "../Slider/Slider";
 import { useModals } from "../../hooks/useModals";
 import ModalLogin from "../ModalLogin/ModalLogin";
 import { Link } from "react-router-dom";
-function Header() {
+
+interface IProps {
+  slider?: boolean;
+}
+
+function Header({ slider = true }: IProps) {
   const { setOpenLoginModal } = useModals();
 
   return (
-    <header className={styles.header}>
+    <header
+      className={styles.header}
+      style={{ minHeight: slider ? 720 : "none" }}
+    >
       <ModalLogin />
 
-      <Slider />
+      {slider && <Slider />}
       <div className={styles.header__top}>
         <div className="container">
           <div className={styles.row}>

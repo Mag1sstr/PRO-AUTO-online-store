@@ -3,7 +3,6 @@ import ban01 from "../../assets/banners/01.jpg";
 import ban02 from "../../assets/banners/02.jpg";
 import ban03 from "../../assets/banners/03.jpg";
 import ban04 from "../../assets/banners/04.jpg";
-import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { useEffect, useState } from "react";
 import Banner from "../Banner/Banner";
 
@@ -16,7 +15,6 @@ const banners = [
 
 function Slider() {
   const [step, setStep] = useState(0);
-  const windowWidth = useWindowWidth();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,7 +26,6 @@ function Slider() {
 
   return (
     <>
-      {/* <div className={styles.slider}> */}
       {banners.map((el, i) => (
         <Banner
           key={el.title}
@@ -37,15 +34,7 @@ function Slider() {
           active={i === step}
         />
       ))}
-      {/* <div
-          className={styles.row}
-          style={{ transform: `translateX(-${step * windowWidth}px)` }}
-        >
-          {banners.map((el) => (
-            <img key={el} src={el} alt="" style={{ width: windowWidth }} />
-          ))}
-        </div> */}
-      {/* </div> */}
+
       <div className={styles.switch}>
         {[...Array(banners.length)].map((_, i) => (
           <div
