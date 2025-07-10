@@ -34,17 +34,22 @@ function ModalLogin() {
           </svg>
         </div>
         <div className={styles.main}>
-          <div className={styles.field}>
-            <p>Почта:</p>
-            <input type="text" />
+          <div>
+            <div className={styles.field}>
+              <p>Почта:</p>
+              <input type="text" />
+            </div>
+            <div className={styles.field}>
+              <p>Пароль:</p>
+              <input type="password" />
+            </div>
           </div>
-          <div className={styles.field}>
-            <p>Пароль:</p>
-            <input type="password" />
+          <div className={styles.buttons}>
+            <p>Создать новый аккаунт</p>
+            <Button width={116} height={40} red>
+              Войти
+            </Button>
           </div>
-          <Button width={116} height={40} color="">
-            Войти
-          </Button>
         </div>
       </div>
     </section>

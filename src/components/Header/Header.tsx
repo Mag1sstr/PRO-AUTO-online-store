@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import Slider from "../Slider/Slider";
 import { useModals } from "../../hooks/useModals";
 import ModalLogin from "../ModalLogin/ModalLogin";
+import { Link } from "react-router-dom";
 function Header() {
   const { setOpenLoginModal } = useModals();
 
@@ -15,7 +16,9 @@ function Header() {
       <div className={styles.header__top}>
         <div className="container">
           <div className={styles.row}>
-            <img src={logoImg} alt="logo" />
+            <Link to="/">
+              <img src={logoImg} alt="logo" />
+            </Link>
 
             <ul className={styles.links}>
               <li className={styles.link}>КОМПАНИЯ</li>

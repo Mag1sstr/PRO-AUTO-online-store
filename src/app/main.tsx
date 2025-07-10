@@ -2,9 +2,12 @@ import { createRoot } from "react-dom/client";
 import "./styles/index.scss";
 import App from "./App.tsx";
 import ModalsContextProvider from "../contexts/ModalsContext.tsx";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
   <ModalsContextProvider>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </ModalsContextProvider>
 );

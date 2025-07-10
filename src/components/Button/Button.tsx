@@ -11,6 +11,7 @@ interface IProps {
   color?: string;
   borderColor?: string;
   fontSize?: string | number;
+  red?: boolean;
 }
 
 function Button({
@@ -18,12 +19,12 @@ function Button({
   width,
   height,
   onClick,
-  color = "#fff",
   borderColor,
   start,
   center,
   end,
   fontSize = 14,
+  red,
 }: IProps) {
   return (
     <div
@@ -40,7 +41,13 @@ function Button({
     >
       <button
         onClick={onClick}
-        style={{ width, height, fontSize, color, borderColor }}
+        style={{
+          width,
+          height,
+          fontSize,
+          color: red ? "#C53720" : "#fff",
+          borderColor,
+        }}
         className={styles.btn}
       >
         {children}

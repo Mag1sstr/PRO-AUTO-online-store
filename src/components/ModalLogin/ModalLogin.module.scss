@@ -41,6 +41,7 @@
   width: 100px;
   height: 100px;
   background-color: var(--red);
+  transition: 0.2s;
   img {
     position: absolute;
     top: 15px;
@@ -107,5 +108,31 @@
   }
   &:not(:last-child) {
     margin-bottom: 16px;
+  }
+}
+.buttons {
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  P {
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      filter: brightness(80%);
+    }
+  }
+}
+@media (max-width: 380px) {
+  .icon {
+    width: 78px;
+    height: 78px;
+  }
+  .top {
+    gap: 16px;
+  }
+  .title {
+    font-size: 22px;
   }
 }
