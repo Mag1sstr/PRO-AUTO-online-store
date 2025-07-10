@@ -19,7 +19,7 @@ function Button({
   height,
   onClick,
   color = "#fff",
-  borderColor = "#C53720",
+  borderColor,
   start,
   center,
   end,

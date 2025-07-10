@@ -13,10 +13,10 @@
   height: 272px;
   flex-basis: 0;
   flex-grow: 1;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in;
   overflow: hidden;
   &:hover {
-    background-color: #c53720;
+    background-color: var(--red);
   }
   &::before {
     position: absolute;
