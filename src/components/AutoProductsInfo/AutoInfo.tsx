@@ -25,7 +25,12 @@ function AutoInfo() {
           </div>
           <div className={styles.row}>
             {cards.map((el, i) => (
-              <div key={i} className={styles.card}>
+              <div
+                key={i}
+                className={styles.card}
+                data-aos="fade-up"
+                data-aos-delay={`${i * 200}`}
+              >
                 <img src={el} alt="" />
                 <div className={styles.content}>
                   <p>КОМПРЕССОРЫ</p>
