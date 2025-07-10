@@ -18,8 +18,10 @@ function Header({ slider = true }: IProps) {
 
   return (
     <header
-      className={styles.header}
-      style={{ minHeight: slider ? 720 : "none" }}
+      className={`${styles.header} ${slider && styles.banner__height}`}
+      // style={{
+      //   minHeight: slider ? 720 : "none",
+      // }}
     >
       <ModalLogin />
 

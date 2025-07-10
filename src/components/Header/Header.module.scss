@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  // min-height: 720px;
+
   overflow: hidden;
   background-color: #000;
   z-index: 100;
@@ -68,4 +68,12 @@
   background-color: var(--red);
   border-radius: 50%;
   font-weight: 700;
+}
+.banner__height {
+  min-height: 720px;
+}
+@media (max-width: 610px) {
+  .banner__height {
+    min-height: 480px;
+  }
 }

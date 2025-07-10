@@ -45,3 +45,17 @@
 .active::before {
   background-color: var(--red);
 }
+
+@media (max-width: 610px) {
+  .switch {
+    bottom: 32px;
+  }
+  .item {
+    width: 80px;
+  }
+}
+@media (max-width: 390px) {
+  .item {
+    width: 64px;
+  }
+}

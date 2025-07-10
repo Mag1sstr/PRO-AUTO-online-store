@@ -36,3 +36,13 @@
 .notfound {
   margin-bottom: 52px;
 }
+@media (max-width: 610px) {
+  .banner {
+    // height: 480px;
+  }
+  .title {
+    max-width: 298px;
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+}
