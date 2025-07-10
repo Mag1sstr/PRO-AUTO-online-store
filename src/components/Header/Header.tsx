@@ -20,7 +20,7 @@ function Header() {
             </ul>
 
             <Button width={168} height={40} fontSize={12}>
-              ЗАКАЗАТЬ ЗВОНОК
+              РЕГИСТРАЦИЯ
             </Button>
             <div className={styles.icons}>
               <div className={styles.search}>
