@@ -2,9 +2,15 @@ import styles from "./Header.module.scss";
 import logoImg from "../../assets/header/logo.svg";
 import Button from "../Button/Button";
 import Slider from "../Slider/Slider";
+import { useModals } from "../../hooks/useModals";
+import ModalLogin from "../ModalLogin/ModalLogin";
 function Header() {
+  const { setOpenLoginModal } = useModals();
+
   return (
     <header className={styles.header}>
+      <ModalLogin />
+
       <Slider />
       <div className={styles.header__top}>
         <div className="container">
@@ -19,7 +25,12 @@ function Header() {
               <li className={styles.link}>КОНТАКТЫ</li>
             </ul>
 
-            <Button width={168} height={40} fontSize={12}>
+            <Button
+              onClick={() => setOpenLoginModal(true)}
+              width={168}
+              height={40}
+              fontSize={12}
+            >
               РЕГИСТРАЦИЯ
             </Button>
             <div className={styles.icons}>
