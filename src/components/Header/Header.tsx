@@ -1,22 +1,24 @@
 import styles from "./Header.module.scss";
 import logoImg from "../../assets/header/logo.svg";
 import Button from "../Button/Button";
+import Slider from "../Slider/Slider";
 function Header() {
   return (
     <header className={styles.header}>
+      <Slider />
       <div className={styles.header__top}>
         <div className="container">
           <div className={styles.row}>
             <img src={logoImg} alt="logo" />
-            <nav>
-              <ul className={styles.links}>
-                <li className={styles.link}>КОМПАНИЯ</li>
-                <li className={styles.link}>КАТАЛОГ</li>
-                <li className={styles.link}>УСЛУГИ</li>
-                <li className={styles.link}>ИНФОРМАЦИЯ</li>
-                <li className={styles.link}>КОНТАКТЫ</li>
-              </ul>
-            </nav>
+
+            <ul className={styles.links}>
+              <li className={styles.link}>КОМПАНИЯ</li>
+              <li className={styles.link}>КАТАЛОГ</li>
+              <li className={styles.link}>УСЛУГИ</li>
+              <li className={styles.link}>ИНФОРМАЦИЯ</li>
+              <li className={styles.link}>КОНТАКТЫ</li>
+            </ul>
+
             <Button width={168} height={40} fontSize={12}>
               ЗАКАЗАТЬ ЗВОНОК
             </Button>
