@@ -5,8 +5,14 @@ import ban03 from "../../assets/banners/03.jpg";
 import ban04 from "../../assets/banners/04.jpg";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { useEffect, useState } from "react";
+import Banner from "../Banner/Banner";
 
-const banners = [ban01, ban02, ban03, ban04];
+const banners = [
+  { title: "НАДЕЖНЫЕ, КАЧЕСТВЕННЫЕ АККУМУЛЯТОРЫ", image: ban01 },
+  { title: "ПРОФЕССИОНАЛЬНАЯ ПОМОЩЬ ВАШЕМУ АВТОМОБИЛЮ", image: ban02 },
+  { title: "КОМАНДА ВЫСОКОКЛАССНЫХ СПЕЦИАЛИСТОВ", image: ban03 },
+  { title: "ЗАБОТЛИВЫЙ СЕРВИС И СВОЕВРЕВЕННАЯ ИНФОРМАЦИЯ", image: ban04 },
+];
 
 function Slider() {
   const [step, setStep] = useState(0);
@@ -22,16 +28,24 @@ function Slider() {
 
   return (
     <>
-      <div className={styles.slider}>
-        <div
+      {/* <div className={styles.slider}> */}
+      {banners.map((el, i) => (
+        <Banner
+          key={el.title}
+          title={el.title}
+          image={el.image}
+          active={i === step}
+        />
+      ))}
+      {/* <div
           className={styles.row}
           style={{ transform: `translateX(-${step * windowWidth}px)` }}
         >
           {banners.map((el) => (
             <img key={el} src={el} alt="" style={{ width: windowWidth }} />
           ))}
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
       <div className={styles.switch}>
         {[...Array(banners.length)].map((_, i) => (
           <div
