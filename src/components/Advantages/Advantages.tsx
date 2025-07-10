@@ -21,6 +21,7 @@ function Advantages() {
               <p>Техническая помощь и консультация</p>
             </div>
           </div>
+
           <div className={styles.card}>
             <div className={styles.col}>
               <img src={cartImg3} alt="" />

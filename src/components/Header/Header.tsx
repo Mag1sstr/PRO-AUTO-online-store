@@ -5,12 +5,15 @@ import Slider from "../Slider/Slider";
 import { useModals } from "../../hooks/useModals";
 import ModalLogin from "../ModalLogin/ModalLogin";
 import { Link } from "react-router-dom";
+import ButtonBurger from "../ButtonBurger/ButtonBurger";
+import { useWindowWidth } from "../../hooks/useWindowWidth";
 
 interface IProps {
   slider?: boolean;
 }
 
 function Header({ slider = true }: IProps) {
+  const windowWidth = useWindowWidth();
   const { setOpenLoginModal } = useModals();
 
   return (
@@ -24,27 +27,31 @@ function Header({ slider = true }: IProps) {
       <div className={styles.header__top}>
         <div className="container">
           <div className={styles.row}>
-            <Link to="/">
-              <img src={logoImg} alt="logo" />
-            </Link>
+            <div className={styles.logo__row}>
+              <Link to="/">
+                <img src={logoImg} alt="logo" />
+              </Link>
+              {windowWidth <= 1040 && <ButtonBurger />}
+            </div>
+            {windowWidth > 1040 && (
+              <ul className={styles.links}>
+                <li className={styles.link}>КОМПАНИЯ</li>
+                <li className={styles.link}>КАТАЛОГ</li>
+                <li className={styles.link}>УСЛУГИ</li>
+                <li className={styles.link}>ИНФОРМАЦИЯ</li>
+                <li className={styles.link}>КОНТАКТЫ</li>
+              </ul>
+            )}
 
-            <ul className={styles.links}>
-              <li className={styles.link}>КОМПАНИЯ</li>
-              <li className={styles.link}>КАТАЛОГ</li>
-              <li className={styles.link}>УСЛУГИ</li>
-              <li className={styles.link}>ИНФОРМАЦИЯ</li>
-              <li className={styles.link}>КОНТАКТЫ</li>
-            </ul>
-
-            <Button
-              onClick={() => setOpenLoginModal(true)}
-              width={168}
-              height={40}
-              fontSize={12}
-            >
-              РЕГИСТРАЦИЯ
-            </Button>
             <div className={styles.icons}>
+              <Button
+                onClick={() => setOpenLoginModal(true)}
+                width={168}
+                height={40}
+                fontSize={12}
+              >
+                ВОЙТИ
+              </Button>
               <div className={styles.search}>
                 <svg
                   width="40"
