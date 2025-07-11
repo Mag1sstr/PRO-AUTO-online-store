@@ -1,0 +1,22 @@
+{
+  "ru": {
+    "header": {
+      "company": "КОМПАНИЯ",
+      "catalog": "КАТАЛОГ",
+      "services": "УСЛУГИ",
+      "info": "ИНФОРМАЦИЯ",
+      "contacts": "КОНТАКТЫ",
+      "login": "Войти"
+    }
+  },
+  "en": {
+    "header": {
+      "company": "company",
+      "catalog": "catalog",
+      "services": "services",
+      "info": "info",
+      "contacts": "contacts",
+      "login": "Login"
+    }
+  }
+}
