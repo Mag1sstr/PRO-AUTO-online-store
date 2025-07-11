@@ -1,0 +1,134 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  background-image: url(../../assets/services/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 88px 0;
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+    background: radial-gradient(
+      24.05% 24.05% at 50% 56.14%,
+      rgba(14, 14, 14, 0.7) 0%,
+      rgba(14, 14, 14, 0.97) 100%
+    );
+    z-index: 2;
+  }
+}
+.center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 74px;
+  z-index: 3;
+}
+.title {
+  width: 170px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 700;
+  padding-bottom: 16px;
+  border-bottom: 4px solid var(--red);
+  margin-bottom: 32px;
+}
+.text {
+  max-width: 892px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  z-index: 3;
+}
+.card {
+  position: relative;
+  width: 605px;
+  padding: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: 0.3s;
+  &:hover {
+    background-color: rgba($color: #c53720, $alpha: 0.3);
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 50px solid #0e0e0e;
+    border-right: 50px solid transparent;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid #0e0e0e;
+    border-left: 50px solid transparent;
+  }
+}
+.icon__wrapper {
+  position: relative;
+  min-width: 124px;
+  min-height: 124px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.icon {
+  position: absolute;
+  width: 124px;
+  height: 124px;
+}
+.card__title {
+  max-width: 286px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.card__text {
+  max-width: 352px;
+}
+
+.img {
+  position: relative;
+}
+.rec__big {
+  position: absolute;
+  left: -20px;
+  bottom: 50px;
+}
+.rec__small {
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+}
+.rec__big__blur {
+  position: absolute;
+  right: -80px;
+  bottom: 100px;
+  filter: blur(8px);
+}
+.rec__small__blur {
+  position: absolute;
+  top: 0;
+  right: 70px;
+  filter: blur(8px);
+}
