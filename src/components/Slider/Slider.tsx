@@ -5,16 +5,18 @@ import ban03 from "../../assets/banners/03.jpg";
 import ban04 from "../../assets/banners/04.jpg";
 import { useEffect, useState } from "react";
 import Banner from "../Banner/Banner";
-
-const banners = [
-  { title: "НАДЕЖНЫЕ, КАЧЕСТВЕННЫЕ АККУМУЛЯТОРЫ", image: ban01 },
-  { title: "ПРОФЕССИОНАЛЬНАЯ ПОМОЩЬ ВАШЕМУ АВТОМОБИЛЮ", image: ban02 },
-  { title: "КОМАНДА ВЫСОКОКЛАССНЫХ СПЕЦИАЛИСТОВ", image: ban03 },
-  { title: "ЗАБОТЛИВЫЙ СЕРВИС И СВОЕВРЕВЕННАЯ ИНФОРМАЦИЯ", image: ban04 },
-];
+import { useLang } from "../../hooks/useLang";
 
 function Slider() {
   const [step, setStep] = useState(0);
+  const { t, lang } = useLang();
+
+  const banners = [
+    { title: t[lang].banners.ban1, image: ban01 },
+    { title: t[lang].banners.ban2, image: ban02 },
+    { title: t[lang].banners.ban3, image: ban03 },
+    { title: t[lang].banners.ban4, image: ban04 },
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {

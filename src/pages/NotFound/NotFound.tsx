@@ -1,14 +1,16 @@
 import Banner from "../../components/Banner/Banner";
 import Header from "../../components/Header/Header";
 import notfoundImg from "../../assets/banners/not-found.jpg";
+import { useLang } from "../../hooks/useLang";
 
 function NotFound() {
+  const { t, lang } = useLang();
   return (
     <>
       <Header slider={false} />
       <Banner
         image={notfoundImg}
-        title="СТРАНИЦА НЕ НАЙДЕНА"
+        title={t[lang].banners.not_found}
         active={true}
         notFound
       />

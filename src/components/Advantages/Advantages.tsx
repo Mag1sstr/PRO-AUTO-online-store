@@ -3,8 +3,11 @@ import cartImg1 from "../../assets/advantages/01.svg";
 import cartImg2 from "../../assets/advantages/02.svg";
 import cartImg3 from "../../assets/advantages/03.svg";
 import cartImg4 from "../../assets/advantages/04.svg";
+import { useLang } from "../../hooks/useLang";
 
 function Advantages() {
+  const { t, lang } = useLang();
+
   return (
     <section className={styles.wrapper}>
       <div className="container">
@@ -12,20 +15,20 @@ function Advantages() {
           <div className={styles.card}>
             <div className={styles.col}>
               <img src={cartImg1} alt="" />
-              <p>Наличный и безналичный расчет</p>
+              <p>{t[lang].advantages.ad1}</p>
             </div>
           </div>
           <div className={styles.card}>
             <div className={styles.col}>
               <img src={cartImg2} alt="" />
-              <p>Техническая помощь и консультация</p>
+              <p>{t[lang].advantages.ad2}</p>
             </div>
           </div>
 
           <div className={styles.card}>
             <div className={styles.col}>
               <img src={cartImg3} alt="" />
-              <p>Только качественная и проверенная продукция</p>
+              <p>{t[lang].advantages.ad3}</p>
               <svg
                 width="51"
                 height="20"
@@ -45,7 +48,7 @@ function Advantages() {
           <div className={styles.card}>
             <div className={styles.col}>
               <img src={cartImg4} alt="" />
-              <p>Мы всегда на связи с 9:00 до 18:00!</p>
+              <p>{t[lang].advantages.ad4}</p>
               <svg
                 width="51"
                 height="20"

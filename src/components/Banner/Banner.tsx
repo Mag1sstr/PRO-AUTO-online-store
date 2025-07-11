@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import styles from "./Banner.module.scss";
 import { ROUTES } from "../../routes/routes";
+import { useLang } from "../../hooks/useLang";
 
 interface IProps {
   image: string;
@@ -12,6 +13,8 @@ interface IProps {
 
 function Banner({ image, title, active, notFound = false }: IProps) {
   const navigate = useNavigate();
+
+  const { t, lang } = useLang();
 
   return (
     <section
@@ -44,11 +47,11 @@ function Banner({ image, title, active, notFound = false }: IProps) {
                 width={216}
                 height={52}
               >
-                ПЕРЕЙТИ НА ГЛАВНУЮ
+                {t[lang].banners.main_page}
               </Button>
             ) : (
               <Button width={216} height={52}>
-                ПЕРЕЙТИ В КАТАЛОГ
+                {t[lang].banners.btn}
               </Button>
             )}
           </div>

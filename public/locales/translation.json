@@ -11,8 +11,11 @@
     "banners": {
       "ban1": "НАДЕЖНЫЕ, КАЧЕСТВЕННЫЕ КОМПРЕССОРЫ",
       "ban2": "ПРОФЕССИОНАЛЬНАЯ ПОМОЩЬ ВАШЕМУ АВТОМОБИЛЮ",
-      "ban3": "ЗАБОТЛИВЫЙ СЕРВИС И СВОЕВРЕВЕННАЯ ИНФОРМАЦИЯ",
-      "btn": "ПЕРЕЙТИ В КАТАЛОГ"
+      "ban3": "КОМАНДА ВЫСОКОКЛАССНЫХ СПЕЦИАЛИСТОВ",
+      "ban4": "ЗАБОТЛИВЫЙ СЕРВИС И СВОЕВРЕВЕННАЯ ИНФОРМАЦИЯ",
+      "btn": "ПЕРЕЙТИ В КАТАЛОГ",
+      "main_page": "ПЕРЕЙТИ НА ГЛАВНУЮ",
+      "not_found": "СТРАНИЦА НЕ НАЙДЕНА"
     },
     "advantages": {
       "ad1": "Наличный и безналичный расчет",
@@ -50,8 +53,11 @@
     "banners": {
       "ban1": "RELIABLE, HIGH-QUALITY COMPRESSORS",
       "ban2": "PROFESSIONAL HELP FOR YOUR CAR",
-      "ban3": "CARING SERVICE AND TIMELY INFORMATION",
-      "btn": "GO TO CATALOG"
+      "ban3": "TEAM OF HIGHLY QUALIFIED SPECIALISTS",
+      "ban4": "CARING SERVICE AND TIMELY INFORMATION",
+      "btn": "GO TO CATALOG",
+      "main_page": "GO TO MAIN PAGE",
+      "not_found": "NOT FOUND"
     },
     "advantages": {
       "ad1": "Cash and non-cash payments",

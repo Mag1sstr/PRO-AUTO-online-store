@@ -4,17 +4,17 @@ import icon2 from "../../assets/services/02.svg";
 import icon3 from "../../assets/services/03.svg";
 import border from "../../assets/services/border.svg";
 import person from "../../assets/services/person.png";
+import { useLang } from "../../hooks/useLang";
 
 function Services() {
+  const { t, lang } = useLang();
+
   return (
     <section className={styles.wrapper}>
       <div className="container">
         <div className={styles.center}>
-          <h2 className={styles.title}>услуги</h2>
-          <p className={styles.text}>
-            Менеджеры компании с радостью ответят на ваши вопросы и помогут с
-            выбором продукции.
-          </p>
+          <h2 className={styles.title}>{t[lang].services.title}</h2>
+          <p className={styles.text}>{t[lang].services.text}</p>
         </div>
         <div className={styles.row}>
           <div className={styles.col}>
@@ -26,11 +26,10 @@ function Services() {
               </div>
               <div className={styles.info}>
                 <p className={styles.card__title}>
-                  БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА
+                  {t[lang].services.card_title1}
                 </p>
                 <p className={styles.card__text}>
-                  Поможем с выбором аккумулятора, моторного масла и аксессуаров
-                  для автомобиля под ваши требования.
+                  {t[lang].services.card_text1}
                 </p>
               </div>
             </div>
@@ -42,11 +41,10 @@ function Services() {
               </div>
               <div className={styles.info}>
                 <p className={styles.card__title}>
-                  ОБМЕН СТАРОГО АККУМУЛЯТОРА НА НОВЫЙ
+                  {t[lang].services.card_title2}
                 </p>
                 <p className={styles.card__text}>
-                  Принесите нам старую АКБ для легкового автомобиля, и мы
-                  предоставим Вам скидку на новый аккумулятор!
+                  {t[lang].services.card_text2}
                 </p>
               </div>
             </div>
@@ -58,11 +56,10 @@ function Services() {
               </div>
               <div className={styles.info}>
                 <p className={styles.card__title}>
-                  БЕСПЛАТНАЯ ДИАГНОСТИКА АККУМУЛЯТОРА
+                  {t[lang].services.card_title3}
                 </p>
                 <p className={styles.card__text}>
-                  Приезжайте к нам и мы бесплатно проведём диагностику вашего
-                  аккумулятора!
+                  {t[lang].services.card_text3}
                 </p>
               </div>
             </div>
