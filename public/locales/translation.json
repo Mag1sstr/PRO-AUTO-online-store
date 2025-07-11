@@ -7,6 +7,35 @@
       "info": "ИНФОРМАЦИЯ",
       "contacts": "КОНТАКТЫ",
       "login": "Войти"
+    },
+    "banners": {
+      "ban1": "НАДЕЖНЫЕ, КАЧЕСТВЕННЫЕ КОМПРЕССОРЫ",
+      "ban2": "ПРОФЕССИОНАЛЬНАЯ ПОМОЩЬ ВАШЕМУ АВТОМОБИЛЮ",
+      "ban3": "ЗАБОТЛИВЫЙ СЕРВИС И СВОЕВРЕВЕННАЯ ИНФОРМАЦИЯ",
+      "btn": "ПЕРЕЙТИ В КАТАЛОГ"
+    },
+    "advantages": {
+      "ad1": "Наличный и безналичный расчет",
+      "ad2": "Техническая помощь и консультация",
+      "ad3": "Только качественная и проверенная продукция",
+      "ad4": "Мы всегда на связи с 9:00 до 18:00!"
+    },
+    "auto_info": {
+      "title": "Автотовары: аксессуары, расходники и многое другое",
+      "text": "PROAuto - это специализированный интернет магазин востребованных товаров для автомобилей.",
+      "card_text": "КОМПРЕССОРЫ",
+      "btn": "ЗАКАЗАТЬ ОНЛАЙН"
+    },
+    "services": {
+      "title": "услуги",
+      "text": "Менеджеры компании с радостью ответят на ваши вопросы и помогут с выбором продукции.",
+      "card_title1": "БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА",
+      "card_text1": "Поможем с выбором аккумулятора, моторного масла и аксессуаров для автомобиля под ваши требования. ",
+      "card_title2": "ОБМЕН СТАРОГО АККУМУЛЯТОРА НА НОВЫЙ",
+      "card_text2": "Принесите нам старую АКБ для легкового автомобиля, и мы предоставим Вам скидку на новый аккумулятор!",
+      "card_title3": "БЕСПЛАТНАЯ ДИАГНОСТИКА АККУМУЛЯТОРА",
+      "card_text3": "Приезжайте к нам и мы бесплатно проведём диагностику вашего аккумулятора!",
+      "btn": "ЗАДАТЬ ВОПРОС"
     }
   },
   "en": {
@@ -17,6 +46,35 @@
       "info": "info",
       "contacts": "contacts",
       "login": "Login"
+    },
+    "banners": {
+      "ban1": "RELIABLE, HIGH-QUALITY COMPRESSORS",
+      "ban2": "PROFESSIONAL HELP FOR YOUR CAR",
+      "ban3": "CARING SERVICE AND TIMELY INFORMATION",
+      "btn": "GO TO CATALOG"
+    },
+    "advantages": {
+      "ad1": "Cash and non-cash payments",
+      "ad2": "Technical assistance and consultation",
+      "ad3": "Only high-quality and tested products",
+      "ad4": "We are always in touch from 9:00 to 18:00!"
+    },
+    "auto_info": {
+      "title": "Automotive products: accessories, consumables and much more",
+      "text": "PROAuto is a specialized online store of popular automobile products.",
+      "card_text": "COMPRESSORS",
+      "btn": "ORDER ONLINE"
+    },
+    "services": {
+      "title": "services",
+      "text": "The company's managers will be happy to answer your questions and help you choose products.",
+      "card_title1": "FREE CONSULTATION WITH A SPECIALIST",
+      "card_text1": "We will help you choose a battery, motor oil and car accessories according to your requirements.",
+      "card_title2": "EXCHANGE OF AN OLD BATTERY FOR A NEW ONE",
+      "card_text2": "Bring us your old car battery and we will give you a discount on a new battery!",
+      "card_title3": "FREE BATTERY DIAGNOSTICS",
+      "card_text3": "Come to us and we will diagnose your battery for free!",
+      "btn": "ASK A QUESTION"
     }
   }
 }

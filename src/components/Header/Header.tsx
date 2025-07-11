@@ -7,6 +7,8 @@ import ModalLogin from "../ModalLogin/ModalLogin";
 import { Link } from "react-router-dom";
 import ButtonBurger from "../ButtonBurger/ButtonBurger";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
+import SwitchLanguage from "../SwitchLanguage/SwitchLanguage";
+import { useLang } from "../../hooks/useLang";
 
 interface IProps {
   slider?: boolean;
@@ -15,14 +17,10 @@ interface IProps {
 function Header({ slider = true }: IProps) {
   const windowWidth = useWindowWidth();
   const { setOpenLoginModal } = useModals();
+  const { t, lang } = useLang();
 
   return (
-    <header
-      className={`${styles.header} ${slider && styles.banner__height}`}
-      // style={{
-      //   minHeight: slider ? 720 : "none",
-      // }}
-    >
+    <header className={`${styles.header} ${slider && styles.banner__height}`}>
       <ModalLogin />
 
       {slider && <Slider />}
@@ -34,14 +32,15 @@ function Header({ slider = true }: IProps) {
                 <img src={logoImg} alt="logo" />
               </Link>
               {windowWidth <= 1040 && <ButtonBurger />}
+              <SwitchLanguage />
             </div>
             {windowWidth > 1040 && (
               <ul className={styles.links}>
-                <li className={styles.link}>КОМПАНИЯ</li>
-                <li className={styles.link}>КАТАЛОГ</li>
-                <li className={styles.link}>УСЛУГИ</li>
-                <li className={styles.link}>ИНФОРМАЦИЯ</li>
-                <li className={styles.link}>КОНТАКТЫ</li>
+                <li className={styles.link}>{t[lang].header.company}</li>
+                <li className={styles.link}>{t[lang].header.catalog}</li>
+                <li className={styles.link}>{t[lang].header.services}</li>
+                <li className={styles.link}>{t[lang].header.info}</li>
+                <li className={styles.link}>{t[lang].header.contacts}</li>
               </ul>
             )}
 
@@ -52,7 +51,7 @@ function Header({ slider = true }: IProps) {
                 height={40}
                 fontSize={12}
               >
-                ВОЙТИ
+                {t[lang].header.login}
               </Button>
               <div className={styles.search}>
                 <svg
