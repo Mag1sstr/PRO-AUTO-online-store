@@ -9,6 +9,7 @@ import { useLang } from "../../hooks/useLang";
 function Services() {
   const { t, lang } = useLang();
 
+  //data-aos="fade-left"
   return (
     <section className={styles.wrapper}>
       <div className="container">
@@ -64,7 +65,7 @@ function Services() {
               </div>
             </div>
           </div>
-          <div className={styles.img} data-aos="fade-left">
+          <div className={styles.img}>
             <img src={person} alt="person" />
             <svg
               className={styles.rec__big}

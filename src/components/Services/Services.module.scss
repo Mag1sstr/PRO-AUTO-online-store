@@ -107,7 +107,16 @@
 }
 
 .img {
+  flex: 1 1 400px;
   position: relative;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 }
 .rec__big {
   position: absolute;
@@ -131,26 +140,24 @@
   right: 70px;
   filter: blur(8px);
 }
-@media (max-width: 1330px) {
+@media (max-width: 1400px) {
+  .rec__big__blur {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
   .row {
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
-@media (max-width: 682px) {
+@media (max-width: 710px) {
   .card {
     width: 100%;
   }
-  .img {
-    width: 80%;
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-    svg {
-      transform: scale(0.5);
-    }
+}
+@media (max-width: 440px) {
+  .card {
+    flex-direction: column;
   }
 }
