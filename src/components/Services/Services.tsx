@@ -65,7 +65,7 @@ function Services() {
               </div>
             </div>
           </div>
-          <div className={styles.img}>
+          <div className={styles.img} data-aos="fade-left">
             <img src={person} alt="person" />
             <svg
               className={styles.rec__big}

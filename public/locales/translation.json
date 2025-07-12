@@ -39,6 +39,21 @@
       "card_title3": "БЕСПЛАТНАЯ ДИАГНОСТИКА АККУМУЛЯТОРА",
       "card_text3": "Приезжайте к нам и мы бесплатно проведём диагностику вашего аккумулятора!",
       "btn": "ЗАДАТЬ ВОПРОС"
+    },
+    "company": {
+      "title": "о компании",
+      "text": "Машина плохо заводится? Аккумулятор вас подводит? Не проблема! Вам в «PRO Auto»! Мы подберём хороший, надёжный, а главное недорогой аккумулятор именно для вашего авто! С 1997 года сеть магазинов «PRO Auto» занимается продажей автомобильных аккумуляторов, масел, расходных материалов, химией и аксессуаров.",
+      "btn": "УЗНАТЬ БОЛЬШЕ"
+    },
+    "news": {
+      "title": "новости",
+      "card_title1": "У НАС НОВЫЙ ЛОГОТИП И НОВЫЙ САЙТ!",
+      "card_title2": "ОБНОВЛЕНИЕ ЛИНЕЙКИ АККУМУЛЯТОРОВ VARTRA ",
+      "card_title3": "БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА ТЕПЕРЬ В РЕЖИМЕ ONLINE",
+      "card_date1": "12 февраля 2025 года",
+      "card_date2": "10 февраля 2025 года",
+      "card_date3": "5 февраля 2025 года",
+      "btn": "ЧИТАТЬ ВСЕ НОВОСТИ"
     }
   },
   "en": {
@@ -81,6 +96,21 @@
       "card_title3": "FREE BATTERY DIAGNOSTICS",
       "card_text3": "Come to us and we will diagnose your battery for free!",
       "btn": "ASK A QUESTION"
+    },
+    "company": {
+      "title": "about the company",
+      "text": "Your car starts poorly? Your battery is failing you? No problem! You should go to PRO Auto! We will select a good, reliable, and most importantly inexpensive battery specifically for your car! Since 1997, the PRO Auto chain of stores has been selling car batteries, oils, consumables, chemicals, and accessories.",
+      "btn": "LEARN MORE"
+    },
+    "news": {
+      "title": "News",
+      "card_title1": "WE HAVE A NEW LOGO AND A NEW WEBSITE!",
+      "card_title2": "VARTRA BATTERY LINE UPDATE ",
+      "card_title3": "FREE CONSULTATION WITH A SPECIALIST NOW ONLINE",
+      "card_date1": "February 12, 2025",
+      "card_date2": "February 10, 2025",
+      "card_date3": "February 5, 2025",
+      "btn": "READ ALL NEWS"
     }
   }
 }
