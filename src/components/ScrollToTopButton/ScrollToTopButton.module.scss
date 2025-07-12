@@ -1,0 +1,31 @@
+.btn {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  bottom: 0px;
+  right: 40px;
+  width: 52px;
+  height: 52px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--red);
+  z-index: 200;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  svg path {
+    transition: 0.3s ease-in-out;
+  }
+  &:hover {
+    background-color: #fff;
+    svg path {
+      stroke: #000;
+    }
+  }
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  bottom: 40px;
+}

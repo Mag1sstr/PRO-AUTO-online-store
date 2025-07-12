@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import AppRouter from "../routes/AppRouter";
 import AOS from "aos";
+import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton";
 
 function App() {
   useEffect(() => {
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <AppRouter />
+      <ScrollToTopButton />
     </>
   );
 }
