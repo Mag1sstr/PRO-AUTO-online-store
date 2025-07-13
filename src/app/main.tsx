@@ -6,13 +6,17 @@ import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 import ModalsContextProvider from "../contexts/ModalsContextProvider.tsx";
 import LangContextProvider from "../contexts/LangContextProvider.tsx";
+import { Provider } from "react-redux";
+import { store } from "../store/store.ts";
 
 createRoot(document.getElementById("root")!).render(
-  <ModalsContextProvider>
-    <LangContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </LangContextProvider>
-  </ModalsContextProvider>
+  <Provider store={store}>
+    <ModalsContextProvider>
+      <LangContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </LangContextProvider>
+    </ModalsContextProvider>
+  </Provider>
 );

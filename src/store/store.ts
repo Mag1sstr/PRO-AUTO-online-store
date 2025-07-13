@@ -1,8 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
+import { api } from "../api/api";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [api.reducerPath]: api.reducer,
+  },
+  middleware(getDefaultMiddleware) {
+    return getDefaultMiddleware().concat(api.middleware);
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
