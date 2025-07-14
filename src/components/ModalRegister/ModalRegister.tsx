@@ -8,7 +8,7 @@ import ModalInput from "../ModalInput/ModalInput";
 import Button from "../Button/Button";
 
 function ModalRegister() {
-  const { openRegModal, setOpenRegModal } = useModals();
+  const { openRegModal, setOpenRegModal, setOpenLoginModal } = useModals();
   const { t, lang } = useLang();
 
   return (
@@ -28,8 +28,15 @@ function ModalRegister() {
           <ModalInput title={t[lang].modals.password} />
         </div>
         <div className={styles.buttons}>
-          <p>{t[lang].modals.reg.sec_btn}</p>
-          <Button width={116} height={40} red>
+          <p
+            onClick={() => {
+              setOpenLoginModal(true);
+              setOpenRegModal(false);
+            }}
+          >
+            {t[lang].modals.reg.sec_btn}
+          </p>
+          <Button fontSize={12} red>
             {t[lang].modals.reg.btn}
           </Button>
         </div>

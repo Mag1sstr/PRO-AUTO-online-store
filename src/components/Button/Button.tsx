@@ -2,8 +2,8 @@ import styles from "./Button.module.scss";
 
 interface IProps {
   children: React.ReactNode;
-  width: number | string;
-  height: number | string;
+  width?: number | string;
+  height?: number | string;
   start?: boolean;
   end?: boolean;
   center?: boolean;
@@ -12,6 +12,8 @@ interface IProps {
   borderColor?: string;
   fontSize?: string | number;
   red?: boolean;
+  padding?: string | number;
+  minWidth?: string | number;
 }
 
 function Button({
@@ -25,6 +27,8 @@ function Button({
   end,
   fontSize = 14,
   red,
+  padding = "9px 20px",
+  minWidth,
 }: IProps) {
   return (
     <div
@@ -43,10 +47,12 @@ function Button({
         onClick={onClick}
         style={{
           width,
+          minWidth,
           height,
           fontSize,
           color: red ? "#C53720" : "#fff",
           borderColor,
+          padding,
         }}
         className={styles.btn}
       >

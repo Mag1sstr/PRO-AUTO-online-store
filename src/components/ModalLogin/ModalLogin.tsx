@@ -34,7 +34,7 @@ function ModalLogin() {
           >
             {t[lang].modals.login.sec_btn}
           </p>
-          <Button width={116} height={40} red>
+          <Button minWidth={116} red fontSize={12}>
             {t[lang].modals.login.btn}
           </Button>
         </div>
