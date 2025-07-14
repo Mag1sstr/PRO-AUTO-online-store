@@ -7,6 +7,10 @@ import { useLang } from "../../hooks/useLang";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import ModalInput from "../ModalInput/ModalInput";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { useLoginUserMutation } from "../../api/api";
+import Spinner from "../Spinner/Spinner";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 interface ILoginInputs {
   email: string;
@@ -25,11 +29,33 @@ function ModalLogin() {
   const { openLoginModal, setOpenLoginModal, setOpenRegModal } = useModals();
   const { t, lang } = useLang();
 
+  const [
+    loginUser,
+    {
+      data: loginData,
+      isLoading,
+      isError: isLoginError,
+      isSuccess: isLoginSuccess,
+    },
+  ] = useLoginUserMutation();
+
   const submit: SubmitHandler<ILoginInputs> = (data) => {
-    // console.log(data);
+    loginUser(data);
   };
 
-  console.log(errors);
+  useEffect(() => {
+    if (isLoginError) {
+      toast.error(t[lang].toast.inc_data);
+    }
+  }, [isLoginError]);
+
+  useEffect(() => {
+    if (isLoginSuccess) {
+      setOpenLoginModal(false);
+    }
+  }, [isLoginSuccess]);
+
+  console.log(loginData);
 
   return (
     <ModalWrapper open={openLoginModal} setOpen={setOpenLoginModal}>
@@ -39,6 +65,8 @@ function ModalLogin() {
         image={userImg}
         setOpen={setOpenLoginModal}
       />
+
+      {isLoading && <Spinner />}
       <form onSubmit={handleSubmit(submit)}>
         <div className={styles.main}>
           <div>

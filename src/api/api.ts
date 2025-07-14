@@ -17,7 +17,7 @@ import type {
 export const api = createApi({
   reducerPath: "api",
   tagTypes: ["Cart"],
-  baseQuery: fetchBaseQuery({ baseUrl: "" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://frost.runtime.kz/api" }),
   endpoints: (builder) => ({
     getProducts: builder.query<IProductsResponse, IProductsParams>({
       query: (params) => ({

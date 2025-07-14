@@ -76,6 +76,10 @@
     },
     "errors": {
       "req": "Обязательное поле"
+    },
+    "toast": {
+      "inc_data": "Неверные данные!",
+      "reg": "Вы зарегистрировались!"
     }
   },
   "en": {
@@ -155,6 +159,10 @@
     },
     "errors": {
       "req": "Required field"
+    },
+    "toast": {
+      "inc_data": "Incorrect data!",
+      "reg": "You have registered!"
     }
   }
 }
