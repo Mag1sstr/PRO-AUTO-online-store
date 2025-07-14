@@ -73,6 +73,9 @@
       "name": "Ваше имя",
       "surname": "Фамилия",
       "tel": "Телефон"
+    },
+    "errors": {
+      "req": "Обязательное поле"
     }
   },
   "en": {
@@ -149,6 +152,9 @@
       "name": "Name",
       "surname": "Surname",
       "tel": "Telephone"
+    },
+    "errors": {
+      "req": "Required field"
     }
   }
 }

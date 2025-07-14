@@ -14,6 +14,7 @@ interface IProps {
   red?: boolean;
   padding?: string | number;
   minWidth?: string | number;
+  type?: "submit" | "button";
 }
 
 function Button({
@@ -29,6 +30,7 @@ function Button({
   red,
   padding = "9px 20px",
   minWidth,
+  type,
 }: IProps) {
   return (
     <div
@@ -45,6 +47,7 @@ function Button({
     >
       <button
         onClick={onClick}
+        type={type ? type : "button"}
         style={{
           width,
           minWidth,

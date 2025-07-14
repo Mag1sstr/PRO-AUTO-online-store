@@ -1,4 +1,5 @@
 .field {
+  position: relative;
   p {
     margin-bottom: 8px;
   }
@@ -19,4 +20,17 @@
   &:not(:last-child) {
     margin-bottom: 16px;
   }
+}
+.field__err {
+  input {
+    border-color: var(--err);
+  }
+}
+
+.err {
+  position: absolute;
+  right: 0;
+  bottom: -22px;
+  color: var(--err);
+  font-size: 10px;
 }
