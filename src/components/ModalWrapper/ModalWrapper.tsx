@@ -9,10 +9,10 @@ interface IProps {
 function ModalWrapper({ open, setOpen, children }: IProps) {
   return (
     <section
-      onClick={() => setOpen(false)}
+      onMouseDown={() => setOpen(false)}
       className={`${styles.wrapper} ${open && styles.open}`}
     >
-      <div onClick={(e) => e.stopPropagation()} className={styles.modal}>
+      <div onMouseDown={(e) => e.stopPropagation()} className={styles.modal}>
         {children}
       </div>
     </section>
