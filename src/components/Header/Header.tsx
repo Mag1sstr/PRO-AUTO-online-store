@@ -9,6 +9,7 @@ import ButtonBurger from "../ButtonBurger/ButtonBurger";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import SwitchLanguage from "../SwitchLanguage/SwitchLanguage";
 import { useLang } from "../../hooks/useLang";
+import ModalRegister from "../ModalRegister/ModalRegister";
 
 interface IProps {
   slider?: boolean;
@@ -22,6 +23,7 @@ function Header({ slider = true }: IProps) {
   return (
     <header className={`${styles.header} ${slider && styles.banner__height}`}>
       <ModalLogin />
+      <ModalRegister />
 
       {slider && <Slider />}
       <div className={styles.header__top}>

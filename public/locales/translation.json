@@ -58,8 +58,21 @@
     "modals": {
       "login": {
         "title": "Авторизация",
-        "text": "Войдите в свой аккаунт"
-      }
+        "text": "Войдите в свой аккаунт",
+        "btn": "войти",
+        "sec_btn": "Создать новый аккаунт"
+      },
+      "reg": {
+        "title": "Регистрация",
+        "text": "Создайте новый акканут",
+        "btn": "Зарегистрироваться",
+        "sec_btn": "Уже есть аккаунт?"
+      },
+      "email": "Почта",
+      "password": "Пароль",
+      "name": "Ваше имя",
+      "surname": "Фамилия",
+      "tel": "Телефон"
     }
   },
   "en": {
@@ -121,8 +134,21 @@
     "modals": {
       "login": {
         "title": "Login",
-        "text": "Login to your account"
-      }
+        "text": "Login to your account",
+        "btn": "Log In",
+        "sec_btn": "Create a new account"
+      },
+      "reg": {
+        "title": "Registration",
+        "text": "Create a new account",
+        "btn": "Sign Up",
+        "sec_btn": "Do you have an account?"
+      },
+      "email": "E-mail",
+      "password": "Password",
+      "name": "Name",
+      "surname": "Surname",
+      "tel": "Telephone"
     }
   }
 }

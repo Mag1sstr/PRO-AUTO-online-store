@@ -5,9 +5,10 @@ import { useModals } from "../../hooks/useModals";
 import ModalTop from "../ModalTop/ModalTop";
 import { useLang } from "../../hooks/useLang";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import ModalInput from "../ModalInput/ModalInput";
 
 function ModalLogin() {
-  const { openLoginModal, setOpenLoginModal } = useModals();
+  const { openLoginModal, setOpenLoginModal, setOpenRegModal } = useModals();
   const { t, lang } = useLang();
 
   return (
@@ -21,19 +22,20 @@ function ModalLogin() {
 
       <div className={styles.main}>
         <div>
-          <div className={styles.field}>
-            <p>Почта:</p>
-            <input type="text" />
-          </div>
-          <div className={styles.field}>
-            <p>Пароль:</p>
-            <input type="password" />
-          </div>
+          <ModalInput title={t[lang].modals.email} />
+          <ModalInput title={t[lang].modals.password} />
         </div>
         <div className={styles.buttons}>
-          <p>Создать новый аккаунт</p>
+          <p
+            onClick={() => {
+              setOpenRegModal(true);
+              setOpenLoginModal(false);
+            }}
+          >
+            {t[lang].modals.login.sec_btn}
+          </p>
           <Button width={116} height={40} red>
-            Войти
+            {t[lang].modals.login.btn}
           </Button>
         </div>
       </div>
