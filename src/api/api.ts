@@ -13,11 +13,23 @@ import type {
   IProductsResponse,
   IRegisterBody,
 } from "../types/interfaces";
+import type { RootState } from "../store/store";
 
 export const api = createApi({
   reducerPath: "api",
   tagTypes: ["Cart"],
-  baseQuery: fetchBaseQuery({ baseUrl: "https://frost.runtime.kz/api" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://frost.runtime.kz/api",
+    prepareHeaders(headers, { getState }) {
+      const token = (getState() as RootState).auth.token;
+
+      if (token) {
+        headers.set("Authorization", `Bearer ${token}`);
+      }
+
+      return headers;
+    },
+  }),
   endpoints: (builder) => ({
     getProducts: builder.query<IProductsResponse, IProductsParams>({
       query: (params) => ({

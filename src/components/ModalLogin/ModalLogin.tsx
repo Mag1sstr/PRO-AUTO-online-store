@@ -11,6 +11,8 @@ import { useLoginUserMutation } from "../../api/api";
 import Spinner from "../Spinner/Spinner";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import { useAppDispatch } from "../../store/store";
+import { setToken } from "../../store/slices/authSlice";
 
 interface ILoginInputs {
   email: string;
@@ -18,6 +20,7 @@ interface ILoginInputs {
 }
 
 function ModalLogin() {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -50,8 +53,9 @@ function ModalLogin() {
   }, [isLoginError]);
 
   useEffect(() => {
-    if (isLoginSuccess) {
+    if (isLoginSuccess && loginData.access_token) {
       setOpenLoginModal(false);
+      dispatch(setToken(loginData.access_token));
     }
   }, [isLoginSuccess]);
 

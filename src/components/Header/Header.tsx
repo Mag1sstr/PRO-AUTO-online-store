@@ -4,12 +4,15 @@ import Button from "../Button/Button";
 import Slider from "../Slider/Slider";
 import { useModals } from "../../hooks/useModals";
 import ModalLogin from "../ModalLogin/ModalLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonBurger from "../ButtonBurger/ButtonBurger";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import SwitchLanguage from "../SwitchLanguage/SwitchLanguage";
 import { useLang } from "../../hooks/useLang";
 import ModalRegister from "../ModalRegister/ModalRegister";
+import { useAuth } from "../../hooks/useAuth";
+import { FaUserAlt } from "react-icons/fa";
+import { ROUTES } from "../../routes/routes";
 
 interface IProps {
   slider?: boolean;
@@ -19,6 +22,9 @@ function Header({ slider = true }: IProps) {
   const windowWidth = useWindowWidth();
   const { setOpenLoginModal } = useModals();
   const { t, lang } = useLang();
+  const { user } = useAuth();
+
+  const navigate = useNavigate();
 
   return (
     <header className={`${styles.header} ${slider && styles.banner__height}`}>
@@ -47,14 +53,23 @@ function Header({ slider = true }: IProps) {
             )}
 
             <div className={styles.icons}>
-              <Button
-                onClick={() => setOpenLoginModal(true)}
-                width={168}
-                height={40}
-                fontSize={12}
-              >
-                {t[lang].header.login}
-              </Button>
+              {user ? (
+                <Button
+                  borderColor="gray"
+                  onClick={() => navigate(ROUTES.PROFILE)}
+                >
+                  <FaUserAlt /> {user.firstName + " " + user.lastName}
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => setOpenLoginModal(true)}
+                  width={168}
+                  height={40}
+                  fontSize={12}
+                >
+                  {t[lang].header.login}
+                </Button>
+              )}
               <div className={styles.search}>
                 <svg
                   width="40"
