@@ -78,6 +78,10 @@ function ModalLogin() {
               title={t[lang].modals.email}
               register={register("email", {
                 required: t[lang].errors.req,
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: t[lang].errors.email,
+                },
               })}
               error={errors.email?.message}
             />
@@ -85,7 +89,7 @@ function ModalLogin() {
               title={t[lang].modals.password}
               register={register("password", { required: t[lang].errors.req })}
               error={errors.password?.message}
-              type={"password"}
+              type="password"
               password
             />
           </div>

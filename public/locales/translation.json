@@ -75,7 +75,8 @@
       "tel": "Телефон"
     },
     "errors": {
-      "req": "Обязательное поле"
+      "req": "Обязательное поле",
+      "email": "Некорректная почта"
     },
     "toast": {
       "inc_data": "Неверные данные!",
@@ -158,7 +159,8 @@
       "tel": "Telephone"
     },
     "errors": {
-      "req": "Required field"
+      "req": "Required field",
+      "email": "Invalid email"
     },
     "toast": {
       "inc_data": "Incorrect data!",
