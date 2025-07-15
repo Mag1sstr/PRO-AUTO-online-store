@@ -85,6 +85,8 @@ function ModalLogin() {
               title={t[lang].modals.password}
               register={register("password", { required: t[lang].errors.req })}
               error={errors.password?.message}
+              type={"password"}
+              password
             />
           </div>
           <div className={styles.buttons}>

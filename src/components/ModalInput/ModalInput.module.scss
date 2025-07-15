@@ -34,3 +34,15 @@
   color: var(--err);
   font-size: 10px;
 }
+
+.icon {
+  position: absolute;
+  right: 16px;
+  bottom: 8px;
+  opacity: 0.2;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    opacity: 0.5;
+  }
+}
