@@ -50,7 +50,11 @@ function Banner({ image, title, active, notFound = false }: IProps) {
                 {t[lang].banners.main_page}
               </Button>
             ) : (
-              <Button width={216} height={52}>
+              <Button
+                width={216}
+                height={52}
+                onClick={() => navigate(ROUTES.CATALOG)}
+              >
                 {t[lang].banners.btn}
               </Button>
             )}
