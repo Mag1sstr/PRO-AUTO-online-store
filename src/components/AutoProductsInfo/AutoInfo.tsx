@@ -7,11 +7,15 @@ import cardImg5 from "../../assets/auto-info/05.jpg";
 import cardImg6 from "../../assets/auto-info/06.jpg";
 import Button from "../Button/Button";
 import { useLang } from "../../hooks/useLang";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 
 const cards = [cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6];
 
 function AutoInfo() {
   const { t, lang } = useLang();
+
+  const navigate = useNavigate();
   return (
     <section className={styles.wrapper}>
       <div className="container">
@@ -31,7 +35,11 @@ function AutoInfo() {
                 <img src={el} alt="" />
                 <div className={styles.content}>
                   <p>{t[lang].auto_info.card_text}</p>
-                  <Button width={216} height={52}>
+                  <Button
+                    width={216}
+                    height={52}
+                    onClick={() => navigate(ROUTES.CATALOG)}
+                  >
                     {t[lang].auto_info.btn}
                   </Button>
                 </div>
