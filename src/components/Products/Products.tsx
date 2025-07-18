@@ -4,13 +4,23 @@ import ProductCard from "../ProductCard/ProductCard";
 import Spinner from "../Spinner/Spinner";
 import { useState } from "react";
 import Filters from "../Filters/Filters";
+import { useFilters } from "../../hooks/useFilters";
+import { useAppDispatch } from "../../store/store";
+import { setAvailable } from "../../store/slices/filtersSlice";
 function Products() {
+  const dispatch = useAppDispatch();
   const [sortPrice, setSortPrice] = useState(false);
   const [sortAvailable, setSortAvailable] = useState(false);
 
-  const { data, isLoading } = useGetProductsQuery({ page: 1, size: 6 });
+  const { currentPage, available } = useFilters();
 
-  console.log(data);
+  const { data, isLoading } = useGetProductsQuery({
+    page: currentPage,
+    size: 6,
+    available,
+  });
+
+  console.log(available);
 
   return (
     <section className={styles.wrapper}>
@@ -49,6 +59,9 @@ function Products() {
                 <p
                   onClick={() => {
                     setSortAvailable((prev) => !prev);
+                    !sortAvailable
+                      ? dispatch(setAvailable(1))
+                      : dispatch(setAvailable(0));
                   }}
                   className={sortAvailable ? styles.active : ""}
                 >

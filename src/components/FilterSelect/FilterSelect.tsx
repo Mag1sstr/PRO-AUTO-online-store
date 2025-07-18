@@ -13,7 +13,6 @@ function FilterSelect({ title, data }: IProps) {
   const handleDrop = () => {
     setOpen((prev) => !prev);
   };
-  console.log(open);
 
   return (
     <div

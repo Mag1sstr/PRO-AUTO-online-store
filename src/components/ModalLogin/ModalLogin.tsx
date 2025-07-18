@@ -59,8 +59,6 @@ function ModalLogin() {
     }
   }, [isLoginSuccess]);
 
-  console.log(loginData);
-
   return (
     <ModalWrapper open={openLoginModal} setOpen={setOpenLoginModal}>
       <ModalTop
