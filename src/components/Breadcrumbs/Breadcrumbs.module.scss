@@ -1,0 +1,26 @@
+.wrapper {
+  background-color: #fff;
+  color: var(--text-black);
+}
+.row {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.item {
+  font-size: 12px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.active {
+  color: var(--red);
+}

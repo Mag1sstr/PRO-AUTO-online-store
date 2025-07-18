@@ -6,13 +6,15 @@ import Spinner from "../Spinner/Spinner";
 function Products() {
   const { data, isLoading } = useGetProductsQuery({ page: 1, size: 6 });
 
-  const ref = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [location]);
+  // const ref = useRef<HTMLDivElement | null>(null);
+  // useEffect(() => {
+  //   ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  // }, [location]);
+
+  console.log(data);
 
   return (
-    <section ref={ref} className={styles.wrapper}>
+    <section className={styles.wrapper}>
       {isLoading ? (
         <Spinner />
       ) : (
