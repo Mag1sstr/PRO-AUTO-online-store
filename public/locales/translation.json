@@ -81,6 +81,15 @@
     "toast": {
       "inc_data": "Неверные данные!",
       "reg": "Вы зарегистрировались!"
+    },
+    "filters": {
+      "brand": "Марка",
+      "model": "Модель",
+      "gen": "Поколение",
+      "all_brands": "Все марки",
+      "all_models": "Все модели",
+      "all_gen": "Все поколения",
+      "available": "в наличии"
     }
   },
   "en": {
@@ -165,6 +174,15 @@
     "toast": {
       "inc_data": "Incorrect data!",
       "reg": "You have registered!"
+    },
+    "filters": {
+      "brand": "Brand",
+      "model": "Model",
+      "gen": "Generation",
+      "all_brands": "All brands",
+      "all_models": "All models",
+      "all_gen": "All generations",
+      "available": "in stock"
     }
   }
 }

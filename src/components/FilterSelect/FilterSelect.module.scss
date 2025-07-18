@@ -28,6 +28,12 @@
     transform: rotate(90deg);
   }
 }
+.select.disabled {
+  .item {
+    cursor: not-allowed;
+    background-color: var(--text-black);
+  }
+}
 
 .select__drop {
   max-height: 0;

@@ -12,11 +12,14 @@ function Products() {
   const [sortPrice, setSortPrice] = useState(false);
   const [sortAvailable, setSortAvailable] = useState(false);
 
-  const { currentPage, available } = useFilters();
+  const { currentPage, available, brandId, modelId, genId } = useFilters();
 
   const { data, isLoading } = useGetProductsQuery({
     page: currentPage,
     size: 6,
+    brandId,
+    modelId,
+    generationId: genId,
     available,
   });
 

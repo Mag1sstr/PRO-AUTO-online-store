@@ -1,23 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { IItems } from "../../types/interfaces";
 import styles from "./FilterSelect.module.scss";
 
 interface IProps {
   title: string;
   data: IItems[];
+  allBtnText: string;
+  onChange: (id: number) => void;
 }
 
-function FilterSelect({ title, data }: IProps) {
+function FilterSelect({ title, data, allBtnText, onChange }: IProps) {
+  const [allText, setAllText] = useState(allBtnText);
   const [open, setOpen] = useState(false);
 
   const handleDrop = () => {
+    if (!data.length) {
+      return;
+    }
     setOpen((prev) => !prev);
   };
+
+  const handleSelect = (id: number) => {
+    onChange(id);
+  };
+
+  useEffect(() => {
+    setAllText(allBtnText);
+  }, [title, data]);
 
   return (
     <div
       onClick={handleDrop}
-      className={`${styles.select} ${open && styles.open}`}
+      className={`${styles.select}  ${open && styles.open} ${
+        !data?.length && styles.disabled
+      }`}
     >
       <div className={styles.item}>
         <p>{title}</p>
@@ -32,13 +48,16 @@ function FilterSelect({ title, data }: IProps) {
         </svg>
       </div>
       <div className={styles.select__drop}>
-        {/* {data.map} */}
-        <div className={styles.select__item}>
-          <p>MAGNUM 60Ah</p>
-        </div>
-        <div className={styles.select__item}>
-          <p>MAGNUM 60Ah</p>
-        </div>
+        {data &&
+          [{ id: -1, name: allText }, ...data].map((el) => (
+            <div
+              onClick={() => handleSelect(el.id)}
+              key={el.id}
+              className={styles.select__item}
+            >
+              <p>{el.name}</p>
+            </div>
+          ))}
       </div>
     </div>
   );
