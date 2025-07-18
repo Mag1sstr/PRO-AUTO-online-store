@@ -1,15 +1,9 @@
 import styles from "./Products.module.scss";
-import { useEffect, useRef } from "react";
 import { useGetProductsQuery } from "../../api/api";
 import ProductCard from "../ProductCard/ProductCard";
 import Spinner from "../Spinner/Spinner";
 function Products() {
   const { data, isLoading } = useGetProductsQuery({ page: 1, size: 6 });
-
-  // const ref = useRef<HTMLDivElement | null>(null);
-  // useEffect(() => {
-  //   ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  // }, [location]);
 
   console.log(data);
 
@@ -43,10 +37,49 @@ function Products() {
                 </div>
               </div>
             </div>
-            <div className={styles.products}>
-              {data?.items.map((el) => (
-                <ProductCard key={el.id} {...el} />
-              ))}
+            <div className={styles.col}>
+              <div className={styles.header__filters}>
+                сортировать
+                <p>
+                  ПО ЦЕНЕ
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      opacity="0.5"
+                      d="M4 12L10 8L16 12"
+                      stroke="#1D1D1D"
+                      strokeWidth="4"
+                    />
+                  </svg>
+                </p>
+                <p>
+                  ПО НАЛИЧИЮ
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      opacity="0.5"
+                      d="M4 12L10 8L16 12"
+                      stroke="#1D1D1D"
+                      strokeWidth="4"
+                    />
+                  </svg>
+                </p>
+              </div>
+              <div className={styles.products}>
+                {data?.items.map((el) => (
+                  <ProductCard key={el.id} {...el} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

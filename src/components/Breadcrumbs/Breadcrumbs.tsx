@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react";
 import styles from "./Breadcrumbs.module.scss";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 
 function Breadcrumbs() {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const pathnames = [
     "home",
@@ -25,6 +28,9 @@ function Breadcrumbs() {
 
             return (
               <p
+                onClick={() =>
+                  navigate(path === "home" ? ROUTES.HOME : `/${path}`)
+                }
                 key={path}
                 className={`${styles.item} ${isLastPath && styles.active}`}
               >
