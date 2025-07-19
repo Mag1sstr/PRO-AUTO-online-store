@@ -94,6 +94,17 @@
     "paths": {
       "home": "Главная",
       "catalog": "КАТАЛОГ"
+    },
+    "catalog": {
+      "footer": {
+        "title": "Преимущества компрессоров FrostAuto",
+        "text1": "Компрессоры FrostAuto сконструированы именно так, чтобы обеспечить мощность и надежность. Они производятся из импортных компонентов на современном оборудовании. Компрессоры FrostAuto изготавливаются по технологии Ca/Ca, что способствует снижению расхода воды и саморазряда.",
+        "text2": "На производстве компрессоров FrostAuto после каждой технологической операции обязательно проводится промежуточный контроль качества на короткое замыкание и обрыв цепи, что минимизирует процент заводского брака. Весь технологический процесс находится под контролем специалистов завода и соответствует международным нормам и стандартам. Это обеспечивает выпуск батарей, полностью отвечающих требованиям автомобилей двадцать первого века.",
+        "card1_text": "Отличное сочетание цены и качества",
+        "card2_text": "Продолжительный срок службы",
+        "card3_text": "Для стандартной комплектациии авто",
+        "card4_text": "Высокое качество по невысокой цене"
+      }
     }
   },
   "en": {
@@ -191,6 +202,17 @@
     "paths": {
       "home": "home",
       "catalog": "catalog"
+    },
+    "catalog": {
+      "footer": {
+        "title": "Advantages of FrostAuto compressors",
+        "text1": "Magnum batteries are designed specifically to provide power and reliability. They are manufactured from imported components on modern equipment. Magnum batteries are manufactured using Ca/Ca technology, which helps reduce water consumption and self-discharge.",
+        "text2": "At the production of Magnum batteries, after each technological operation, intermediate quality control for short circuits and open circuits is mandatory, which minimizes the percentage of factory defects. The entire technological process is under the control of plant specialists and complies with international norms and standards. This ensures the production of batteries that fully meet the requirements of twenty-first century cars.",
+        "card1_text": "Excellent value for money",
+        "card2_text": "Long service life",
+        "card3_text": "For standard car equipment",
+        "card4_text": "High quality at a low price"
+      }
     }
   }
 }

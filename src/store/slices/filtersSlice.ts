@@ -74,6 +74,7 @@ export function brandChange(id: number) {
       dispatch(setModels([]));
       dispatch(setGens([]));
     } else {
+      dispatch(setBrandId(id));
       axios
         .get(`https://frost.runtime.kz/api/models?brandId=${id}`)
         .then((resp) => dispatch(setModels(resp.data)));
@@ -89,6 +90,7 @@ export function modelChange(id: number) {
 
       dispatch(setGens([]));
     } else {
+      dispatch(setModelId(id));
       axios
         .get(`https://frost.runtime.kz/api/generations?modelId=${id}`)
         .then((resp) => dispatch(setGens(resp.data)));

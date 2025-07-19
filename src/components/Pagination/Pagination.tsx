@@ -2,7 +2,7 @@ import styles from "./Pagination.module.scss";
 
 interface IProps {
   currentPage: number;
-  totalPages: number;
+  totalPages: number | undefined;
   setCurrentPage: (page: number) => void;
 }
 
@@ -19,6 +19,7 @@ function Pagination({ currentPage, setCurrentPage, totalPages }: IProps) {
             const page = i + 1;
             return (
               <li
+                key={page}
                 className={`${styles.page} ${
                   currentPage === page && styles.active
                 }`}
