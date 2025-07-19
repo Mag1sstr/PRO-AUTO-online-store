@@ -2,18 +2,18 @@ import { useEffect, useRef } from "react";
 import styles from "./Breadcrumbs.module.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
+import { useLang } from "../../hooks/useLang";
 
 function Breadcrumbs() {
   const ref = useRef<HTMLDivElement | null>(null);
-
   const location = useLocation();
-
   const navigate = useNavigate();
+  const { t, lang } = useLang();
 
   const pathnames = [
     "home",
     ...location.pathname.split("/").filter((el) => el),
-  ];
+  ] as (keyof (typeof t)[typeof lang]["paths"])[];
 
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -34,7 +34,7 @@ function Breadcrumbs() {
                 key={path}
                 className={`${styles.item} ${isLastPath && styles.active}`}
               >
-                {path}
+                {t[lang].paths[path]}
                 {!isLastPath && (
                   <svg
                     width="20"

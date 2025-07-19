@@ -90,6 +90,10 @@
       "all_models": "Все модели",
       "all_gen": "Все поколения",
       "available": "в наличии"
+    },
+    "paths": {
+      "home": "Главная",
+      "catalog": "КАТАЛОГ"
     }
   },
   "en": {
@@ -183,6 +187,10 @@
       "all_models": "All models",
       "all_gen": "All generations",
       "available": "in stock"
+    },
+    "paths": {
+      "home": "home",
+      "catalog": "catalog"
     }
   }
 }
