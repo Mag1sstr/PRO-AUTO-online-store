@@ -1,5 +1,6 @@
 import styles from "./Header.module.scss";
 import logoImg from "../../assets/header/logo.svg";
+import mobileLogo from "../../assets/header/mobile-logo.svg";
 import Button from "../Button/Button";
 import Slider from "../Slider/Slider";
 import { useModals } from "../../hooks/useModals";
@@ -13,6 +14,8 @@ import ModalRegister from "../ModalRegister/ModalRegister";
 import { useAuth } from "../../hooks/useAuth";
 import { FaUserAlt } from "react-icons/fa";
 import { ROUTES } from "../../routes/routes";
+import { useEffect, useRef } from "react";
+import { FaUserLarge } from "react-icons/fa6";
 
 interface IProps {
   slider?: boolean;
@@ -26,8 +29,17 @@ function Header({ slider = true }: IProps) {
 
   const navigate = useNavigate();
 
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+  }, [location]);
+
   return (
-    <header className={`${styles.header} ${slider && styles.banner__height}`}>
+    <header
+      ref={ref}
+      className={`${styles.header} ${slider && styles.banner__height}`}
+    >
       <ModalLogin />
       <ModalRegister />
 
@@ -37,10 +49,14 @@ function Header({ slider = true }: IProps) {
           <div className={styles.row}>
             <div className={styles.logo__row}>
               <Link to="/">
-                <img src={logoImg} alt="logo" />
+                <img
+                  className={styles.logo}
+                  src={windowWidth > 400 ? logoImg : mobileLogo}
+                  alt="logo"
+                />
               </Link>
               {windowWidth <= 1040 && <ButtonBurger />}
-              <SwitchLanguage />
+              {windowWidth > 400 && <SwitchLanguage />}
             </div>
             {windowWidth > 1040 && (
               <ul className={styles.links}>
@@ -60,22 +76,37 @@ function Header({ slider = true }: IProps) {
             )}
 
             <div className={styles.icons}>
-              {user ? (
-                <Button
-                  borderColor="gray"
-                  onClick={() => navigate(ROUTES.PROFILE)}
-                >
-                  <FaUserAlt /> {user.firstName + " " + user.lastName}
-                </Button>
-              ) : (
-                <Button
-                  onClick={() => setOpenLoginModal(true)}
-                  width={168}
-                  height={40}
-                  fontSize={12}
-                >
-                  {t[lang].header.login}
-                </Button>
+              {windowWidth > 1040 && (
+                <>
+                  {user ? (
+                    <Button
+                      borderColor="gray"
+                      onClick={() => navigate(ROUTES.PROFILE)}
+                    >
+                      <FaUserAlt /> {user.firstName + " " + user.lastName}
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={() => setOpenLoginModal(true)}
+                      width={168}
+                      height={40}
+                      fontSize={12}
+                    >
+                      {t[lang].header.login}
+                    </Button>
+                  )}
+                </>
+              )}
+              {windowWidth <= 1040 && (
+                <FaUserLarge
+                  onClick={() => {
+                    if (!user) {
+                      setOpenLoginModal(true);
+                    }
+                  }}
+                  className={styles.user}
+                  size={28}
+                />
               )}
               <div className={styles.search}>
                 <svg

@@ -96,3 +96,21 @@
     min-width: 60px;
   }
 }
+
+@media (max-width: 850px) {
+  .footer__row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .header__filters {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 580px) {
+  .row {
+    flex-direction: column;
+  }
+  .products {
+    justify-content: center;
+  }
+}

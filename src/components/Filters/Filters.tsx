@@ -46,6 +46,20 @@ function Filters() {
           dispatch(genChange(id));
         }}
       />
+
+      <div className={styles.params}>
+        <div className={styles.params__title}>ПОДБОР ПАРАМЕТРОВ</div>
+        <div className={styles.slider__wrapper}>
+          <input className={styles.min} type="range" min="0" max="200000" />
+          <input
+            className={styles.max}
+            type="range"
+            min="0"
+            value="200000"
+            max="200000"
+          />
+        </div>
+      </div>
     </div>
   );
 }

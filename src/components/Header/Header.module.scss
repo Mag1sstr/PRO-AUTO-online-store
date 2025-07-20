@@ -80,3 +80,38 @@
     min-height: 480px;
   }
 }
+@media (max-width: 520px) {
+  .icons {
+    gap: 5px;
+  }
+  .logo {
+    width: 90px;
+  }
+  .logo__row {
+    gap: 10px;
+  }
+  .user {
+    width: 24px;
+  }
+  .search {
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  .cart {
+    svg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .row {
+    min-height: 80px;
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+}

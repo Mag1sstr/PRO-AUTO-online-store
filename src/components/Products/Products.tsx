@@ -27,8 +27,6 @@ function Products() {
 
   const { t, lang } = useLang();
 
-  console.log(brandId);
-
   return (
     <section className={styles.wrapper}>
       {isLoading ? (

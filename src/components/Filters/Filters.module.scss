@@ -2,5 +2,32 @@
 .sidebar {
   width: 264px;
   min-height: inherit;
+  // background-color: #000;
+}
+.params {
+  margin-top: 20px;
+  width: inherit;
+  background-color: #2d2d2d;
+}
+.params__title {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 8px;
   background-color: #000;
+}
+
+// slider
+.slider__wrapper {
+  position: relative;
+  input {
+    position: absolute;
+    width: 100%;
+    background: none;
+    &::-webkit-slider-thumb {
+      z-index: 100;
+    }
+    &::-webkit-slider-runnable-track {
+      background-color: transparent;
+    }
+  }
 }
