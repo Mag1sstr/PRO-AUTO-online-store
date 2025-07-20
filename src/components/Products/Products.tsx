@@ -9,6 +9,8 @@ import { useAppDispatch } from "../../store/store";
 import { setAvailable, setCurrentPage } from "../../store/slices/filtersSlice";
 import Pagination from "../Pagination/Pagination";
 import { useLang } from "../../hooks/useLang";
+import { Outlet, useLocation } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 function Products() {
   const dispatch = useAppDispatch();
   const [sortPrice, setSortPrice] = useState(false);
@@ -27,6 +29,8 @@ function Products() {
 
   const { t, lang } = useLang();
 
+  const location = useLocation();
+
   return (
     <section className={styles.wrapper}>
       {isLoading ? (
@@ -37,66 +41,73 @@ function Products() {
           <div className={styles.row}>
             <Filters />
             <div className={styles.col}>
-              <div className={styles.header__filters}>
-                сортировать
-                <p
-                  onClick={() => {
-                    setSortPrice((prev) => !prev);
-                  }}
-                  className={sortPrice ? styles.active : ""}
-                >
-                  ПО ЦЕНЕ
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      opacity="0.5"
-                      d="M4 12L10 8L16 12"
-                      stroke="#1D1D1D"
-                      strokeWidth="4"
-                    />
-                  </svg>
-                </p>
-                <p
-                  onClick={() => {
-                    setSortAvailable((prev) => !prev);
-                    !sortAvailable
-                      ? dispatch(setAvailable(1))
-                      : dispatch(setAvailable(0));
-                  }}
-                  className={sortAvailable ? styles.active : ""}
-                >
-                  ПО НАЛИЧИЮ
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      opacity="0.5"
-                      d="M4 12L10 8L16 12"
-                      stroke="#1D1D1D"
-                      strokeWidth="4"
-                    />
-                  </svg>
-                </p>
-              </div>
-              <div className={styles.products}>
-                {data?.items.map((el) => (
-                  <ProductCard key={el.id} {...el} />
-                ))}
-              </div>
-              <Pagination
-                totalPages={data?.totalPages}
-                currentPage={currentPage}
-                setCurrentPage={(page) => dispatch(setCurrentPage(page))}
-              />
+              <Outlet />
+              {location.pathname === ROUTES.CATALOG && (
+                <>
+                  <div className={styles.header__filters}>
+                    сортировать
+                    <p
+                      onClick={() => {
+                        setSortPrice((prev) => !prev);
+                      }}
+                      className={sortPrice ? styles.active : ""}
+                    >
+                      ПО ЦЕНЕ
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          opacity="0.5"
+                          d="M4 12L10 8L16 12"
+                          stroke="#1D1D1D"
+                          strokeWidth="4"
+                        />
+                      </svg>
+                    </p>
+                    <p
+                      onClick={() => {
+                        setSortAvailable((prev) => !prev);
+                        !sortAvailable
+                          ? dispatch(setAvailable(1))
+                          : dispatch(setAvailable(0));
+                      }}
+                      className={sortAvailable ? styles.active : ""}
+                    >
+                      ПО НАЛИЧИЮ
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          opacity="0.5"
+                          d="M4 12L10 8L16 12"
+                          stroke="#1D1D1D"
+                          strokeWidth="4"
+                        />
+                      </svg>
+                    </p>
+                  </div>
+
+                  <div className={styles.products}>
+                    {data?.items.map((el) => (
+                      <ProductCard key={el.id} {...el} />
+                    ))}
+                  </div>
+                  <Pagination
+                    totalPages={data?.totalPages}
+                    currentPage={currentPage}
+                    setCurrentPage={(page) => dispatch(setCurrentPage(page))}
+                  />
+                </>
+              )}
+
               <div className={styles.products__footer}>
                 <p>{t[lang].catalog.footer.text1}</p>
                 <h3>{t[lang].catalog.footer.title}</h3>

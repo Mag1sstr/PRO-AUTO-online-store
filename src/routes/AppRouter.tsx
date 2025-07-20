@@ -3,12 +3,15 @@ import HomePage from "../pages/HomePage/HomePage";
 import NotFound from "../pages/NotFound/NotFound";
 import { ROUTES } from "./routes";
 import CatalogPage from "../pages/CatalogPage/CatalogPage";
+import SingleProduct from "../components/SingleProduct/SingleProduct";
 
 function AppRouter() {
   return (
     <Routes>
       <Route path={ROUTES.HOME} element={<HomePage />} />
-      <Route path={ROUTES.CATALOG} element={<CatalogPage />} />
+      <Route path={ROUTES.CATALOG} element={<CatalogPage />}>
+        <Route path=":id" element={<SingleProduct />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

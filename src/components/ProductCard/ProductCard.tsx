@@ -3,8 +3,16 @@ import Button from "../Button/Button";
 import prodImg from "../../assets/products/product.png";
 import type { IProductData } from "../../types/interfaces";
 import { formatPrice } from "../../utils/formatPrice";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 
-function ProductCard(el: IProductData) {
+interface IProps extends IProductData {
+  setSelectProduct?: (id: number) => void;
+}
+
+function ProductCard(el: IProps) {
+  const navigate = useNavigate();
+
   return (
     <div
       className={`${styles.card} ${
@@ -60,7 +68,7 @@ function ProductCard(el: IProductData) {
           </svg>
         </div>
       </div>
-      <Button width="100%" height={40} red>
+      <Button className={styles.card__btn} width="100%" height={40} red>
         ПОДРОБНЕЕ
       </Button>
     </div>

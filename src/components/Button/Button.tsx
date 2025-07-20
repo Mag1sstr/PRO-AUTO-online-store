@@ -15,6 +15,7 @@ interface IProps {
   padding?: string | number;
   minWidth?: string | number;
   type?: "submit" | "button";
+  className?: string;
 }
 
 function Button({
@@ -31,6 +32,7 @@ function Button({
   padding = "9px 20px",
   minWidth,
   type,
+  className = "",
 }: IProps) {
   return (
     <div
@@ -57,7 +59,7 @@ function Button({
           borderColor,
           padding,
         }}
-        className={styles.btn}
+        className={`${styles.btn} ${className}`}
       >
         {children}
       </button>

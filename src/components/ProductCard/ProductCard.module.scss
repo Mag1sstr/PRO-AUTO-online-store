@@ -5,7 +5,7 @@
   padding: 36px 20px 27px 20px;
   background-color: #fff;
   color: var(--text-black);
-  cursor: pointer;
+
   h3 {
     font-size: 20px;
     font-weight: 500;
@@ -62,7 +62,7 @@
   height: 40px;
 }
 .counter {
-  border: 4px solid var(--gray);
+  border: 2px solid var(--gray);
   font-size: 14px;
   font-weight: 700;
   display: flex;
@@ -73,8 +73,7 @@
     justify-content: center;
     width: 84px;
     height: 100%;
-    border-left: 4px solid var(--gray);
-    border-right: 4px solid var(--gray);
+    border: 2px solid var(--gray);
   }
 }
 .counter__btn {
@@ -86,6 +85,7 @@
   cursor: pointer;
   transition: 0.3s;
   user-select: none;
+  border: 2px solid var(--gray);
   &:hover {
     background-color: var(--gray);
     color: #fff;
@@ -103,5 +103,12 @@
   transition: 0.3s;
   &:hover {
     backdrop-filter: brightness(95%);
+  }
+}
+
+.card__btn {
+  &:hover {
+    background-color: var(--red);
+    color: #fff !important;
   }
 }
