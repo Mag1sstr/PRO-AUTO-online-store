@@ -78,7 +78,7 @@ function SingleProduct() {
         </div>
         <div className={styles.footer}>
           <div className={styles.switch}>
-            <button onClick={handlePrevImage}>
+            <button onClick={handlePrevImage} disabled={currImage === 0}>
               <svg
                 width="40"
                 height="40"
@@ -102,7 +102,10 @@ function SingleProduct() {
                 />
               </svg>
             </button>
-            <button onClick={handleNextImage}>
+            <button
+              onClick={handleNextImage}
+              disabled={currImage === images.length - 1}
+            >
               <svg
                 width="40"
                 height="40"
