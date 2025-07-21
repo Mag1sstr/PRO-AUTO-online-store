@@ -9,6 +9,8 @@ export default function ModalsContextProvider({
   const [openRegModal, setOpenRegModal] = useState(false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
 
+  const [openCart, setOpenCart] = useState(false);
+
   return (
     <ModalsContext.Provider
       value={{
@@ -16,6 +18,8 @@ export default function ModalsContextProvider({
         setOpenRegModal,
         openLoginModal,
         setOpenLoginModal,
+        openCart,
+        setOpenCart,
       }}
     >
       {children}

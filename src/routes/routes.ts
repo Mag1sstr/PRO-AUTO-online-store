@@ -3,4 +3,5 @@ export const ROUTES = {
   PROFILE: "/profile",
   CATALOG: "/catalog",
   PRODUCT: (id: number) => `${ROUTES.CATALOG}/${id}`,
+  CART: "/cart",
 };

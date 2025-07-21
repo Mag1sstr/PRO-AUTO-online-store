@@ -59,8 +59,18 @@
   gap: 12px;
 }
 .cart {
+  position: relative;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  svg * {
+    transition: 0.3s;
+  }
+  &:hover {
+    svg * {
+      stroke: var(--red);
+    }
+  }
 }
 .counter {
   display: flex;

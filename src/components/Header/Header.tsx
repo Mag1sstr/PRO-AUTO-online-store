@@ -16,6 +16,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { ROUTES } from "../../routes/routes";
 import { useEffect, useRef } from "react";
 import { FaUserLarge } from "react-icons/fa6";
+import CartDrop from "../CartDrop/CartDrop";
 
 interface IProps {
   slider?: boolean;
@@ -23,7 +24,7 @@ interface IProps {
 
 function Header({ slider = true }: IProps) {
   const windowWidth = useWindowWidth();
-  const { setOpenLoginModal } = useModals();
+  const { setOpenLoginModal, setOpenCart } = useModals();
   const { t, lang } = useLang();
   const { user } = useAuth();
 
@@ -124,7 +125,10 @@ function Header({ slider = true }: IProps) {
                   />
                 </svg>
               </div>
-              <div className={styles.cart}>
+              <div
+                onClick={() => setOpenCart((prev) => !prev)}
+                className={styles.cart}
+              >
                 <svg
                   width="40"
                   height="40"
@@ -154,6 +158,7 @@ function Header({ slider = true }: IProps) {
                     strokeWidth="4"
                   />
                 </svg>
+                <CartDrop />
                 <div className={styles.counter}>1</div>
               </div>
             </div>
