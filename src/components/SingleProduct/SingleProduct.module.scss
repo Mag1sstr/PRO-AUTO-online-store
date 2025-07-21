@@ -39,6 +39,10 @@
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.not {
+  color: var(--red);
 }
 
 .details {
@@ -60,6 +64,7 @@
 .desc {
   color: var(--gray);
   font-size: 14px;
+  line-height: 1.2;
 }
 .switch {
   display: flex;

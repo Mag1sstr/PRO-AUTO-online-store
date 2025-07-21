@@ -89,7 +89,8 @@
       "all_brands": "Все марки",
       "all_models": "Все модели",
       "all_gen": "Все поколения",
-      "available": "в наличии"
+      "available": "в наличии",
+      "not_available": "нет в наличии"
     },
     "paths": {
       "home": "Главная",
@@ -197,7 +198,8 @@
       "all_brands": "All brands",
       "all_models": "All models",
       "all_gen": "All generations",
-      "available": "in stock"
+      "available": "in stock",
+      "not_available": "not available"
     },
     "paths": {
       "home": "home",

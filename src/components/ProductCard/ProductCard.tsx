@@ -68,7 +68,13 @@ function ProductCard(el: IProps) {
           </svg>
         </div>
       </div>
-      <Button className={styles.card__btn} width="100%" height={40} red>
+      <Button
+        onClick={() => navigate(ROUTES.PRODUCT(el.id))}
+        className={styles.card__btn}
+        width="100%"
+        height={40}
+        red
+      >
         ПОДРОБНЕЕ
       </Button>
     </div>

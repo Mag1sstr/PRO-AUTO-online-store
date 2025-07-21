@@ -4,8 +4,16 @@ import img2 from "../../assets/single-product/02.jpg";
 import img3 from "../../assets/single-product/03.jpg";
 import img4 from "../../assets/single-product/04.jpg";
 import { useState } from "react";
+import { useGetSingleProductQuery } from "../../api/api";
+import { useParams } from "react-router-dom";
+import { useLang } from "../../hooks/useLang";
+import { formatPrice } from "../../utils/formatPrice";
+import Spinner from "../Spinner/Spinner";
 
 function SingleProduct() {
+  const { id } = useParams();
+  const { data, isFetching } = useGetSingleProductQuery(id!);
+
   const [currImage, setCurrImage] = useState(0);
   const images = [img1, img2, img3, img4];
 
@@ -16,8 +24,14 @@ function SingleProduct() {
   const handlePrevImage = () => {
     setCurrImage((prev) => (prev > 0 ? prev - 1 : prev));
   };
+
+  const { t, lang } = useLang();
+
+  console.log(data);
+
   return (
     <section className={styles.wrapper}>
+      {isFetching && <Spinner />}
       <div className={styles.product}>
         <div className={styles.product__row}>
           <div className={styles.image}>
@@ -31,30 +45,35 @@ function SingleProduct() {
             ))}
           </div>
           <div className={styles.info}>
-            <h3 className={styles.title}>MAGNUM 60Ah</h3>
-            <p className={styles.available}>В НАЛИЧИИ</p>
+            <h3 className={styles.title}>{data?.name}</h3>
+            {data?.available === 1 ? (
+              <p className={styles.available}>{t[lang].filters.available}</p>
+            ) : (
+              <p className={`${styles.available} ${styles.not}`}>
+                {t[lang].filters.not_available}
+              </p>
+            )}
             <ul className={styles.details}>
               <li>
                 <p className={styles.item}>
-                  Емкость, Ач: <span>60</span>
+                  {t[lang].filters.brand}: <span>{data?.brand.name}</span>
                 </p>
               </li>
               <li>
                 <p className={styles.item}>
-                  Емкость, Ач: <span>60</span>
+                  {t[lang].filters.model}: <span>{data?.model.name}</span>
                 </p>
               </li>
               <li>
                 <p className={styles.item}>
-                  Емкость, Ач: <span>60</span>
+                  {t[lang].filters.gen}: <span>{data?.generation.name}</span>
                 </p>
               </li>
             </ul>
-            <p className={styles.price}>2199 руб.</p>
-            <p className={styles.desc}>
-              Цена действительна при сдаче старого аккумулятора аналогичной
-              емкости в лом
-            </p>
+            {data && (
+              <p className={styles.price}>{formatPrice(data.price)} тг.</p>
+            )}
+            <p className={styles.desc}>{data?.description}</p>
           </div>
         </div>
         <div className={styles.footer}>
