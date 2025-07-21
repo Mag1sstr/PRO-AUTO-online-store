@@ -9,12 +9,14 @@ import { useParams } from "react-router-dom";
 import { useLang } from "../../hooks/useLang";
 import { formatPrice } from "../../utils/formatPrice";
 import Spinner from "../Spinner/Spinner";
+import Counter from "../Counter/Counter";
 
 function SingleProduct() {
   const { id } = useParams();
   const { data, isFetching } = useGetSingleProductQuery(id!);
 
   const [currImage, setCurrImage] = useState(0);
+  const [count, setCount] = useState(0);
   const images = [img1, img2, img3, img4];
 
   const handleNextImage = () => {
@@ -127,6 +129,40 @@ function SingleProduct() {
                   stroke="#C53720"
                   strokeWidth="4"
                 />
+              </svg>
+            </button>
+          </div>
+          <div className={styles.buttons}>
+            <Counter count={count} setCount={setCount} />
+            <button className={styles.add}>
+              <p>в корзину</p>
+              <span></span>
+              <svg
+                width="21"
+                height="20"
+                viewBox="0 0 21 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M20 1L17.1035 11H4" stroke="#C53720" strokeWidth="2" />
+                <path d="M5 0L5 11.6667" stroke="#C53720" strokeWidth="2" />
+                <path d="M5 1L0 1" stroke="#C53720" strokeWidth="2" />
+                <circle
+                  cx="14.4002"
+                  cy="16.8"
+                  r="2.2"
+                  stroke="#C53720"
+                  strokeWidth="2"
+                />
+                <circle
+                  cx="7.2"
+                  cy="16.8"
+                  r="2.2"
+                  stroke="#C53720"
+                  strokeWidth="2"
+                />
+                <path d="M9 3L15 3" stroke="#C53720" strokeWidth="2" />
+                <path d="M12 6V-1.78814e-07" stroke="#C53720" strokeWidth="2" />
               </svg>
             </button>
           </div>

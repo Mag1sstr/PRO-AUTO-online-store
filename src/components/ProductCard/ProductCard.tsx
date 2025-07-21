@@ -5,12 +5,15 @@ import type { IProductData } from "../../types/interfaces";
 import { formatPrice } from "../../utils/formatPrice";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
+import Counter from "../Counter/Counter";
+import { useState } from "react";
 
 interface IProps extends IProductData {
   setSelectProduct?: (id: number) => void;
 }
 
 function ProductCard(el: IProps) {
+  const [count, setCount] = useState(0);
   const navigate = useNavigate();
 
   return (
@@ -33,11 +36,7 @@ function ProductCard(el: IProps) {
       <p className={styles.price}>{formatPrice(el.price)} тг.</p>
       <p className={styles.desc}>{el.manufacturer}</p>
       <div className={styles.card__row}>
-        <div className={styles.counter}>
-          <div className={styles.counter__btn}>-</div>
-          <p>00</p>
-          <div className={styles.counter__btn}>+</div>
-        </div>
+        <Counter count={count} setCount={setCount} />
         <div className={styles.add}>
           <svg
             width="21"
