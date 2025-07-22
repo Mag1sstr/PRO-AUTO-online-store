@@ -17,6 +17,7 @@ import { ROUTES } from "../../routes/routes";
 import { useEffect, useRef } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import CartDrop from "../CartDrop/CartDrop";
+import { useGetCartQuery } from "../../api/api";
 
 interface IProps {
   slider?: boolean;
@@ -35,6 +36,13 @@ function Header({ slider = true }: IProps) {
   useEffect(() => {
     ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
   }, [location]);
+
+  const { count } = useGetCartQuery(null, {
+    refetchOnMountOrArgChange: true,
+    selectFromResult: ({ data }) => ({
+      count: data?.items.length,
+    }),
+  });
 
   return (
     <header
@@ -159,7 +167,7 @@ function Header({ slider = true }: IProps) {
                   />
                 </svg>
                 <CartDrop />
-                <div className={styles.counter}>1</div>
+                {count! > 0 && <div className={styles.counter}>{count}</div>}
               </div>
             </div>
           </div>
