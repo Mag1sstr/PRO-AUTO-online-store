@@ -80,7 +80,8 @@
     },
     "toast": {
       "inc_data": "Неверные данные!",
-      "reg": "Вы зарегистрировались!"
+      "reg": "Вы зарегистрировались!",
+      "add_cart": "Добавлено в корзину!"
     },
     "filters": {
       "brand": "Марка",
@@ -105,6 +106,12 @@
         "card2_text": "Продолжительный срок службы",
         "card3_text": "Для стандартной комплектациии авто",
         "card4_text": "Высокое качество по невысокой цене"
+      }
+    },
+    "cart": {
+      "cart_drop": {
+        "result": "Итог",
+        "btn": "ПЕРЕЙТИ В КОРЗИНУ"
       }
     }
   },
@@ -189,7 +196,8 @@
     },
     "toast": {
       "inc_data": "Incorrect data!",
-      "reg": "You have registered!"
+      "reg": "You have registered!",
+      "add_cart": "Added to cart!"
     },
     "filters": {
       "brand": "Brand",
@@ -214,6 +222,12 @@
         "card2_text": "Long service life",
         "card3_text": "For standard car equipment",
         "card4_text": "High quality at a low price"
+      }
+    },
+    "cart": {
+      "cart_drop": {
+        "result": "Total",
+        "btn": "GO TO CART"
       }
     }
   }

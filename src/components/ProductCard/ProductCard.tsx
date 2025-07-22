@@ -6,7 +6,10 @@ import { formatPrice } from "../../utils/formatPrice";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
 import Counter from "../Counter/Counter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAddToCartMutation } from "../../api/api";
+import { toast } from "react-toastify";
+import { useLang } from "../../hooks/useLang";
 
 interface IProps extends IProductData {
   setSelectProduct?: (id: number) => void;
@@ -15,6 +18,25 @@ interface IProps extends IProductData {
 function ProductCard(el: IProps) {
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
+  const { t, lang } = useLang();
+
+  const [addToCart, { isSuccess: isAddToCartSuccesss }] =
+    useAddToCartMutation();
+
+  const handleAddToCart = () => {
+    if (count > 0) {
+      addToCart({
+        productId: el.id,
+        count,
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (isAddToCartSuccesss) {
+      toast.success(t[lang].toast.add_cart);
+    }
+  }, [isAddToCartSuccesss]);
 
   return (
     <div
@@ -37,7 +59,7 @@ function ProductCard(el: IProps) {
       <p className={styles.desc}>{el.manufacturer}</p>
       <div className={styles.card__row}>
         <Counter count={count} setCount={setCount} />
-        <div className={styles.add}>
+        <div className={styles.add} onClick={handleAddToCart}>
           <svg
             width="21"
             height="20"
