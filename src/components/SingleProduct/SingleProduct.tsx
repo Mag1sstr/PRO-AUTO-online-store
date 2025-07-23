@@ -4,16 +4,21 @@ import img2 from "../../assets/single-product/02.jpg";
 import img3 from "../../assets/single-product/03.jpg";
 import img4 from "../../assets/single-product/04.jpg";
 import { useState } from "react";
-import { useGetSingleProductQuery } from "../../api/api";
+import { useGetReviewsQuery, useGetSingleProductQuery } from "../../api/api";
 import { useParams } from "react-router-dom";
 import { useLang } from "../../hooks/useLang";
 import { formatPrice } from "../../utils/formatPrice";
 import Spinner from "../Spinner/Spinner";
 import Counter from "../Counter/Counter";
+import { useAuth } from "../../hooks/useAuth";
+import Button from "../Button/Button";
 
 function SingleProduct() {
   const { id } = useParams();
+
   const { data, isFetching } = useGetSingleProductQuery(id!);
+
+  const { data: comments } = useGetReviewsQuery(id!);
 
   const [currImage, setCurrImage] = useState(0);
   const [count, setCount] = useState(0);
@@ -28,8 +33,9 @@ function SingleProduct() {
   };
 
   const { t, lang } = useLang();
+  const { user } = useAuth();
 
-  console.log(data);
+  // console.log(comments);
 
   return (
     <section className={styles.wrapper}>
@@ -168,6 +174,33 @@ function SingleProduct() {
           </div>
         </div>
       </div>
+
+      <section className={styles.reviewSection}>
+        <h2 className={styles.reviewTitle}>Комментарии</h2>
+        <form className={styles.reviewForm}>
+          <textarea placeholder="Ваш отзыв" className={styles.reviewTextarea} />
+          <Button className={styles.send} red fontSize={12}>
+            Отправить
+          </Button>
+        </form>
+
+        <div className={styles.reviewList}>
+          {comments?.map((comment, index) => (
+            <div
+              key={comment.id}
+              className={styles.reviewCard}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <span className={styles.reviewAuthor}>
+                {comment.user.firstName}
+              </span>
+
+              <p className={styles.reviewText}>{comment.review}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </section>
   );
 }
