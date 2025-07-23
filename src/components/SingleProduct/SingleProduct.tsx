@@ -12,6 +12,7 @@ import Spinner from "../Spinner/Spinner";
 import Counter from "../Counter/Counter";
 import { useAuth } from "../../hooks/useAuth";
 import Button from "../Button/Button";
+import Pagination from "../Pagination/Pagination";
 
 function SingleProduct() {
   const { id } = useParams();
@@ -35,7 +36,12 @@ function SingleProduct() {
   const { t, lang } = useLang();
   const { user } = useAuth();
 
-  // console.log(comments);
+  const [currentPage, setCurrentPage] = useState(1);
+  const PAGE_SIZE = 5;
+  const totalPages = comments && Math.ceil(comments?.length / PAGE_SIZE);
+
+  const firstIndex = currentPage * PAGE_SIZE - PAGE_SIZE;
+  const endIndex = firstIndex + PAGE_SIZE;
 
   return (
     <section className={styles.wrapper}>
@@ -185,7 +191,7 @@ function SingleProduct() {
         </form>
 
         <div className={styles.reviewList}>
-          {comments?.map((comment, index) => (
+          {comments?.slice(firstIndex, endIndex).map((comment, index) => (
             <div
               key={comment.id}
               className={styles.reviewCard}
@@ -200,6 +206,11 @@ function SingleProduct() {
             </div>
           ))}
         </div>
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+        />
       </section>
     </section>
   );
