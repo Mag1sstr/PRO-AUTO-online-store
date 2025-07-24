@@ -14,13 +14,21 @@ import { useAuth } from "../../hooks/useAuth";
 import Button from "../Button/Button";
 import Pagination from "../Pagination/Pagination";
 import { useModals } from "../../hooks/useModals";
+import { useAppDispatch } from "../../store/store";
+import {
+  setProductCount,
+  setProductId,
+} from "../../store/slices/selectProductSlice";
 
 function SingleProduct() {
+  const dispatch = useAppDispatch();
   const { id } = useParams();
-
   const { data, isFetching } = useGetSingleProductQuery(id!);
-
   const { data: comments } = useGetReviewsQuery(id!);
+
+  const { t, lang } = useLang();
+  const { user } = useAuth();
+  const { setOpenLoginModal, setOpenAddProduct } = useModals();
 
   const [currImage, setCurrImage] = useState(0);
   const [count, setCount] = useState(0);
@@ -33,10 +41,11 @@ function SingleProduct() {
   const handlePrevImage = () => {
     setCurrImage((prev) => (prev > 0 ? prev - 1 : prev));
   };
-
-  const { t, lang } = useLang();
-  const { user } = useAuth();
-  const { setOpenLoginModal } = useModals();
+  const handleAddToCart = () => {
+    dispatch(setProductCount(count === 0 ? 1 : count));
+    dispatch(setProductId(data?.id));
+    setOpenAddProduct(true);
+  };
 
   const [currentPage, setCurrentPage] = useState(1);
   const PAGE_SIZE = 5;
@@ -148,7 +157,7 @@ function SingleProduct() {
           </div>
           <div className={styles.buttons}>
             <Counter count={count} setCount={setCount} />
-            <button className={styles.add}>
+            <button onClick={handleAddToCart} className={styles.add}>
               <p>в корзину</p>
               <span></span>
               <svg
