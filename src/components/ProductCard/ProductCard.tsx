@@ -6,37 +6,29 @@ import { formatPrice } from "../../utils/formatPrice";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
 import Counter from "../Counter/Counter";
-import { useEffect, useState } from "react";
-import { useAddToCartMutation } from "../../api/api";
-import { toast } from "react-toastify";
-import { useLang } from "../../hooks/useLang";
+import { useState } from "react";
+import { useModals } from "../../hooks/useModals";
+import { useAppDispatch } from "../../store/store";
+import {
+  setProductCount,
+  setProductId,
+} from "../../store/slices/selectProductSlice";
 
-interface IProps extends IProductData {
-  setSelectProduct?: (id: number) => void;
-}
+interface IProps extends IProductData {}
 
 function ProductCard(el: IProps) {
-  const [count, setCount] = useState(0);
   const navigate = useNavigate();
-  const { t, lang } = useLang();
-
-  const [addToCart, { isSuccess: isAddToCartSuccesss }] =
-    useAddToCartMutation();
+  const dispatch = useAppDispatch();
+  const [count, setCount] = useState(0);
+  const { setOpenAddProduct } = useModals();
 
   const handleAddToCart = () => {
-    if (count > 0) {
-      addToCart({
-        productId: el.id,
-        count,
-      });
+    if (el.available === 1) {
+      setOpenAddProduct(true);
+      dispatch(setProductId(el.id));
+      dispatch(setProductCount(count === 0 ? 1 : count));
     }
   };
-
-  useEffect(() => {
-    if (isAddToCartSuccesss) {
-      toast.success(t[lang].toast.add_cart);
-    }
-  }, [isAddToCartSuccesss]);
 
   return (
     <div

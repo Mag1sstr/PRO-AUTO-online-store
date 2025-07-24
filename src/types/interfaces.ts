@@ -20,7 +20,7 @@ export interface IProduct {
   name: string;
   code: string;
   manufacturer: string;
-  price: string;
+  price: number;
   id: number;
   brand: {
     name: string;

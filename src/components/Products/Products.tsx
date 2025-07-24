@@ -11,6 +11,7 @@ import Pagination from "../Pagination/Pagination";
 import { useLang } from "../../hooks/useLang";
 import { Outlet, useLocation } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
+import ModalAddProduct from "../ModalAddProduct/ModalAddProduct";
 function Products() {
   const dispatch = useAppDispatch();
   const [sortPrice, setSortPrice] = useState(false);
@@ -33,6 +34,8 @@ function Products() {
 
   return (
     <section className={styles.wrapper}>
+      <ModalAddProduct />
+
       {isLoading ? (
         <Spinner />
       ) : (

@@ -1,12 +1,16 @@
 import { createContext } from "react";
 
+type SetModalState = (open: boolean | ((prev: boolean) => boolean)) => void;
+
 interface IModalsContext {
   openRegModal: boolean;
-  setOpenRegModal: (open: boolean) => void;
+  setOpenRegModal: SetModalState;
   openLoginModal: boolean;
-  setOpenLoginModal: (open: boolean) => void;
+  setOpenLoginModal: SetModalState;
   openCart: boolean;
-  setOpenCart: (fn: (prev: boolean) => boolean) => void;
+  setOpenCart: SetModalState;
+  openAddProduct: boolean;
+  setOpenAddProduct: SetModalState;
 }
 
 export const ModalsContext = createContext({} as IModalsContext);

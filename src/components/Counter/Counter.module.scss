@@ -4,13 +4,13 @@
   font-weight: 700;
   display: flex;
   color: var(--gray);
-
+  min-height: 40px;
   p {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 84px;
-    height: 100%;
+    min-height: 100%;
     border: 2px solid var(--gray);
   }
 }
@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   width: 40px;
-  height: 100%;
+  min-height: 100%;
   cursor: pointer;
   transition: 0.3s;
   user-select: none;

@@ -37,7 +37,7 @@ export const api = createApi({
         params,
       }),
     }),
-    getSingleProduct: builder.query<IProduct, string>({
+    getSingleProduct: builder.query<IProduct, string | number | null>({
       query: (id) => ({
         url: `/products/${id}`,
       }),

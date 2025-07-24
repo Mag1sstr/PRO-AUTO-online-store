@@ -8,6 +8,7 @@ import { useGetCartQuery } from "../../api/api";
 import { useLang } from "../../hooks/useLang";
 import { formatPrice } from "../../utils/formatPrice";
 import { totalPrice } from "../../utils/totalPrice";
+
 function CartDrop() {
   const { data } = useGetCartQuery(null);
   const { openCart } = useModals();

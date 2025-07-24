@@ -10,6 +10,7 @@ export default function ModalsContextProvider({
   const [openLoginModal, setOpenLoginModal] = useState(false);
 
   const [openCart, setOpenCart] = useState(false);
+  const [openAddProduct, setOpenAddProduct] = useState(false);
 
   return (
     <ModalsContext.Provider
@@ -20,6 +21,8 @@ export default function ModalsContextProvider({
         setOpenLoginModal,
         openCart,
         setOpenCart,
+        openAddProduct,
+        setOpenAddProduct,
       }}
     >
       {children}

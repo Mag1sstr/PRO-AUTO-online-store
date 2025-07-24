@@ -47,7 +47,7 @@ function Filters() {
         }}
       />
 
-      <div className={styles.params}>
+      {/* <div className={styles.params}>
         <div className={styles.params__title}>ПОДБОР ПАРАМЕТРОВ</div>
         <div className={styles.slider__wrapper}>
           <input className={styles.min} type="range" min="0" max="200000" />
@@ -59,7 +59,7 @@ function Filters() {
             max="200000"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,17 +1,19 @@
 import styles from "./ModalTop.module.scss";
 
 interface IProps {
-  image: string;
+  image?: string;
   title: string;
   text: string;
   setOpen: (bool: boolean) => void;
+  icon?: React.ReactNode;
 }
 
-function ModalTop({ image, text, title, setOpen }: IProps) {
+function ModalTop({ image, text, title, setOpen, icon }: IProps) {
   return (
     <div className={styles.top}>
       <div className={styles.icon}>
-        <img src={image} alt="icon" />
+        {image && <img src={image} alt="icon" />}
+        <div className={styles.icon__component}>{icon}</div>
       </div>
       <div className={styles.info}>
         <div className={styles.title}>{title}</div>
