@@ -13,6 +13,7 @@ import Counter from "../Counter/Counter";
 import { useAuth } from "../../hooks/useAuth";
 import Button from "../Button/Button";
 import Pagination from "../Pagination/Pagination";
+import { useModals } from "../../hooks/useModals";
 
 function SingleProduct() {
   const { id } = useParams();
@@ -35,6 +36,7 @@ function SingleProduct() {
 
   const { t, lang } = useLang();
   const { user } = useAuth();
+  const { setOpenLoginModal } = useModals();
 
   const [currentPage, setCurrentPage] = useState(1);
   const PAGE_SIZE = 5;
@@ -183,12 +185,22 @@ function SingleProduct() {
 
       <section className={styles.reviewSection}>
         <h2 className={styles.reviewTitle}>Комментарии</h2>
-        <form className={styles.reviewForm}>
-          <textarea placeholder="Ваш отзыв" className={styles.reviewTextarea} />
-          <Button className={styles.send} red fontSize={12}>
-            Отправить
-          </Button>
-        </form>
+        {user ? (
+          <form className={styles.reviewForm}>
+            <textarea
+              placeholder="Ваш отзыв"
+              className={styles.reviewTextarea}
+            />
+            <Button className={styles.send} red fontSize={12}>
+              Отправить
+            </Button>
+          </form>
+        ) : (
+          <p className={styles.reviewAuthNotice}>
+            <span onClick={() => setOpenLoginModal(true)}>Войдите</span> чтобы
+            оставить отзыв
+          </p>
+        )}
 
         <div className={styles.reviewList}>
           {comments?.slice(firstIndex, endIndex).map((comment, index) => (

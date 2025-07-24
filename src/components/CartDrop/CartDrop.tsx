@@ -14,8 +14,6 @@ function CartDrop() {
   const { t, lang } = useLang();
   const navigate = useNavigate();
 
-  console.log(data);
-
   return (
     <div
       onClick={(e) => e.stopPropagation()}
@@ -24,6 +22,7 @@ function CartDrop() {
       <div className={styles.inner}>
         {data?.items.map((el) => (
           <div
+            key={el.product.id}
             onClick={() => navigate(ROUTES.PRODUCT(el.product.id))}
             className={styles.item}
           >
