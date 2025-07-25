@@ -17,7 +17,7 @@ import type { RootState } from "../store/store";
 
 export const api = createApi({
   reducerPath: "api",
-  tagTypes: ["Cart"],
+  tagTypes: ["Cart", "Review"],
   baseQuery: fetchBaseQuery({
     baseUrl: "https://frost.runtime.kz/api",
     prepareHeaders(headers, { getState }) {
@@ -46,6 +46,7 @@ export const api = createApi({
       query: (id) => ({
         url: `/reviews?productId=${id}`,
       }),
+      providesTags: () => [{ type: "Review" }],
     }),
     getCart: builder.query<ICartResponse, null>({
       query: () => ({
@@ -66,6 +67,7 @@ export const api = createApi({
       query: (id) => ({
         url: `/reviews/exists?productId=${id}`,
       }),
+      providesTags: () => [{ type: "Review" }],
     }),
 
     addToCart: builder.mutation<null, { productId: number; count: number }>({
@@ -147,6 +149,7 @@ export const api = createApi({
         url: "/reviews",
         body,
       }),
+      invalidatesTags: () => [{ type: "Review" }],
     }),
   }),
 });

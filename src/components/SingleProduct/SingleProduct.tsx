@@ -3,8 +3,13 @@ import img1 from "../../assets/single-product/01.png";
 import img2 from "../../assets/single-product/02.jpg";
 import img3 from "../../assets/single-product/03.jpg";
 import img4 from "../../assets/single-product/04.jpg";
-import { useState } from "react";
-import { useGetReviewsQuery, useGetSingleProductQuery } from "../../api/api";
+import { useState, type FormEvent } from "react";
+import {
+  useCreateReviewMutation,
+  useGetReviewCheckQuery,
+  useGetReviewsQuery,
+  useGetSingleProductQuery,
+} from "../../api/api";
 import { useParams } from "react-router-dom";
 import { useLang } from "../../hooks/useLang";
 import { formatPrice } from "../../utils/formatPrice";
@@ -26,6 +31,9 @@ function SingleProduct() {
   const { id } = useParams();
   const { data, isFetching } = useGetSingleProductQuery(id!);
   const { data: comments } = useGetReviewsQuery(id!);
+  const { data: isReview } = useGetReviewCheckQuery(id!);
+
+  const [createNewReview] = useCreateReviewMutation();
 
   const { t, lang } = useLang();
   const { user } = useAuth();
@@ -33,6 +41,7 @@ function SingleProduct() {
 
   const [currImage, setCurrImage] = useState(0);
   const [count, setCount] = useState(0);
+  const [reviewValue, setReviewValue] = useState("");
   const images = [img1, img2, img3, img4];
 
   const handleNextImage = () => {
@@ -49,6 +58,15 @@ function SingleProduct() {
       setOpenAddProduct(true);
     } else {
       toast.error(t[lang].toast.not_available);
+    }
+  };
+  const handleCreateReview = (e: FormEvent) => {
+    e.preventDefault();
+    if (reviewValue.length > 10) {
+      createNewReview({ product_id: id!, review: reviewValue });
+      toast.success(t[lang].toast.review_send);
+    } else {
+      toast.error(t[lang].toast.review_err);
     }
   };
 
@@ -200,15 +218,21 @@ function SingleProduct() {
       <section className={styles.reviewSection}>
         <h2 className={styles.reviewTitle}>Комментарии</h2>
         {user ? (
-          <form className={styles.reviewForm}>
-            <textarea
-              placeholder="Ваш отзыв"
-              className={styles.reviewTextarea}
-            />
-            <Button className={styles.send} red fontSize={12}>
-              Отправить
-            </Button>
-          </form>
+          isReview ? (
+            <p className={styles.reviewAuthNotice}>Спасибо за ваш отзыв!</p>
+          ) : (
+            <form onSubmit={handleCreateReview} className={styles.reviewForm}>
+              <textarea
+                placeholder="Ваш отзыв"
+                className={styles.reviewTextarea}
+                value={reviewValue}
+                onChange={(e) => setReviewValue(e.target.value)}
+              />
+              <Button type="submit" className={styles.send} red fontSize={12}>
+                Отправить
+              </Button>
+            </form>
+          )
         ) : (
           <p className={styles.reviewAuthNotice}>
             <span onClick={() => setOpenLoginModal(true)}>Войдите</span> чтобы

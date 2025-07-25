@@ -112,7 +112,7 @@ export interface IDeliveryValues {
   apartment: string;
 }
 export interface ICreateReviewBody {
-  product_id: string;
+  product_id: number | string;
   review: string;
 }
 

@@ -82,7 +82,9 @@
       "inc_data": "Неверные данные!",
       "reg": "Вы зарегистрировались!",
       "add_cart": "Добавлено в корзину!",
-      "not_available": "Нет в наличии!"
+      "not_available": "Нет в наличии!",
+      "review_err": "Отзыв должен содержать минимум 10 букв.",
+      "review_send": "Спасибо за ваш отзыв!"
     },
     "filters": {
       "brand": "Марка",
@@ -202,7 +204,9 @@
       "inc_data": "Incorrect data!",
       "reg": "You have registered!",
       "add_cart": "Added to cart!",
-      "not_available": "Not available!"
+      "not_available": "Not available!",
+      "review_err": "The review must contain at least 10 letters.",
+      "review_send": "Thank you for your feedback!"
     },
     "filters": {
       "brand": "Brand",
