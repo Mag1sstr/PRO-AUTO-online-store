@@ -69,7 +69,12 @@ function Header({ slider = true }: IProps) {
             </div>
             {windowWidth > 1040 && (
               <ul className={styles.links}>
-                <li className={styles.link}>{t[lang].header.company}</li>
+                <li
+                  className={styles.link}
+                  onClick={() => navigate(ROUTES.COMPANY)}
+                >
+                  {t[lang].header.company}
+                </li>
 
                 <li
                   className={styles.link}
