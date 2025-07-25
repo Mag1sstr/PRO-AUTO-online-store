@@ -19,6 +19,7 @@ import {
   setProductCount,
   setProductId,
 } from "../../store/slices/selectProductSlice";
+import { toast } from "react-toastify";
 
 function SingleProduct() {
   const dispatch = useAppDispatch();
@@ -42,9 +43,13 @@ function SingleProduct() {
     setCurrImage((prev) => (prev > 0 ? prev - 1 : prev));
   };
   const handleAddToCart = () => {
-    dispatch(setProductCount(count === 0 ? 1 : count));
-    dispatch(setProductId(data?.id));
-    setOpenAddProduct(true);
+    if (data?.available === 1) {
+      dispatch(setProductCount(count === 0 ? 1 : count));
+      dispatch(setProductId(data?.id));
+      setOpenAddProduct(true);
+    } else {
+      toast.error(t[lang].toast.not_available);
+    }
   };
 
   const [currentPage, setCurrentPage] = useState(1);

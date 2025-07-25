@@ -13,6 +13,8 @@ import {
   setProductCount,
   setProductId,
 } from "../../store/slices/selectProductSlice";
+import { toast } from "react-toastify";
+import { useLang } from "../../hooks/useLang";
 
 interface IProps extends IProductData {}
 
@@ -21,12 +23,15 @@ function ProductCard(el: IProps) {
   const dispatch = useAppDispatch();
   const [count, setCount] = useState(0);
   const { setOpenAddProduct } = useModals();
+  const { t, lang } = useLang();
 
   const handleAddToCart = () => {
     if (el.available === 1) {
       setOpenAddProduct(true);
       dispatch(setProductId(el.id));
       dispatch(setProductCount(count === 0 ? 1 : count));
+    } else {
+      toast.error(t[lang].toast.not_available);
     }
   };
 
@@ -37,10 +42,10 @@ function ProductCard(el: IProps) {
       }`}
     >
       {el.available === 1 ? (
-        <div className={styles.available}>в наличии</div>
+        <div className={styles.available}>{t[lang].filters.available}</div>
       ) : (
         <div className={`${styles.available} ${styles.not__available}`}>
-          нет наличии
+          {t[lang].filters.not_available}
         </div>
       )}
       <div className={styles.image__wrapper}>
@@ -88,7 +93,7 @@ function ProductCard(el: IProps) {
         height={40}
         red
       >
-        ПОДРОБНЕЕ
+        {t[lang].catalog.product_card.btn}
       </Button>
     </div>
   );
