@@ -25,7 +25,7 @@ interface IProps {
 
 function Header({ slider = true }: IProps) {
   const windowWidth = useWindowWidth();
-  const { setOpenLoginModal, setOpenCart } = useModals();
+  const { setOpenLoginModal, setOpenCart, openCart } = useModals();
   const { t, lang } = useLang();
   const { user } = useAuth();
 
@@ -140,7 +140,7 @@ function Header({ slider = true }: IProps) {
               </div>
               <div
                 onClick={() => setOpenCart((prev) => !prev)}
-                className={styles.cart}
+                className={`${styles.cart} ${openCart && styles.cart__active}`}
               >
                 <svg
                   width="40"

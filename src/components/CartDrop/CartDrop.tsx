@@ -4,16 +4,27 @@ import Button from "../Button/Button";
 import { useModals } from "../../hooks/useModals";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
-import { useGetCartQuery } from "../../api/api";
+import { useDeleteCartItemMutation, useGetCartQuery } from "../../api/api";
 import { useLang } from "../../hooks/useLang";
 import { formatPrice } from "../../utils/formatPrice";
 import { totalPrice } from "../../utils/totalPrice";
+import type { MouseEvent } from "react";
 
 function CartDrop() {
   const { data } = useGetCartQuery(null);
   const { openCart } = useModals();
   const { t, lang } = useLang();
   const navigate = useNavigate();
+
+  const [deleteCartItem] = useDeleteCartItemMutation();
+
+  const handleDeleteCartItem = (
+    e: MouseEvent<HTMLButtonElement>,
+    id: number
+  ) => {
+    e.stopPropagation();
+    deleteCartItem(id);
+  };
 
   return (
     <div
@@ -27,7 +38,10 @@ function CartDrop() {
             onClick={() => navigate(ROUTES.PRODUCT(el.product.id))}
             className={styles.item}
           >
-            <button className={styles.close}>
+            <button
+              onClick={(e) => handleDeleteCartItem(e, el.product.id)}
+              className={styles.close}
+            >
               <svg
                 width="20"
                 height="20"

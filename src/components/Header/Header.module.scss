@@ -72,6 +72,12 @@
     }
   }
 }
+.cart__active {
+  & > svg * {
+    stroke: var(--red);
+  }
+}
+
 .counter {
   display: flex;
   align-items: center;
