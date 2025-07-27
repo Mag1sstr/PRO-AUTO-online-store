@@ -10,6 +10,7 @@ import { useLang } from "../../hooks/useLang";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import Button from "../Button/Button";
 import { setProductCount } from "../../store/slices/selectProductSlice";
+import { useAuth } from "../../hooks/useAuth";
 
 function ModalAddProduct() {
   const dispatch = useAppDispatch();
@@ -26,6 +27,7 @@ function ModalAddProduct() {
 
   const { openAddProduct, setOpenAddProduct } = useModals();
   const { t, lang } = useLang();
+  const { user } = useAuth();
 
   const increaseCount = () => {
     dispatch(setProductCount(productCount + 1));
@@ -37,10 +39,14 @@ function ModalAddProduct() {
   };
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    addToCart({
-      count: productCount,
-      productId: productId!,
-    });
+    if (user) {
+      addToCart({
+        count: productCount,
+        productId: productId!,
+      });
+    } else {
+      toast.error("Войдите в аккаунт!");
+    }
   };
 
   useEffect(() => {

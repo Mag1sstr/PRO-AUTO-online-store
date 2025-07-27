@@ -134,6 +134,7 @@ export const api = createApi({
         method: "POST",
         url: "/auth/user",
       }),
+      invalidatesTags: () => [{ type: "Cart" }],
     }),
 
     createOrder: builder.mutation<number, IOrderBody>({
