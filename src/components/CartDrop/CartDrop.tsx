@@ -27,6 +27,18 @@ function CartDrop() {
             onClick={() => navigate(ROUTES.PRODUCT(el.product.id))}
             className={styles.item}
           >
+            <button className={styles.close}>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M4 4L16 16" stroke="#A5A5A5" strokeWidth="4" />
+                <path d="M16 4L4 16" stroke="#A5A5A5" strokeWidth="4" />
+              </svg>
+            </button>
             <div className={styles.left}>
               <div className={styles.image}>
                 <img src={img1} alt="" />

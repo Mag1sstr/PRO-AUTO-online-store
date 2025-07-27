@@ -67,7 +67,7 @@
     transition: 0.3s;
   }
   &:hover {
-    svg * {
+    & > svg * {
       stroke: var(--red);
     }
   }
