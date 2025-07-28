@@ -18,6 +18,7 @@ import { useEffect, useRef } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import CartDrop from "../CartDrop/CartDrop";
 import { useGetCartQuery } from "../../api/api";
+import { toast } from "react-toastify";
 
 interface IProps {
   slider?: boolean;
@@ -33,16 +34,22 @@ function Header({ slider = true }: IProps) {
 
   const ref = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
-  }, [location]);
-
   const { count } = useGetCartQuery(null, {
     refetchOnMountOrArgChange: true,
     selectFromResult: ({ data }) => ({
       count: data?.items.length,
     }),
   });
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+  }, [location]);
+
+  useEffect(() => {
+    if (count === 0) {
+      setOpenCart(false);
+    }
+  }, [count]);
 
   return (
     <header
@@ -139,7 +146,14 @@ function Header({ slider = true }: IProps) {
                 </svg>
               </div>
               <div
-                onClick={() => setOpenCart((prev) => !prev)}
+                onClick={() => {
+                  if (count === 0) {
+                    setOpenCart(false);
+                    toast.error("Корзина пуста");
+                  } else {
+                    setOpenCart((prev) => !prev);
+                  }
+                }}
                 className={`${styles.cart} ${openCart && styles.cart__active}`}
               >
                 <svg
