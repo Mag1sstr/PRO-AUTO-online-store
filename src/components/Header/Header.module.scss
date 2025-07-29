@@ -58,6 +58,20 @@
   align-items: center;
   gap: 12px;
 }
+.search {
+  cursor: pointer;
+  & > svg * {
+    transition: 0.3s;
+  }
+  &:hover > svg * {
+    fill: var(--red);
+  }
+  &.search__active {
+    & > svg * {
+      fill: var(--red);
+    }
+  }
+}
 .cart {
   position: relative;
   display: flex;

@@ -1,10 +1,16 @@
 import { useState } from "react";
 import Button from "../Button/Button";
 import styles from "./Search.module.scss";
+import { useModals } from "../../hooks/useModals";
 function Search() {
+  const { openSearch, setOpenSearch } = useModals();
   const [searchValue, setSearchValue] = useState("");
+
+  const handleCloseSearch = () => {
+    setOpenSearch(false);
+  };
   return (
-    <section className={styles.search}>
+    <section className={`${styles.search} ${openSearch && styles.open}`}>
       <div className="container">
         <div className={styles.row}>
           <div className={styles.field}>
@@ -33,7 +39,7 @@ function Search() {
           <Button height={40} className={styles.find} fontSize={12}>
             Найти
           </Button>
-          <button className={styles.close}>
+          <button onClick={handleCloseSearch} className={styles.close}>
             <svg
               width="20"
               height="20"

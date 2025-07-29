@@ -1,11 +1,19 @@
 .search {
+  opacity: 0;
+  visibility: hidden;
   position: absolute;
   background-color: rgba($color: #1d1d1d, $alpha: 0.75);
   left: 0;
   top: 100px;
   width: 100%;
+
   padding: 16px 0;
   z-index: 1000;
+  transition: 0.3s;
+}
+.open {
+  opacity: 1;
+  visibility: visible;
 }
 .row {
   display: flex;
@@ -19,7 +27,6 @@
   min-height: inherit;
   background-color: #fff;
   width: 100%;
-  //   max-width: 100%;
   input {
     min-height: inherit;
     outline: none;

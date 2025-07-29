@@ -27,7 +27,13 @@ interface IProps {
 
 function Header({ slider = true }: IProps) {
   const windowWidth = useWindowWidth();
-  const { setOpenLoginModal, setOpenCart, openCart } = useModals();
+  const {
+    setOpenLoginModal,
+    setOpenCart,
+    openCart,
+    openSearch,
+    setOpenSearch,
+  } = useModals();
   const { t, lang } = useLang();
   const { user } = useAuth();
 
@@ -41,6 +47,10 @@ function Header({ slider = true }: IProps) {
       count: data?.items.length,
     }),
   });
+
+  const handleOpenSearch = () => {
+    setOpenSearch((prev) => !prev);
+  };
 
   useEffect(() => {
     ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
@@ -131,7 +141,12 @@ function Header({ slider = true }: IProps) {
                   size={28}
                 />
               )}
-              <div className={styles.search}>
+              <div
+                onClick={handleOpenSearch}
+                className={`${styles.search} ${
+                  openSearch && styles.search__active
+                }`}
+              >
                 <svg
                   width="40"
                   height="40"
