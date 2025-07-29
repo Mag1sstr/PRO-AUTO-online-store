@@ -19,6 +19,7 @@ import { FaUserLarge } from "react-icons/fa6";
 import CartDrop from "../CartDrop/CartDrop";
 import { useGetCartQuery } from "../../api/api";
 import { toast } from "react-toastify";
+import Search from "../Search/Search";
 
 interface IProps {
   slider?: boolean;
@@ -58,6 +59,7 @@ function Header({ slider = true }: IProps) {
     >
       <ModalLogin />
       <ModalRegister />
+      <Search />
 
       {slider && <Slider />}
       <div className={styles.header__top}>

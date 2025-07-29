@@ -12,6 +12,7 @@ interface IProps {
 function FilterSelect({ title, data, allBtnText, onChange }: IProps) {
   const [allText, setAllText] = useState(allBtnText);
   const [open, setOpen] = useState(false);
+  const [selectTitle, setSelectTitle] = useState(title);
 
   const handleDrop = () => {
     if (!data.length) {
@@ -20,12 +21,14 @@ function FilterSelect({ title, data, allBtnText, onChange }: IProps) {
     setOpen((prev) => !prev);
   };
 
-  const handleSelect = (id: number) => {
-    onChange(id);
+  const handleSelect = (el: IItems) => {
+    setSelectTitle(el.name);
+    onChange(el.id);
   };
 
   useEffect(() => {
     setAllText(allBtnText);
+    setSelectTitle(title);
   }, [title, data]);
 
   return (
@@ -36,7 +39,7 @@ function FilterSelect({ title, data, allBtnText, onChange }: IProps) {
       }`}
     >
       <div className={styles.item}>
-        <p>{title}</p>
+        <p>{selectTitle}</p>
         <svg
           width="20"
           height="20"
@@ -51,7 +54,7 @@ function FilterSelect({ title, data, allBtnText, onChange }: IProps) {
         {data &&
           [{ id: -1, name: allText }, ...data].map((el) => (
             <div
-              onClick={() => handleSelect(el.id)}
+              onClick={() => handleSelect(el)}
               key={el.id}
               className={styles.select__item}
             >
