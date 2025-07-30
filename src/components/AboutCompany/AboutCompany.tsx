@@ -6,10 +6,12 @@ function AboutCompany() {
       <div className="container">
         <div className={styles.inner}>
           <div className={styles.center}>
-            <h2 className={styles.title}>о компании</h2>
+            <h2 className={styles.title} data-aos="fade-up">
+              о компании
+            </h2>
           </div>
           <div className={styles.row}>
-            <div className={styles.text}>
+            <div className={styles.text} data-aos="fade-up">
               Мы рады приветствовать вас на нашем сайте. <br /> <br /> Компания
               «PROавто» - это надежные, качественные аккумуляторы в широком
               ассортименте, разнообразные в по форме и характеристикам, а также
@@ -24,7 +26,7 @@ function AboutCompany() {
               нашем сайте! <br /> <br /> Убедитесь в этом сами!
             </div>
             <div className={styles.col}>
-              <div className={styles.item}>
+              <div className={styles.item} data-aos="fade-left">
                 <svg
                   width="84"
                   height="112"
@@ -50,7 +52,7 @@ function AboutCompany() {
                 </svg>
                 <p>Реквизиты</p>
               </div>
-              <div className={styles.item}>
+              <div className={styles.item} data-aos="fade-left">
                 <svg
                   width="94"
                   height="86"

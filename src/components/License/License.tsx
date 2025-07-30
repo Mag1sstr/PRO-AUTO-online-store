@@ -30,7 +30,11 @@ function License() {
         </div>
         <div className={styles.row}>
           {licenseData.map((el) => (
-            <div key={el.id} className={styles.card__wrapper}>
+            <div
+              key={el.id}
+              className={styles.card__wrapper}
+              data-aos="fade-down"
+            >
               <div className={styles.card}>
                 <div className={styles.image__wrapper}>
                   <img src={licenseImg} alt="license" />
