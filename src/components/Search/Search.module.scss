@@ -54,13 +54,20 @@
 }
 .col {
   max-height: 0;
-  overflow: hidden;
+  overflow-y: scroll;
   transition: 0.5s;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--gray);
+  }
   li {
     padding: 12px 16px;
     font-size: 14px;
     transition: 0.3s;
     cursor: pointer;
+    color: #fff;
     &:hover {
       background-color: var(--red);
     }

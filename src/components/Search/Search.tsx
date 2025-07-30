@@ -2,9 +2,20 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import styles from "./Search.module.scss";
 import { useModals } from "../../hooks/useModals";
+import { useGetProductsQuery } from "../../api/api";
+import { useDebounce } from "../../hooks/useDebounce";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 function Search() {
   const { openSearch, setOpenSearch } = useModals();
   const [searchValue, setSearchValue] = useState("");
+
+  const deboucedValue = useDebounce(searchValue, 1000);
+
+  const { data } = useGetProductsQuery(
+    { page: 1, size: 17 },
+    { skip: !deboucedValue.length }
+  );
 
   const handleCloseSearch = () => {
     setOpenSearch(false);
@@ -54,13 +65,27 @@ function Search() {
         </div>
         <ul
           className={`${styles.col} ${
-            !!searchValue.trim().length && styles.drop
+            !!searchValue.trim().length && data ? styles.drop : ""
           }`}
         >
-          <li>111111111111</li>
-          <li>111111111111</li>
-          <li>111111111111</li>
-          <li>111111111111</li>
+          {data?.items
+            .filter((el) =>
+              el.name
+                .toLowerCase()
+                .trim()
+                .includes(deboucedValue.toLowerCase().trim())
+            )
+            .map((product) => (
+              <Link to={ROUTES.PRODUCT(product.id)}>
+                <li key={product.id}>{product.name}</li>
+              </Link>
+            ))}
+          {!data?.items.filter((el) =>
+            el.name
+              .toLowerCase()
+              .trim()
+              .includes(deboucedValue.toLowerCase().trim())
+          ).length && <li>Не найдено</li>}
         </ul>
       </div>
     </section>
