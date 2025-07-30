@@ -18,6 +18,7 @@ function Search() {
   );
 
   const handleCloseSearch = () => {
+    setSearchValue("");
     setOpenSearch(false);
   };
   return (

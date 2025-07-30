@@ -17,10 +17,14 @@
   position: relative;
   z-index: 10;
 }
+.center {
+  display: flex;
+  justify-content: center;
+}
 .title {
   font-size: 36px;
   font-weight: 700;
-  padding: 0;
+  padding: 0 16px;
   padding-bottom: 8px;
   border-bottom: 4px solid var(--red);
   margin-bottom: 24px;
@@ -63,5 +67,17 @@
     svg * {
       stroke: var(--red);
     }
+  }
+}
+
+@media (max-width: 540px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .col {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }

@@ -5,7 +5,9 @@ function AboutCompany() {
     <section className={styles.wrapper}>
       <div className="container">
         <div className={styles.inner}>
-          <h2 className={styles.title}>о компании</h2>
+          <div className={styles.center}>
+            <h2 className={styles.title}>о компании</h2>
+          </div>
           <div className={styles.row}>
             <div className={styles.text}>
               Мы рады приветствовать вас на нашем сайте. <br /> <br /> Компания
