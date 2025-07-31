@@ -76,7 +76,8 @@
     },
     "errors": {
       "req": "Обязательное поле",
-      "email": "Некорректная почта"
+      "email": "Некорректная почта",
+      "phone": "Неверный формат"
     },
     "toast": {
       "inc_data": "Неверные данные!",
@@ -99,7 +100,8 @@
     "paths": {
       "home": "Главная",
       "catalog": "КАТАЛОГ",
-      "company": "КОМПАНИЯ"
+      "company": "КОМПАНИЯ",
+      "cart": "Корзина"
     },
     "catalog": {
       "footer": {
@@ -199,7 +201,8 @@
     },
     "errors": {
       "req": "Required field",
-      "email": "Invalid email"
+      "email": "Invalid email",
+      "phone": "Invalid format"
     },
     "toast": {
       "inc_data": "Incorrect data!",
@@ -222,7 +225,8 @@
     "paths": {
       "home": "home",
       "catalog": "catalog",
-      "company": "company"
+      "company": "company",
+      "cart": "Cart"
     },
     "catalog": {
       "footer": {

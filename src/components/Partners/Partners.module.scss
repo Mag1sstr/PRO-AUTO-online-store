@@ -39,7 +39,7 @@
   margin-bottom: 68px;
 }
 .card {
-  transition: 0.3s;
+  transition: 0.3s !important;
   outline: 4px solid transparent;
   &:hover {
     outline-color: var(--red);
