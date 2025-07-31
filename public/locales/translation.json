@@ -98,7 +98,8 @@
     },
     "paths": {
       "home": "Главная",
-      "catalog": "КАТАЛОГ"
+      "catalog": "КАТАЛОГ",
+      "company": "КОМПАНИЯ"
     },
     "catalog": {
       "footer": {
@@ -220,7 +221,8 @@
     },
     "paths": {
       "home": "home",
-      "catalog": "catalog"
+      "catalog": "catalog",
+      "company": "company"
     },
     "catalog": {
       "footer": {

@@ -6,6 +6,7 @@ import partnerImg4 from "../../assets/partners/04.png";
 import partnerImg5 from "../../assets/partners/05.png";
 import partnerImg6 from "../../assets/partners/06.png";
 import partnerImg7 from "../../assets/partners/07.png";
+import Button from "../Button/Button";
 
 const partnersData = [
   { id: Math.random(), img: partnerImg1, title: "Компания «ПартКом»" },
@@ -39,6 +40,9 @@ function Partners() {
               </div>
             ))}
           </div>
+          <Button center padding="20px 40px">
+            СТАТЬ ПАРТНЕРОМ
+          </Button>
         </div>
       </div>
     </section>
