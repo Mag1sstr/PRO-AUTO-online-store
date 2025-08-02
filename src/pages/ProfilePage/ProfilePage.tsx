@@ -3,12 +3,14 @@ import { useAppDispatch } from "../../store/store";
 import styles from "./ProfilePage.module.scss";
 import { logoutUser } from "../../store/slices/authSlice";
 import { useGetOrdersQuery } from "../../api/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OrdersStage from "../../components/Stages/OrdersStage/OrdersStage";
 import Header from "../../components/Header/Header";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import Footer from "../../components/Footer/Footer";
 import { ImExit } from "react-icons/im";
+import { useAuth } from "../../hooks/useAuth";
+import { ROUTES } from "../../routes/routes";
 
 function ProfilePage() {
   const [currentStage, setCurrentStage] = useState(0);
@@ -17,10 +19,11 @@ function ProfilePage() {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const logout = () => {
     dispatch(logoutUser());
-    navigate("/");
+    navigate(ROUTES.HOME);
   };
 
   const stages = [
@@ -45,6 +48,12 @@ function ProfilePage() {
       component: <OrdersStage ordersData={ordersData} />,
     },
   ];
+
+  useEffect(() => {
+    if (!user) {
+      navigate(ROUTES.HOME);
+    }
+  }, [user]);
   return (
     <>
       <Header />
