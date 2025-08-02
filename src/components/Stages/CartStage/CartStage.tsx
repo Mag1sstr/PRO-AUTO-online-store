@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   useDecreaseCartItemMutation,
   useDeleteCartItemMutation,
@@ -8,6 +9,8 @@ import { formatPrice } from "../../../utils/formatPrice";
 import Button from "../../Button/Button";
 import StageWrapper from "../StageWrapper/StageWrapper";
 import styles from "./CartStage.module.scss";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../routes/routes";
 
 interface IProps {
   setMainStage: (stage: number) => void;
@@ -20,6 +23,7 @@ function CartStage({ setMainStage, setCurrentStage, data }: IProps) {
   const [decreaseCartItem] = useDecreaseCartItemMutation();
   const [deleteCartItem] = useDeleteCartItemMutation();
 
+  const navigate = useNavigate();
   const totalPrice = data?.reduce(
     (acc, el) => acc + el.count * el.product.price,
     0
@@ -38,6 +42,12 @@ function CartStage({ setMainStage, setCurrentStage, data }: IProps) {
   const handleDecreaseCartItem = (id: number, count: number) => {
     if (count > 1) decreaseCartItem(id);
   };
+
+  useEffect(() => {
+    if (!data?.length) {
+      navigate(ROUTES.HOME);
+    }
+  }, [data]);
 
   return (
     <>

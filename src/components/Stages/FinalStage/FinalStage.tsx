@@ -20,7 +20,7 @@ function FinalStage({ createOrderLoading, orderNumber }: IProps) {
   return (
     <section className={styles.wrapper}>
       <div className={styles.row}>
-        <img src={img} alt="icon" />
+        <img className={styles.icon} src={img} alt="icon" />
         <div className={styles.content}>
           <h3 className={styles.title}>
             Ваш заказ №{orderNumber} успешно оформлен

@@ -38,5 +38,29 @@
     color: #fff !important;
   }
 }
-@media (max-width: 880px) {
+.icon {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 790px) {
+  .row {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+@media (max-width: 420px) {
+  .wrapper {
+    padding: 28px 20px;
+  }
+  .title {
+    margin-bottom: 38px;
+  }
+  .text {
+    margin-bottom: 30px;
+  }
+  .links {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
