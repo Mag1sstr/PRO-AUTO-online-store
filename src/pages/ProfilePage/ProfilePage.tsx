@@ -11,6 +11,7 @@ import Footer from "../../components/Footer/Footer";
 import { ImExit } from "react-icons/im";
 import { useAuth } from "../../hooks/useAuth";
 import { ROUTES } from "../../routes/routes";
+import { useLang } from "../../hooks/useLang";
 
 function ProfilePage() {
   const [currentStage, setCurrentStage] = useState(0);
@@ -20,6 +21,7 @@ function ProfilePage() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { t, lang } = useLang();
 
   const logout = () => {
     dispatch(logoutUser());
@@ -28,7 +30,7 @@ function ProfilePage() {
 
   const stages = [
     {
-      name: "Мои заказы",
+      name: t[lang].profile.tabs.orders.tab,
       img: (
         <svg
           className={styles.icon}
@@ -60,7 +62,7 @@ function ProfilePage() {
       <Breadcrumbs />
       <section className={styles.profile}>
         <div className="container">
-          <h2 className={styles.title}>Личный кабинет</h2>
+          <h2 className={styles.title}>{t[lang].paths.profile}</h2>
           <div className={styles.row}>
             <div className={styles.menu}>
               <div className={styles.menu__col}>
@@ -78,7 +80,7 @@ function ProfilePage() {
                 ))}
                 <div onClick={logout} className={styles.logout}>
                   <ImExit size={28} />
-                  <p>Выйти</p>
+                  <p>{t[lang].profile.exit}</p>
                 </div>
               </div>
             </div>

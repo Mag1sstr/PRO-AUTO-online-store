@@ -101,7 +101,8 @@
       "home": "Главная",
       "catalog": "КАТАЛОГ",
       "company": "КОМПАНИЯ",
-      "cart": "Корзина"
+      "cart": "Корзина",
+      "profile": "Личный кабинет"
     },
     "catalog": {
       "footer": {
@@ -121,6 +122,19 @@
       "cart_drop": {
         "result": "Итог",
         "btn": "ПЕРЕЙТИ В КОРЗИНУ"
+      }
+    },
+    "profile": {
+      "exit": "Выйти",
+      "tabs": {
+        "orders": {
+          "tab": "Мои заказы",
+          "history": "История заказов",
+          "num_order": "Номер заказа",
+          "name_order": "Наименование товара",
+          "date_order": "Дата заказа",
+          "price_order": "Стоимость"
+        }
       }
     }
   },
@@ -226,7 +240,8 @@
       "home": "home",
       "catalog": "catalog",
       "company": "company",
-      "cart": "Cart"
+      "cart": "Cart",
+      "profile": "profile"
     },
     "catalog": {
       "footer": {
@@ -246,6 +261,19 @@
       "cart_drop": {
         "result": "Total",
         "btn": "GO TO CART"
+      }
+    },
+    "profile": {
+      "exit": "Log out",
+      "tabs": {
+        "orders": {
+          "tab": "My orders",
+          "history": "Order history",
+          "num_order": "Order number",
+          "name_order": "Product name",
+          "date_order": "Order date",
+          "price_order": "Price"
+        }
       }
     }
   }

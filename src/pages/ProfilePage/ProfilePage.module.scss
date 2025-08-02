@@ -6,6 +6,10 @@
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 40px;
+  text-transform: lowercase;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 .row {
   display: flex;

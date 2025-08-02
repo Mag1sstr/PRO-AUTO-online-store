@@ -2,21 +2,23 @@ import styles from "./OrdersStage.module.scss";
 import type { IOrdersData } from "../../../types/interfaces";
 import { formatPrice } from "../../../utils/formatPrice";
 import emptyImg from "../../../assets/icons/no-order.png";
+import { useLang } from "../../../hooks/useLang";
 
 interface IProps {
   ordersData: IOrdersData[] | undefined;
 }
 
 function OrdersStage({ ordersData }: IProps) {
+  const { t, lang } = useLang();
   return ordersData?.length ? (
     <div className={styles.orders}>
       <div className={styles.container}>
-        <h3 className={styles.title}>История заказов</h3>
+        <h3 className={styles.title}>{t[lang].profile.tabs.orders.history}</h3>
         <div className={styles.details}>
-          <p>Номер заказа</p>
-          <p>Наименование товара</p>
-          <p>Дата заказа</p>
-          <p>Стоимость</p>
+          <p>{t[lang].profile.tabs.orders.num_order}</p>
+          <p>{t[lang].profile.tabs.orders.name_order}</p>
+          <p>{t[lang].profile.tabs.orders.date_order}</p>
+          <p>{t[lang].profile.tabs.orders.price_order}</p>
         </div>
       </div>
 
