@@ -40,6 +40,7 @@ function ProductCard(el: IProps) {
       className={`${styles.card} ${
         el.available === 0 && styles.not__available
       }`}
+      data-aos="fade-up"
     >
       {el.available === 1 ? (
         <div className={styles.available}>{t[lang].filters.available}</div>

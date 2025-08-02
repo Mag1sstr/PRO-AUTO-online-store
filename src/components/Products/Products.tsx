@@ -40,7 +40,9 @@ function Products() {
         <Spinner />
       ) : (
         <div className="container">
-          <h2 className={styles.title}>FrostAuto - каталог компрессоров</h2>
+          <h2 className={styles.title} data-aos="fade-up">
+            FrostAuto - каталог компрессоров
+          </h2>
           <div className={styles.row}>
             <Filters />
             <div className={styles.col}>
