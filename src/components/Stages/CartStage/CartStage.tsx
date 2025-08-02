@@ -6,6 +6,7 @@ import {
 import type { ICart } from "../../../types/interfaces";
 import { formatPrice } from "../../../utils/formatPrice";
 import Button from "../../Button/Button";
+import StageWrapper from "../StageWrapper/StageWrapper";
 import styles from "./CartStage.module.scss";
 
 interface IProps {
@@ -40,7 +41,7 @@ function CartStage({ setMainStage, setCurrentStage, data }: IProps) {
 
   return (
     <>
-      <section>
+      <StageWrapper>
         <h3 className={styles.title}>Корзина</h3>
         <div className={styles.inner}>
           <div className={styles.details}>
@@ -89,7 +90,7 @@ function CartStage({ setMainStage, setCurrentStage, data }: IProps) {
             )}
           </div>
         </div>
-      </section>
+      </StageWrapper>
       <Button
         className={styles.next}
         red

@@ -1,6 +1,7 @@
 import { useLang } from "../../../hooks/useLang";
 import type { IDeliveryValues } from "../../../types/interfaces";
 import Button from "../../Button/Button";
+import StageWrapper from "../StageWrapper/StageWrapper";
 import styles from "./DeliveryStage.module.scss";
 import { toast } from "react-toastify";
 
@@ -32,7 +33,7 @@ function DeliveryStage({
   };
   return (
     <>
-      <section>
+      <StageWrapper>
         <h3 className={styles.title}>Доставка</h3>
         <div className={styles.row}>
           <div className={styles.block}>
@@ -112,7 +113,7 @@ function DeliveryStage({
             </div>
           </div>
         </div>
-      </section>
+      </StageWrapper>
       <Button
         className={styles.next}
         red

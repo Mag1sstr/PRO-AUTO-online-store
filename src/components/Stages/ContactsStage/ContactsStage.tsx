@@ -1,6 +1,7 @@
 import { useLang } from "../../../hooks/useLang";
 import type { IContactsValues } from "../../../types/interfaces";
 import Button from "../../Button/Button";
+import StageWrapper from "../StageWrapper/StageWrapper";
 import styles from "./ContactsStage.module.scss";
 import { toast } from "react-toastify";
 
@@ -43,7 +44,7 @@ function ContactsStage({
 
   return (
     <>
-      <section>
+      <StageWrapper>
         <h3 className={styles.title}>Контактные данные</h3>
         <div className={styles.row}>
           <div className={styles.block}>
@@ -127,7 +128,7 @@ function ContactsStage({
             </div>
           </div>
         </div>
-      </section>
+      </StageWrapper>
       <Button
         className={styles.next}
         red
