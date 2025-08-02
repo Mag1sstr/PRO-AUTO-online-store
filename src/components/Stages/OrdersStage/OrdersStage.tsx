@@ -1,13 +1,14 @@
+import styles from "./OrdersStage.module.scss";
 import type { IOrdersData } from "../../../types/interfaces";
 import { formatPrice } from "../../../utils/formatPrice";
-import styles from "./OrdersStage.module.scss";
+import emptyImg from "../../../assets/icons/no-order.png";
 
 interface IProps {
   ordersData: IOrdersData[] | undefined;
 }
 
 function OrdersStage({ ordersData }: IProps) {
-  return (
+  return ordersData?.length ? (
     <div className={styles.orders}>
       <div className={styles.container}>
         <h3 className={styles.title}>История заказов</h3>
@@ -59,6 +60,13 @@ function OrdersStage({ ordersData }: IProps) {
             </div>
           );
         })}
+      </div>
+    </div>
+  ) : (
+    <div className={styles.orders}>
+      <div className={styles.empty}>
+        <img src={emptyImg} alt="" />
+        <p>У вас нет заказов</p>
       </div>
     </div>
   );

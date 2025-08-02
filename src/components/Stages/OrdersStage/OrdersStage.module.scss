@@ -73,6 +73,20 @@
 .count {
   font-size: 14px;
 }
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    max-width: 120px;
+  }
+  p {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
 @media (max-width: 750px) {
   .orders {
     padding: 36px 13px;

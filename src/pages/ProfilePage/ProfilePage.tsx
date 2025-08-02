@@ -5,6 +5,10 @@ import { logoutUser } from "../../store/slices/authSlice";
 import { useGetOrdersQuery } from "../../api/api";
 import { useState } from "react";
 import OrdersStage from "../../components/Stages/OrdersStage/OrdersStage";
+import Header from "../../components/Header/Header";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
+import Footer from "../../components/Footer/Footer";
+import { ImExit } from "react-icons/im";
 
 function ProfilePage() {
   const [currentStage, setCurrentStage] = useState(0);
@@ -42,46 +46,41 @@ function ProfilePage() {
     },
   ];
   return (
-    <section className={styles.profile}>
-      <div className="container">
-        <h2 className={styles.title}>Личный кабинет</h2>
-        <div className={styles.row}>
-          <div className={styles.menu}>
-            <div className={styles.menu__col}>
-              {stages.map(({ name, img }, index) => (
-                <div
-                  key={name}
-                  className={`${styles.menu__item} ${
-                    index === currentStage && styles.active
-                  }`}
-                  onClick={() => setCurrentStage(index)}
-                >
-                  {img}
-                  <p>{name}</p>
+    <>
+      <Header />
+      <Breadcrumbs />
+      <section className={styles.profile}>
+        <div className="container">
+          <h2 className={styles.title}>Личный кабинет</h2>
+          <div className={styles.row}>
+            <div className={styles.menu}>
+              <div className={styles.menu__col}>
+                {stages.map(({ name, img }, index) => (
+                  <div
+                    key={name}
+                    className={`${styles.menu__item} ${
+                      index === currentStage && styles.active
+                    }`}
+                    onClick={() => setCurrentStage(index)}
+                  >
+                    {img}
+                    <p>{name}</p>
+                  </div>
+                ))}
+                <div onClick={logout} className={styles.logout}>
+                  <ImExit size={28} />
+                  <p>Выйти</p>
                 </div>
-              ))}
-              <div onClick={logout} className={styles.logout}>
-                <svg
-                  width="28"
-                  height="25"
-                  viewBox="0 0 28 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14.5488 22.7559L14.5488 19L0.999999 19L1 6L14.5488 6L14.5488 2.13086L26.4717 12.0303L14.5488 22.7559Z"
-                    stroke="#1a2749"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <p>Выйти</p>
               </div>
             </div>
+            <div className={styles.content}>
+              {stages[currentStage].component}
+            </div>
           </div>
-          <div className={styles.content}>{stages[currentStage].component}</div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </>
   );
 }
 

@@ -6,6 +6,7 @@ import CatalogPage from "../pages/CatalogPage/CatalogPage";
 import SingleProduct from "../components/SingleProduct/SingleProduct";
 import AboutCompanyPage from "../pages/AboutCompanyPage/AboutCompanyPage";
 import CartPage from "../pages/CartPage/CartPage";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 
 function AppRouter() {
   return (
@@ -13,6 +14,7 @@ function AppRouter() {
       <Route path={ROUTES.HOME} element={<HomePage />} />
       <Route path={ROUTES.COMPANY} element={<AboutCompanyPage />} />
       <Route path={ROUTES.CART} element={<CartPage />} />
+      <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
 
       <Route path={ROUTES.CATALOG} element={<CatalogPage />}>
         <Route path=":id" element={<SingleProduct />} />
