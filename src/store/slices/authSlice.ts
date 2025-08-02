@@ -22,9 +22,13 @@ export const authSlice = createSlice({
     setUser(state, action) {
       state.user = action.payload;
     },
+    logoutUser(state) {
+      state.user = null;
+      localStorage.removeItem("token");
+    },
   },
 });
 
-export const { setToken, setUser } = authSlice.actions;
+export const { setToken, setUser, logoutUser } = authSlice.actions;
 
 export default authSlice.reducer;
