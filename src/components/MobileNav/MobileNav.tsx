@@ -25,7 +25,7 @@ function MobileNav() {
           <path d="M16 4L4 16" stroke="#A5A5A5" strokeWidth="4" />
         </svg>
       </button>
-      <ul className={styles.links}>
+      <ul className={styles.links} onClick={handleClose}>
         <li className={styles.link} onClick={() => navigate(ROUTES.COMPANY)}>
           {t[lang].header.company}
         </li>

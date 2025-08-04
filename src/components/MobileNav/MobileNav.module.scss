@@ -9,10 +9,12 @@
   align-items: center;
   justify-content: center;
   transition: 0.3s;
+  transform: scale(0.9);
 }
 .open {
   visibility: visible;
   opacity: 1;
+  transform: scale(1);
 }
 .links {
   display: flex;
@@ -22,6 +24,11 @@
 }
 .link {
   cursor: pointer;
+  text-transform: uppercase;
+  padding: 10px 0;
+  &:hover {
+    color: var(--red);
+  }
 }
 .close {
   position: absolute;
