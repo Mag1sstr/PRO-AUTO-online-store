@@ -20,6 +20,7 @@ import CartDrop from "../CartDrop/CartDrop";
 import { useGetCartQuery } from "../../api/api";
 import { toast } from "react-toastify";
 import Search from "../Search/Search";
+import MobileNav from "../MobileNav/MobileNav";
 
 interface IProps {
   slider?: boolean;
@@ -70,6 +71,7 @@ function Header({ slider = true }: IProps) {
       <ModalLogin />
       <ModalRegister />
       <Search />
+      <MobileNav />
 
       {slider && <Slider />}
       <div className={styles.header__top}>
@@ -102,7 +104,12 @@ function Header({ slider = true }: IProps) {
                   {t[lang].header.catalog}
                 </li>
 
-                <li className={styles.link}>{t[lang].header.services}</li>
+                <li
+                  className={styles.link}
+                  onClick={() => navigate(ROUTES.SERVICES)}
+                >
+                  {t[lang].header.services}
+                </li>
                 <li className={styles.link}>{t[lang].header.info}</li>
                 <li className={styles.link}>{t[lang].header.contacts}</li>
               </ul>

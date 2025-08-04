@@ -13,6 +13,8 @@ interface IModalsContext {
   setOpenAddProduct: SetModalState;
   openSearch: boolean;
   setOpenSearch: SetModalState;
+  openMobileNav: boolean;
+  setOpenMobileNav: SetModalState;
 }
 
 export const ModalsContext = createContext({} as IModalsContext);

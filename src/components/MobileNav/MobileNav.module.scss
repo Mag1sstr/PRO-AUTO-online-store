@@ -1,0 +1,45 @@
+.wrapper {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+  background-color: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.open {
+  visibility: visible;
+  opacity: 1;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.link {
+  cursor: pointer;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  svg * {
+    transition: 0.3s;
+  }
+  &:hover {
+    svg * {
+      stroke: var(--red);
+    }
+  }
+}
