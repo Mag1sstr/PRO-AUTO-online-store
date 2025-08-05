@@ -136,6 +136,17 @@
           "price_order": "Стоимость"
         }
       }
+    },
+    "order_service": {
+      "tabs": {
+        "order": "Заказать услугу",
+        "question": "Задать вопрос"
+      },
+      "diagnostics": {
+        "title": "ДИАГНОСТИКА АККУМУЛЯТОРА",
+        "banner_text": "ТРЕБУЕТ ЛИ ЗАМЕНЫ АККУМУЛЯТОР?",
+        "desc": "Профессионалы магазина «PRO auto» совершенно бесплатно проведут диагностику АКБ Вашего автомобиля, а также дадут рекомендации по дальнейшей эксплуатации аккумулятора, или по его замене, в случае необходимости. Ждём Вас в наших отделах продаж!"
+      }
     }
   },
   "en": {
@@ -274,6 +285,17 @@
           "date_order": "Order date",
           "price_order": "Price"
         }
+      }
+    },
+    "order_service": {
+      "tabs": {
+        "order": "Order a service",
+        "question": "Ask a question"
+      },
+      "diagnostics": {
+        "title": "BATTERY DIAGNOSTICS",
+        "banner_text": "DOES THE BATTERY NEED TO BE REPLACED?",
+        "desc": "The professionals of the PRO auto store will diagnose your car battery absolutely free of charge, and also give recommendations on further use of the battery, or on its replacement, if necessary. We are waiting for you in our sales departments!"
       }
     }
   }

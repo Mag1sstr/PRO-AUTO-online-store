@@ -3,6 +3,10 @@ import cardImg1 from "../../assets/order-service/01.png";
 import cardImg2 from "../../assets/order-service/02.png";
 import Button from "../Button/Button";
 import { useEffect, useRef, useState } from "react";
+import OrderService from "../OrderService/OrderService";
+import { useLang } from "../../hooks/useLang";
+import diagnosImg from "../../assets/order-service/diagnos-banner.jpg";
+import receptionImg from "../../assets/order-service/reception-banner.png";
 
 const services = [
   {
@@ -20,6 +24,8 @@ const services = [
 ];
 function ServiceOverview() {
   const [selectService, setSelectService] = useState<string | null>(null);
+
+  const { t, lang } = useLang();
 
   const diagnoscticsRef = useRef<HTMLDivElement | null>(null);
   const receptionRef = useRef<HTMLDivElement | null>(null);
@@ -65,9 +71,13 @@ function ServiceOverview() {
         </div>
       </section>
       {selectService === "diagnostics" && (
-        <section ref={diagnoscticsRef} className={styles.service}>
-          <div className="container"></div>
-        </section>
+        <OrderService
+          ref={diagnoscticsRef}
+          title={t[lang].order_service.diagnostics.title}
+          bannerText={t[lang].order_service.diagnostics.banner_text}
+          description={t[lang].order_service.diagnostics.desc}
+          bannerImage={diagnosImg}
+        />
       )}
     </>
   );
