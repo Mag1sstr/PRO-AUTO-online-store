@@ -21,6 +21,7 @@ import { useGetCartQuery } from "../../api/api";
 import { toast } from "react-toastify";
 import Search from "../Search/Search";
 import MobileNav from "../MobileNav/MobileNav";
+import { NAV_LINKS } from "../../constants/links";
 
 interface IProps {
   slider?: boolean;
@@ -90,28 +91,15 @@ function Header({ slider = true }: IProps) {
             </div>
             {windowWidth > 1040 && (
               <ul className={styles.links}>
-                <li
-                  className={styles.link}
-                  onClick={() => navigate(ROUTES.COMPANY)}
-                >
-                  {t[lang].header.company}
-                </li>
-
-                <li
-                  className={styles.link}
-                  onClick={() => navigate(ROUTES.CATALOG)}
-                >
-                  {t[lang].header.catalog}
-                </li>
-
-                <li
-                  className={styles.link}
-                  onClick={() => navigate(ROUTES.SERVICES)}
-                >
-                  {t[lang].header.services}
-                </li>
-                <li className={styles.link}>{t[lang].header.info}</li>
-                <li className={styles.link}>{t[lang].header.contacts}</li>
+                {NAV_LINKS.map((link, index) => (
+                  <li
+                    key={index}
+                    className={styles.link}
+                    onClick={() => navigate(link.path)}
+                  >
+                    {link.name}
+                  </li>
+                ))}
               </ul>
             )}
 

@@ -1,10 +1,8 @@
-import { useLang } from "../../hooks/useLang";
 import styles from "./MobileNav.module.scss";
-import { ROUTES } from "../../routes/routes";
 import { useNavigate } from "react-router-dom";
 import { useModals } from "../../hooks/useModals";
+import { NAV_LINKS } from "../../constants/links";
 function MobileNav() {
-  const { t, lang } = useLang();
   const navigate = useNavigate();
   const { openMobileNav, setOpenMobileNav } = useModals();
 
@@ -26,19 +24,15 @@ function MobileNav() {
         </svg>
       </button>
       <ul className={styles.links} onClick={handleClose}>
-        <li className={styles.link} onClick={() => navigate(ROUTES.COMPANY)}>
-          {t[lang].header.company}
-        </li>
-
-        <li className={styles.link} onClick={() => navigate(ROUTES.CATALOG)}>
-          {t[lang].header.catalog}
-        </li>
-
-        <li className={styles.link} onClick={() => navigate(ROUTES.SERVICES)}>
-          {t[lang].header.services}
-        </li>
-        <li className={styles.link}>{t[lang].header.info}</li>
-        <li className={styles.link}>{t[lang].header.contacts}</li>
+        {NAV_LINKS.map((link, index) => (
+          <li
+            key={index}
+            className={styles.link}
+            onClick={() => navigate(link.path)}
+          >
+            {link.name}
+          </li>
+        ))}
       </ul>
     </div>
   );

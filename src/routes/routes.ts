@@ -6,4 +6,6 @@ export const ROUTES = {
   CART: "/cart",
   COMPANY: "/company",
   SERVICES: "/services",
+  INFO: "/info",
+  CONTACTS: "/contacts",
 };
