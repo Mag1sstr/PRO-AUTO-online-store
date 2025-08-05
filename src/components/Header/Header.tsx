@@ -21,7 +21,6 @@ import { useGetCartQuery } from "../../api/api";
 import { toast } from "react-toastify";
 import Search from "../Search/Search";
 import MobileNav from "../MobileNav/MobileNav";
-import { NAV_LINKS } from "../../constants/links";
 
 interface IProps {
   slider?: boolean;
@@ -38,6 +37,14 @@ function Header({ slider = true }: IProps) {
   } = useModals();
   const { t, lang } = useLang();
   const { user } = useAuth();
+
+  const NAV_LINKS = [
+    { name: t[lang].header.company, path: ROUTES.COMPANY },
+    { name: t[lang].header.catalog, path: ROUTES.CATALOG },
+    { name: t[lang].header.services, path: ROUTES.SERVICES },
+    { name: t[lang].header.info, path: ROUTES.INFO },
+    { name: t[lang].header.contacts, path: ROUTES.CONTACTS },
+  ];
 
   const navigate = useNavigate();
 

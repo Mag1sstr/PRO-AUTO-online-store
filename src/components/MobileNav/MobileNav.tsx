@@ -1,14 +1,24 @@
 import styles from "./MobileNav.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useModals } from "../../hooks/useModals";
-import { NAV_LINKS } from "../../constants/links";
+import { useLang } from "../../hooks/useLang";
+import { ROUTES } from "../../routes/routes";
 function MobileNav() {
   const navigate = useNavigate();
+  const { t, lang } = useLang();
   const { openMobileNav, setOpenMobileNav } = useModals();
 
   const handleClose = () => {
     setOpenMobileNav(false);
   };
+  const NAV_LINKS = [
+    { name: t[lang].header.company, path: ROUTES.COMPANY },
+    { name: t[lang].header.catalog, path: ROUTES.CATALOG },
+    { name: t[lang].header.services, path: ROUTES.SERVICES },
+    { name: t[lang].header.info, path: ROUTES.INFO },
+    { name: t[lang].header.contacts, path: ROUTES.CONTACTS },
+  ];
+
   return (
     <div className={`${styles.wrapper} ${openMobileNav && styles.open}`}>
       <button className={styles.close} onClick={handleClose}>

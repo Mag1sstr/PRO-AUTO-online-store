@@ -1,4 +1,4 @@
-import styles from "./OrderService.module.scss";
+import styles from "./ServiceOverview.module.scss";
 import cardImg1 from "../../assets/order-service/01.png";
 import cardImg2 from "../../assets/order-service/02.png";
 import Button from "../Button/Button";
@@ -18,7 +18,7 @@ const services = [
     img: cardImg2,
   },
 ];
-function OrderService() {
+function ServiceOverview() {
   const [selectService, setSelectService] = useState<string | null>(null);
 
   const diagnoscticsRef = useRef<HTMLDivElement | null>(null);
@@ -73,4 +73,4 @@ function OrderService() {
   );
 }
 
-export default OrderService;
+export default ServiceOverview;
