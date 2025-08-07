@@ -3,6 +3,7 @@ import styles from "./OrderService.module.scss";
 import { useLang } from "../../hooks/useLang";
 import ModalInput from "../ModalInput/ModalInput";
 import Button from "../Button/Button";
+import Checkbox from "../Checkbox/Checkbox";
 
 interface IProps {
   title: string;
@@ -34,9 +35,11 @@ const OrderService = forwardRef<HTMLDivElement, IProps>(
           <div className={styles.form}>
             <div className={styles.form__row}>
               <div className={styles.left}>
-                <ModalInput title="Ваше имя" />
-                <ModalInput title="Ваше имя" />
-                <ModalInput title="Ваше имя" />
+                <ModalInput title={t[lang].modals.name} />
+                <ModalInput title={t[lang].modals.tel} />
+                <ModalInput title={t[lang].modals.email} />
+                <textarea></textarea>
+                <Checkbox />
               </div>
               <div className={styles.right}></div>
             </div>
