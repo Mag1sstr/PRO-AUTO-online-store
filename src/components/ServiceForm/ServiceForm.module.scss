@@ -1,0 +1,52 @@
+.form {
+  & > p {
+    font-size: 20px;
+    margin-bottom: 28px;
+  }
+}
+.form__row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.left {
+  width: 648px;
+}
+.field {
+  p {
+    margin-bottom: 8px;
+  }
+  textarea {
+    display: block;
+    width: 100%;
+    resize: none;
+    font-family: inherit;
+    border: 4px solid var(--text-black);
+    outline: none;
+    font-size: 18px;
+    padding: 5px 15px;
+    &:focus {
+      filter: brightness(92%);
+    }
+  }
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  span {
+    color: var(--red);
+  }
+}
+.right {
+  flex: 1;
+  height: 440px;
+  min-width: 280px;
+  background-color: gray;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

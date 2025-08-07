@@ -1,9 +1,7 @@
 import { forwardRef, useState } from "react";
 import styles from "./OrderService.module.scss";
 import { useLang } from "../../hooks/useLang";
-import ModalInput from "../ModalInput/ModalInput";
-import Button from "../Button/Button";
-import Checkbox from "../Checkbox/Checkbox";
+import ServiceForm from "../ServiceForm/ServiceForm";
 
 interface IProps {
   title: string;
@@ -20,10 +18,11 @@ const OrderService = forwardRef<HTMLDivElement, IProps>(
     const tabs = [
       {
         name: t[lang].order_service.tabs.order,
-        // component: ,
+        component: <ServiceForm />,
       },
       {
         name: t[lang].order_service.tabs.question,
+        component: <ServiceForm question />,
       },
     ];
     return (
@@ -41,6 +40,7 @@ const OrderService = forwardRef<HTMLDivElement, IProps>(
           <div className={styles.switch}>
             {tabs.map((el, i) => (
               <p
+                key={i}
                 onClick={() => setCurrentTab(i)}
                 className={currentTab === i ? styles.active : ""}
               >
@@ -48,34 +48,7 @@ const OrderService = forwardRef<HTMLDivElement, IProps>(
               </p>
             ))}
           </div>
-
-          {/* <div className={styles.form}>
-            <p>Данные для заказа</p>
-            <div className={styles.form__row}>
-              <div className={styles.left}>
-                <ModalInput title={t[lang].modals.name} />
-                <ModalInput title={t[lang].modals.tel} />
-                <ModalInput title={t[lang].modals.email} />
-                <div className={styles.field}>
-                  <p>Сообщение:</p>
-                  <textarea></textarea>
-                </div>
-              </div>
-              <div className={styles.right}>
-                <img src={formOrderImage} alt="form-image" />
-              </div>
-            </div>
-            <div className={styles.check}>
-              <Checkbox check={check} setCheck={setCheck} />
-              <p>
-                Я согласен на
-                <span> обработку персональных данных</span>
-              </p>
-            </div>
-            <Button red center>
-              ЗАКАЗАТЬ ЗВОНОК
-            </Button>
-          </div> */}
+          {tabs[currentTab].component}
         </div>
       </section>
     );

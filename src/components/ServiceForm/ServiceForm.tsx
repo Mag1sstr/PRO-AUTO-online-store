@@ -8,7 +8,7 @@ import formOrderImage from "../../assets/order-service/form1.jpg";
 import formQuestionImage from "../../assets/order-service/form2.jpg";
 
 interface IProps {
-  question: boolean;
+  question?: boolean;
 }
 function ServiceForm({ question }: IProps) {
   const [check, setCheck] = useState(false);
