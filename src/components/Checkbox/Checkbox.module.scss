@@ -5,6 +5,7 @@
   min-height: 36px;
   border: 4px solid var(--text-black);
   background-color: #fff;
+  cursor: pointer;
   &::before {
     opacity: 0;
     content: "";
@@ -14,10 +15,11 @@
     background-color: var(--red);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.2);
     transition: 0.3s;
   }
   &.active::before {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
