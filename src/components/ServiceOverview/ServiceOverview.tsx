@@ -79,6 +79,15 @@ function ServiceOverview() {
           bannerImage={diagnosImg}
         />
       )}
+      {selectService === "reception" && (
+        <OrderService
+          ref={receptionRef}
+          title={t[lang].order_service.reception.title}
+          bannerText={t[lang].order_service.reception.banner_text}
+          description={t[lang].order_service.reception.desc}
+          bannerImage={receptionImg}
+        />
+      )}
     </>
   );
 }

@@ -146,6 +146,11 @@
         "title": "ДИАГНОСТИКА АККУМУЛЯТОРА",
         "banner_text": "ТРЕБУЕТ ЛИ ЗАМЕНЫ АККУМУЛЯТОР?",
         "desc": "Профессионалы магазина «PRO auto» совершенно бесплатно проведут диагностику АКБ Вашего автомобиля, а также дадут рекомендации по дальнейшей эксплуатации аккумулятора, или по его замене, в случае необходимости. Ждём Вас в наших отделах продаж!"
+      },
+      "reception": {
+        "title": "прием аккумуляторов",
+        "banner_text": "ПОКУПАЕМ Б/У АККУМУЛЯТОРЫ от 600 руб",
+        "desc": "Наша компания специализируется скупке поддержанных АКБ. Прием бу аккумуляторов для авто – от 600 рублей."
       }
     }
   },
@@ -296,6 +301,11 @@
         "title": "BATTERY DIAGNOSTICS",
         "banner_text": "DOES THE BATTERY NEED TO BE REPLACED?",
         "desc": "The professionals of the PRO auto store will diagnose your car battery absolutely free of charge, and also give recommendations on further use of the battery, or on its replacement, if necessary. We are waiting for you in our sales departments!"
+      },
+      "reception": {
+        "title": "battery acceptance",
+        "banner_text": "WE BUY USED BATTERIES from 600 rubles",
+        "desc": "Our company specializes in buying used batteries. Acceptance of used car batteries - from 600 rubles."
       }
     }
   }
