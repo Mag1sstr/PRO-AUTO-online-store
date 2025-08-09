@@ -79,7 +79,56 @@ function ContactsPageContent() {
               </ul>
             </div>
           </div>
-          <div className={styles.right}></div>
+          <div className={styles.right}>
+            <div
+              style={{
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              <a
+                href="https://yandex.kz/maps/ru/org/bayterek/225535630402/?lang=ru&utm_medium=mapframe&utm_source=maps"
+                style={{
+                  color: "#eee",
+                  fontSize: 12,
+                  position: "absolute",
+                  top: 0,
+                }}
+              >
+                Байтерек
+              </a>
+              <a
+                href="https://yandex.kz/maps/ru/163/astana/category/landmark_attraction/89683368508/?lang=ru&utm_medium=mapframe&utm_source=maps"
+                style={{
+                  color: "#eee",
+                  fontSize: 12,
+                  position: "absolute",
+                  top: "14px",
+                }}
+              >
+                Достопримечательность в Астане
+              </a>
+              <a
+                href="https://yandex.kz/maps/ru/163/astana/category/observation_deck/89667443116/?lang=ru&utm_medium=mapframe&utm_source=maps"
+                style={{
+                  color: "#eee",
+                  fontSize: 12,
+                  position: "absolute",
+                  top: "28px",
+                }}
+              >
+                Смотровая площадка в Астане
+              </a>
+              <iframe
+                src="https://yandex.kz/map-widget/v1/?ll=71.450645%2C51.130544&mode=poi&poi%5Bpoint%5D=71.430397%2C51.128212&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D225535630402&z=12.9"
+                width="100%"
+                height={426}
+                frameBorder="1"
+                allowFullScreen={true}
+                style={{ position: "relative" }}
+              ></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
