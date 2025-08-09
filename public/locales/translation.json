@@ -102,7 +102,8 @@
       "catalog": "КАТАЛОГ",
       "company": "КОМПАНИЯ",
       "cart": "Корзина",
-      "profile": "Личный кабинет"
+      "profile": "Личный кабинет",
+      "info": "информация"
     },
     "catalog": {
       "footer": {
@@ -257,7 +258,8 @@
       "catalog": "catalog",
       "company": "company",
       "cart": "Cart",
-      "profile": "profile"
+      "profile": "profile",
+      "info": "info"
     },
     "catalog": {
       "footer": {
