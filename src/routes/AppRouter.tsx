@@ -9,6 +9,7 @@ import CartPage from "../pages/CartPage/CartPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import ServicesPage from "../pages/ServicesPage/ServicesPage";
 import NewsPage from "../pages/NewsPage/NewsPage";
+import ContactsPage from "../pages/ContactsPage/ContactsPage";
 
 function AppRouter() {
   return (
@@ -19,6 +20,7 @@ function AppRouter() {
       <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
       <Route path={ROUTES.SERVICES} element={<ServicesPage />} />
       <Route path={ROUTES.INFO} element={<NewsPage />} />
+      <Route path={ROUTES.CONTACTS} element={<ContactsPage />} />
 
       <Route path={ROUTES.CATALOG} element={<CatalogPage />}>
         <Route path=":id" element={<SingleProduct />} />
