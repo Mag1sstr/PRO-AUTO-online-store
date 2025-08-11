@@ -6,6 +6,7 @@ import img1 from "../../assets/news/01.jpg";
 import img2 from "../../assets/news/02.jpg";
 import img3 from "../../assets/news/03.jpg";
 import NewsCard from "../NewsCard/NewsCard";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 function NewsPageContent() {
   const { t, lang } = useLang();
@@ -30,10 +31,8 @@ function NewsPageContent() {
   return (
     <section className={styles.wrapper}>
       <div className="container">
-        <div className={styles.center}>
-          <h2 className={styles.title}>{t[lang].news.title}</h2>
-          <p>Следите за новостями Pro auto</p>
-        </div>
+        <SectionTitle>{t[lang].news.title}</SectionTitle>
+        <p className={styles.text}>Следите за новостями Pro auto</p>
         <div className={styles.main__news}>
           <div className={styles.image__wrapper}>
             <img src={proautoImg} alt="image" />
