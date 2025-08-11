@@ -103,7 +103,8 @@
       "company": "КОМПАНИЯ",
       "cart": "Корзина",
       "profile": "Личный кабинет",
-      "info": "информация"
+      "info": "информация",
+      "contacts": "КОНТАКТЫ"
     },
     "catalog": {
       "footer": {
@@ -259,7 +260,8 @@
       "company": "company",
       "cart": "Cart",
       "profile": "profile",
-      "info": "info"
+      "info": "info",
+      "contacts": "contacts"
     },
     "catalog": {
       "footer": {

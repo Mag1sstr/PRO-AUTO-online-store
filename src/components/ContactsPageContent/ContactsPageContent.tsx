@@ -1,9 +1,14 @@
+import { useLang } from "../../hooks/useLang";
+import SectionTitle from "../SectionTitle/SectionTitle";
 import styles from "./ContactsPageContent.module.scss";
 
 function ContactsPageContent() {
+  const { t, lang } = useLang();
   return (
     <section className={styles.wrapper}>
       <div className="container">
+        <SectionTitle>{t[lang].paths.contacts}</SectionTitle>
+        <p className={styles.text}>Аккумуляторы и автомасла в Перми</p>
         <div className={styles.contacts}>
           <div className={styles.left}>
             <div className={styles.info}>
