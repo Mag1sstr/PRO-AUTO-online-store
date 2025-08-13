@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLang } from "../../hooks/useLang";
 import Button from "../Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
@@ -7,6 +8,7 @@ import styles from "./SectionAsk.module.scss";
 
 function SectionAsk() {
   const { t, lang } = useLang();
+  const [check, setCheck] = useState(false);
   return (
     <section className={styles.wrapper}>
       <div className={styles.inner}>
@@ -25,7 +27,11 @@ function SectionAsk() {
           <SectionAskInput name={t[lang].modals.name} textarea />
 
           <div className={styles.check}>
-            <Checkbox />{" "}
+            <Checkbox
+              check={check}
+              setCheck={setCheck}
+              className={styles.edit}
+            />{" "}
             <p>
               Я согласен на <span>обработку персональных данных</span>
             </p>
