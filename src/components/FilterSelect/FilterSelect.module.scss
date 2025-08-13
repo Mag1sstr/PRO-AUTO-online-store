@@ -3,7 +3,7 @@
   width: inherit;
   display: flex;
   flex-direction: column;
-  //   transition: 0.3s;
+  text-transform: uppercase;
   &.selected {
     .item {
       background-color: var(--red);
@@ -28,7 +28,7 @@
 }
 .select.open .item {
   background-color: var(--red);
-  font-size: 14px;
+
   svg {
     transform: rotate(90deg);
   }
