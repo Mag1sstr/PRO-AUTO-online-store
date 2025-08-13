@@ -1,7 +1,12 @@
+import { useLang } from "../../hooks/useLang";
+import Button from "../Button/Button";
+import Checkbox from "../Checkbox/Checkbox";
+import SectionAskInput from "../SectionAskInput/SectionAskInput";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import styles from "./SectionAsk.module.scss";
 
 function SectionAsk() {
+  const { t, lang } = useLang();
   return (
     <section className={styles.wrapper}>
       <div className={styles.inner}>
@@ -14,10 +19,20 @@ function SectionAsk() {
         </div>
 
         <div className={styles.col}>
-          <div className={styles.field}>
-            <p>Ваше имя:*</p>
-            <input type="text" />
+          <SectionAskInput name={t[lang].modals.name} />
+          <SectionAskInput name={t[lang].modals.tel} />
+          <SectionAskInput name={t[lang].modals.email} />
+          <SectionAskInput name={t[lang].modals.name} textarea />
+
+          <div className={styles.check}>
+            <Checkbox />{" "}
+            <p>
+              Я согласен на <span>обработку персональных данных</span>
+            </p>
           </div>
+          <Button fontSize={12} end>
+            ОТПРАВИТЬ
+          </Button>
         </div>
       </div>
     </section>

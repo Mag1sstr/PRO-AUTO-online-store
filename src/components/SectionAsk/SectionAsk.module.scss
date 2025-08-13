@@ -34,20 +34,16 @@
   margin: auto;
   max-width: 688px;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.field {
-  p {
-    color: #fff;
-    margin-bottom: 8px;
-  }
-  input {
-    width: 100%;
-    background-color: #fff;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    padding: 0 15px;
-    height: 40px;
-    font-family: inherit;
+.check {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  p span {
+    color: var(--red);
   }
 }
