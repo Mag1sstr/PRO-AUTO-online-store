@@ -17,27 +17,27 @@ interface IFields {
 }
 
 function SectionAsk() {
-  const { register, handleSubmit, getValues } = useForm<IFields>();
+  const { register, handleSubmit } = useForm<IFields>({
+    mode: "onChange",
+  });
   const { t, lang } = useLang();
   const [check, setCheck] = useState(false);
 
   const botToken = "8017199839:AAFcar-ypp1puKUT5hCBx4G59l71UNkdu-w";
   const chatId = "747088794";
-  const fieldsValues = getValues();
-  const message = `
-  📩 Вам новая заявка:
-  <b>Имя:</b> ${fieldsValues.message}
-  <b>Телефон:</b> ${fieldsValues.message}
-  <b>Почта:</b> ${fieldsValues.message}
-  <b>Сообщение:</b> ${fieldsValues.message}
-  `;
 
   const submit: SubmitHandler<IFields> = (data) => {
     if (Object.values(data).every((el) => el.length > 0)) {
       axios
         .post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
           chat_id: chatId,
-          text: message,
+          text: `
+          📩 Вам новая заявка:
+          <b>Имя:</b> ${data.name}
+          <b>Телефон:</b> ${data.tel}
+          <b>Почта:</b> ${data.email}
+          <b>Сообщение:</b> ${data.message}
+          `,
           parse_mode: "HTML",
         })
         .then((resp) => console.log(resp.data));
