@@ -154,6 +154,13 @@
         "banner_text": "ПОКУПАЕМ Б/У АККУМУЛЯТОРЫ от 600 руб",
         "desc": "Наша компания специализируется скупке поддержанных АКБ. Прием бу аккумуляторов для авто – от 600 рублей."
       }
+    },
+    "contacts": {
+      "subtitle": "Аккумуляторы и автомасла в Астане",
+      "how_contact": "Как с нами связаться",
+      "mode": "Режим работы",
+      "adress": "Астана, бульвар Нуржол, 14",
+      "schedule": "Пн. – Вс.: с 9:00 до 18:00"
     }
   },
   "en": {
@@ -311,6 +318,13 @@
         "banner_text": "WE BUY USED BATTERIES from 600 rubles",
         "desc": "Our company specializes in buying used batteries. Acceptance of used car batteries - from 600 rubles."
       }
+    },
+    "contacts": {
+      "subtitle": "Batteries and motor oils in Astana",
+      "how_contact": "How to contact us",
+      "mode": "Operating mode",
+      "adress": "Astana, Nurzhol Boulevard, 14",
+      "schedule": "Mon. - Sun.: from 9:00 to 18:00"
     }
   }
 }

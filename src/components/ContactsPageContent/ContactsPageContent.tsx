@@ -8,11 +8,11 @@ function ContactsPageContent() {
     <section className={styles.wrapper}>
       <div className="container">
         <SectionTitle>{t[lang].paths.contacts}</SectionTitle>
-        <p className={styles.text}>Аккумуляторы и автомасла в Перми</p>
+        <p className={styles.text}>{t[lang].contacts.subtitle}</p>
         <div className={styles.contacts}>
           <div className={styles.left}>
             <div className={styles.info}>
-              <h3>Как с нами связаться</h3>
+              <h3>{t[lang].contacts.how_contact}</h3>
               <ul className={styles.list}>
                 <li className={styles.list__item}>
                   <svg
@@ -61,12 +61,12 @@ function ContactsPageContent() {
                       fill="#C53720"
                     />
                   </svg>
-                  <p>г. Пермь, Леонова 82 Б</p>
+                  <p>{t[lang].contacts.adress}</p>
                 </li>
               </ul>
             </div>
             <div className={styles.info}>
-              <h3>Режим работы</h3>
+              <h3>{t[lang].contacts.mode}</h3>
               <ul className={styles.list}>
                 <li className={styles.list__item}>
                   <svg
@@ -79,7 +79,7 @@ function ContactsPageContent() {
                     <circle cx="10" cy="10" r="10" fill="#C53720" />
                     <path d="M10 3V11H16" stroke="#1D1D1D" strokeWidth="2" />
                   </svg>
-                  <p>Пн. – Вс.: с 9:00 до 18:00</p>
+                  <p>{t[lang].contacts.schedule}</p>
                 </li>
               </ul>
             </div>
