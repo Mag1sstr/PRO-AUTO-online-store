@@ -1,3 +1,87 @@
 .wrapper {
+  position: relative;
   padding: 88px 0;
+  background-image: url(../../assets/section-faq/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.7) 100%);
+  }
+}
+.inner {
+  position: relative;
+  z-index: 10;
+}
+.subtitle {
+  margin: 0 auto;
+  font-size: 24px;
+  max-width: 892px;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 36px;
+}
+.switch {
+  display: flex;
+  border-bottom: 1px solid var(--text-black);
+  margin-bottom: 32px;
+  p {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 4px solid var(--red);
+    font-size: 24px;
+  }
+}
+
+.details {
+  position: relative;
+  padding: 32px 8px;
+  border-bottom: 2px solid #fff;
+  overflow: hidden;
+  transition: 0.3s;
+
+  &.drop {
+    .details__content {
+      transition: 0.3s;
+      max-height: 70px;
+      margin-top: 20px;
+    }
+    .icon {
+      svg {
+        transform: rotate(45deg);
+      }
+      svg * {
+        stroke: var(--red);
+      }
+    }
+  }
+}
+.icon {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  svg {
+    transition: 0.3s;
+  }
+}
+.details__title {
+  cursor: pointer;
+}
+.details__content {
+  max-height: 0;
+  margin-top: 0;
+  transition: 0.3s;
+  overflow: hidden;
+  p {
+    line-height: 1.2;
+    opacity: 0.7;
+    max-width: 1024px;
+  }
+}
+.col {
+  margin-bottom: 72px;
 }
