@@ -7,10 +7,13 @@ import ModalInput from "../ModalInput/ModalInput";
 import Checkbox from "../Checkbox/Checkbox";
 import Button from "../Button/Button";
 import { useLang } from "../../hooks/useLang";
+import { useState } from "react";
 
 function ModalAsk() {
   const { openAskModal, setOpenAskModal } = useModals();
   const { t, lang } = useLang();
+
+  const [check, setCheck] = useState(false);
   return (
     <ModalWrapper open={openAskModal} setOpen={setOpenAskModal}>
       <ModalTop
@@ -27,7 +30,7 @@ function ModalAsk() {
         <ModalInput title={t[lang].modals.message} />
 
         <div className={styles.check}>
-          <Checkbox />
+          <Checkbox check={check} setCheck={setCheck} />
           <p>
             Я согласен на <span>обработку персональных данных</span>
           </p>
