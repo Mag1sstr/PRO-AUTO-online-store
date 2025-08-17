@@ -72,7 +72,8 @@
       "password": "Пароль",
       "name": "Ваше имя",
       "surname": "Фамилия",
-      "tel": "Телефон"
+      "tel": "Телефон",
+      "message": "Сообщение"
     },
     "errors": {
       "req": "Обязательное поле",
@@ -236,7 +237,8 @@
       "password": "Password",
       "name": "Name",
       "surname": "Surname",
-      "tel": "Telephone"
+      "tel": "Telephone",
+      "message": "Message"
     },
     "errors": {
       "req": "Required field",

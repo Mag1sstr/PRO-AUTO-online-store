@@ -1,0 +1,16 @@
+.content {
+  color: var(--text-black);
+  padding: 24px 40px;
+}
+.check {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  p {
+    span {
+      color: var(--red);
+    }
+  }
+}

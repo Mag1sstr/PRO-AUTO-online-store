@@ -2,13 +2,21 @@ import { useState } from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import styles from "./SectionFAQ.module.scss";
 import Button from "../Button/Button";
+import { useModals } from "../../hooks/useModals";
 
 function SectionFAQ() {
   const [drop, setDrop] = useState<number | null>(null);
 
+  const { setOpenAskModal } = useModals();
+
   const handleDrop = (index: number | null) => {
     setDrop(index);
   };
+
+  const handleOpenModal = () => {
+    setOpenAskModal(true);
+  };
+
   return (
     <section className={styles.wrapper}>
       <div className="container">
@@ -63,7 +71,9 @@ function SectionFAQ() {
               </div>
             ))}
           </div>
-          <Button center>ЗАДАТЬ ВОПРОС</Button>
+          <Button onClick={handleOpenModal} center>
+            ЗАДАТЬ ВОПРОС
+          </Button>
         </div>
       </div>
     </section>

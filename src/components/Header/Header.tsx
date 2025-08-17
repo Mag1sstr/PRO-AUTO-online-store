@@ -21,6 +21,7 @@ import { useGetCartQuery } from "../../api/api";
 import { toast } from "react-toastify";
 import Search from "../Search/Search";
 import MobileNav from "../MobileNav/MobileNav";
+import ModalAsk from "../ModalAsk/ModalAsk";
 
 interface IProps {
   slider?: boolean;
@@ -80,6 +81,7 @@ function Header({ slider = true }: IProps) {
       <ModalRegister />
       <Search />
       <MobileNav />
+      <ModalAsk />
 
       {slider && <Slider />}
       <div className={styles.header__top}>
