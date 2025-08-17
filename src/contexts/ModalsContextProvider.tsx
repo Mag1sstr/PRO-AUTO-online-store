@@ -13,6 +13,7 @@ export default function ModalsContextProvider({
   const [openAddProduct, setOpenAddProduct] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
+  const [openAskModal, setOpenAskModal] = useState(false);
 
   return (
     <ModalsContext.Provider
@@ -29,6 +30,8 @@ export default function ModalsContextProvider({
         setOpenSearch,
         openMobileNav,
         setOpenMobileNav,
+        openAskModal,
+        setOpenAskModal,
       }}
     >
       {children}

@@ -15,6 +15,8 @@ interface IModalsContext {
   setOpenSearch: SetModalState;
   openMobileNav: boolean;
   setOpenMobileNav: SetModalState;
+  openAskModal: boolean;
+  setOpenAskModal: SetModalState;
 }
 
 export const ModalsContext = createContext({} as IModalsContext);
