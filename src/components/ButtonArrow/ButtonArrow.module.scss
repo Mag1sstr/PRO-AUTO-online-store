@@ -1,0 +1,29 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  svg {
+    fill: #fff;
+    transition: 0.3s;
+    // transform: rotate(180deg);
+    path {
+      transition: 0.3s;
+    }
+  }
+  &:hover {
+    svg {
+      fill: var(--red);
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+  &:disabled {
+    svg {
+      opacity: 0.7;
+    }
+  }
+}
