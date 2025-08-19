@@ -162,6 +162,11 @@
       "mode": "Режим работы",
       "adress": "Астана, бульвар Нуржол, 14",
       "schedule": "Пн. – Вс.: с 9:00 до 18:00"
+    },
+    "reviews": {
+      "title": "ОТЗЫВЫ",
+      "subtitle": "Для нас ценно любое Ваше мнение.",
+      "btn": "ОСТАВИТЬ СВОЙ ОТЗЫВ"
     }
   },
   "en": {
@@ -327,6 +332,11 @@
       "mode": "Operating mode",
       "adress": "Astana, Nurzhol Boulevard, 14",
       "schedule": "Mon. - Sun.: from 9:00 to 18:00"
+    },
+    "reviews": {
+      "title": "REVIEWS",
+      "subtitle": "We value any of your opinions.",
+      "btn": "LEAVE YOUR REVIEW"
     }
   }
 }
