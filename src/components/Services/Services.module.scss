@@ -59,6 +59,7 @@
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  transition: 0.3s !important;
   &:hover {
     background-color: rgba($color: #c53720, $alpha: 0.3);
   }
