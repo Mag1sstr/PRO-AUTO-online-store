@@ -5,9 +5,12 @@ import icon3 from "../../assets/services/03.svg";
 import border from "../../assets/services/border.svg";
 import person from "../../assets/services/person.png";
 import { useLang } from "../../hooks/useLang";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 
 function Services() {
   const { t, lang } = useLang();
+  const navigate = useNavigate();
 
   //data-aos="fade-left"
   return (
@@ -19,7 +22,11 @@ function Services() {
         </div>
         <div className={styles.row}>
           <div className={styles.col}>
-            <div className={styles.card} data-aos="fade-up">
+            <div
+              className={styles.card}
+              data-aos="fade-up"
+              onClick={() => navigate(ROUTES.SERVICES)}
+            >
               <div className={styles.icon__wrapper}>
                 <img className={styles.icon} src={border} alt="" />
 
@@ -34,7 +41,11 @@ function Services() {
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-up">
+            <div
+              className={styles.card}
+              data-aos="fade-up"
+              onClick={() => navigate(ROUTES.SERVICES)}
+            >
               <div className={styles.icon__wrapper}>
                 <img className={styles.icon} src={border} alt="" />
 
@@ -49,7 +60,11 @@ function Services() {
                 </p>
               </div>
             </div>
-            <div className={styles.card} data-aos="fade-up">
+            <div
+              className={styles.card}
+              data-aos="fade-up"
+              onClick={() => navigate(ROUTES.SERVICES)}
+            >
               <div className={styles.icon__wrapper}>
                 <img className={styles.icon} src={border} alt="" />
 
