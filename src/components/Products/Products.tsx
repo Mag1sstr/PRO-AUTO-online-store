@@ -32,6 +32,12 @@ function Products() {
 
   const location = useLocation();
 
+  const sortedProducts =
+    data &&
+    [...data.items].sort((a, b) =>
+      sortPrice ? a.price - b.price : b.price - a.price
+    );
+
   return (
     <section className={styles.wrapper}>
       <ModalAddProduct />
@@ -101,9 +107,18 @@ function Products() {
                   </div>
 
                   <div className={styles.products}>
-                    {data?.items.map((el) => (
-                      <ProductCard key={el.id} {...el} />
-                    ))}
+                    {(sortPrice === null ? data?.items : sortedProducts)?.map(
+                      (el) => (
+                        <ProductCard key={el.id} {...el} />
+                      )
+                    )}
+                    {/* {!sortPrice
+                      ? data?.items.map((el) => (
+                          <ProductCard key={el.id} {...el} />
+                        ))
+                      : sortedProducts?.map((el) => (
+                          <ProductCard key={el.id} {...el} />
+                        ))} */}
                   </div>
                   <Pagination
                     totalPages={data?.totalPages}

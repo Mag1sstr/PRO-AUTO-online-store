@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useLang } from "../../hooks/useLang";
 import Button from "../Button/Button";
 import styles from "./Company.module.scss";
+import { ROUTES } from "../../routes/routes";
 function Company() {
   const { t, lang } = useLang();
+  const navigate = useNavigate();
 
   return (
     <section className={styles.wrapper}>
@@ -17,7 +20,11 @@ function Company() {
             </div>
             <div className={styles.content} data-aos="fade-up">
               <p>{t[lang].company.text}</p>
-              <Button width={216} height={52}>
+              <Button
+                width={216}
+                height={52}
+                onClick={() => navigate(ROUTES.COMPANY)}
+              >
                 {t[lang].company.btn}
               </Button>
             </div>
