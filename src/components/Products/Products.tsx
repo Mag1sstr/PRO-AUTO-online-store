@@ -82,9 +82,8 @@ function Products() {
                     <p
                       onClick={() => {
                         setSortAvailable((prev) => !prev);
-                        !sortAvailable
-                          ? dispatch(setAvailable(1))
-                          : dispatch(setAvailable(0));
+
+                        dispatch(setAvailable(!sortAvailable ? 1 : 0));
                       }}
                       className={sortAvailable ? styles.active : ""}
                     >
