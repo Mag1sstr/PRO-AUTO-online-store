@@ -108,6 +108,13 @@
       "contacts": "КОНТАКТЫ"
     },
     "catalog": {
+      "title": "FrostAuto - каталог компрессоров",
+      "header_filters": {
+        "sort": "сортировать",
+        "price": "по цене",
+        "available": "ПО НАЛИЧИЮ",
+        "view": "вид"
+      },
       "footer": {
         "title": "Преимущества компрессоров FrostAuto",
         "text1": "Компрессоры FrostAuto сконструированы именно так, чтобы обеспечить мощность и надежность. Они производятся из импортных компонентов на современном оборудовании. Компрессоры FrostAuto изготавливаются по технологии Ca/Ca, что способствует снижению расхода воды и саморазряда.",
@@ -278,6 +285,13 @@
       "contacts": "contacts"
     },
     "catalog": {
+      "title": "FrostAuto - compressor catalog",
+      "header_filters": {
+        "sort": "sort",
+        "price": "by price",
+        "available": "IN STOCK",
+        "view": "view"
+      },
       "footer": {
         "title": "Advantages of FrostAuto compressors",
         "text1": "Magnum batteries are designed specifically to provide power and reliability. They are manufactured from imported components on modern equipment. Magnum batteries are manufactured using Ca/Ca technology, which helps reduce water consumption and self-discharge.",

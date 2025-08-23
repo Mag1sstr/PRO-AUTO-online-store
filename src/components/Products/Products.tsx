@@ -48,7 +48,7 @@ function Products() {
       ) : (
         <div className="container">
           <h2 className={styles.title} data-aos="fade-up">
-            FrostAuto - каталог компрессоров
+            {t[lang].catalog.title}
           </h2>
           <div className={styles.row}>
             <Filters />
@@ -57,14 +57,14 @@ function Products() {
               {location.pathname === ROUTES.CATALOG && (
                 <>
                   <div className={styles.header__filters}>
-                    сортировать
+                    {t[lang].catalog.header_filters.sort}
                     <p
                       onClick={() => {
                         setSortPrice((prev) => !prev);
                       }}
                       className={sortPrice ? styles.active : ""}
                     >
-                      ПО ЦЕНЕ
+                      {t[lang].catalog.header_filters.price}
                       <svg
                         width="20"
                         height="20"
@@ -88,7 +88,7 @@ function Products() {
                       }}
                       className={sortAvailable ? styles.active : ""}
                     >
-                      ПО НАЛИЧИЮ
+                      {t[lang].catalog.header_filters.available}
                       <svg
                         width="20"
                         height="20"
@@ -105,7 +105,7 @@ function Products() {
                       </svg>
                     </p>
                     <div className={styles.view}>
-                      <p>ВИД:</p>
+                      <p>{t[lang].catalog.header_filters.view}:</p>
                       <button
                         onClick={() => setView("grid")}
                         className={view === "grid" ? styles.active : ""}
