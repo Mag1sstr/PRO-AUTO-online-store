@@ -16,6 +16,7 @@ function Products() {
   const dispatch = useAppDispatch();
   const [sortPrice, setSortPrice] = useState(false);
   const [sortAvailable, setSortAvailable] = useState(false);
+  const [view, setView] = useState<"grid" | "list">("grid");
 
   const { currentPage, available, brandId, modelId, genId } = useFilters();
 
@@ -103,6 +104,71 @@ function Products() {
                         />
                       </svg>
                     </p>
+                    <div className={styles.view}>
+                      <p>ВИД:</p>
+                      <button
+                        onClick={() => setView("grid")}
+                        className={view === "grid" ? styles.active : ""}
+                      >
+                        <svg
+                          width="24"
+                          height="26"
+                          viewBox="0 0 24 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="6" height="6" fill="#1D1D1D" />
+                          <rect y="10" width="6" height="6" fill="#1D1D1D" />
+                          <rect y="20" width="6" height="6" fill="#1D1D1D" />
+                          <rect x="9" width="6" height="6" fill="#1D1D1D" />
+                          <rect
+                            x="9"
+                            y="10"
+                            width="6"
+                            height="6"
+                            fill="#1D1D1D"
+                          />
+                          <rect
+                            x="9"
+                            y="20"
+                            width="6"
+                            height="6"
+                            fill="#1D1D1D"
+                          />
+                          <rect x="18" width="6" height="6" fill="#1D1D1D" />
+                          <rect
+                            x="18"
+                            y="10"
+                            width="6"
+                            height="6"
+                            fill="#1D1D1D"
+                          />
+                          <rect
+                            x="18"
+                            y="20"
+                            width="6"
+                            height="6"
+                            fill="#1D1D1D"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={() => setView("list")}
+                        className={view === "list" ? styles.active : ""}
+                      >
+                        <svg
+                          width="24"
+                          height="26"
+                          viewBox="0 0 24 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="24" height="6" fill="white" />
+                          <rect y="10" width="24" height="6" fill="white" />
+                          <rect y="20" width="24" height="6" fill="white" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
 
                   <div className={styles.products}>
