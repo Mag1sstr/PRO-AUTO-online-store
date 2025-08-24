@@ -10,6 +10,7 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import ServicesPage from "../pages/ServicesPage/ServicesPage";
 import NewsPage from "../pages/NewsPage/NewsPage";
 import ContactsPage from "../pages/ContactsPage/ContactsPage";
+import ProductsList from "../components/ProductsList/ProductsList";
 
 function AppRouter() {
   return (
@@ -23,6 +24,7 @@ function AppRouter() {
       <Route path={ROUTES.CONTACTS} element={<ContactsPage />} />
 
       <Route path={ROUTES.CATALOG} element={<CatalogPage />}>
+        <Route index element={<ProductsList />} />
         <Route path=":id" element={<SingleProduct />} />
       </Route>
 

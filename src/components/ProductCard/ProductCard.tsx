@@ -16,9 +16,11 @@ import {
 import { toast } from "react-toastify";
 import { useLang } from "../../hooks/useLang";
 
-// interface IProps extends IProductData {}
+interface IProps extends IProductData {
+  view?: "grid" | "list";
+}
 
-function ProductCard(el: IProductData) {
+function ProductCard(el: IProps) {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [count, setCount] = useState(0);
