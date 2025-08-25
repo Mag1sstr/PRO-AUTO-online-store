@@ -2,20 +2,23 @@ import { useEffect } from "react";
 import { useLang } from "../../hooks/useLang";
 import FilterSelect from "../FilterSelect/FilterSelect";
 import styles from "./Filters.module.scss";
-import { useAppDispatch } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 import {
   brandChange,
   genChange,
   getBrands,
   modelChange,
+  setAvailable,
 } from "../../store/slices/filtersSlice";
 import { useFilters } from "../../hooks/useFilters";
 import ParamsSelect from "../ParamsSelect/ParamsSelect";
+import Checkbox from "../Checkbox/Checkbox";
 
 function Filters() {
   const dispatch = useAppDispatch();
   const { t, lang } = useLang();
   const { brands, models, gens } = useFilters();
+  const available = useAppSelector((state) => state.filters.available);
 
   useEffect(() => {
     dispatch(getBrands());
@@ -58,16 +61,20 @@ function Filters() {
             </div>
           </div>
         </ParamsSelect>
-        {/* <div className={styles.slider__wrapper}>
-          <input className={styles.min} type="range" min="0" max="200000" />
-          <input
-            className={styles.max}
-            type="range"
-            min="0"
-            value="200000"
-            max="200000"
-          />
-        </div> */}
+        <ParamsSelect title="СТАТУС">
+          <div className={styles.status__col}>
+            <div className={styles.status__item}>
+              <Checkbox
+                onClick={() => dispatch(setAvailable(available === 0 ? 1 : 0))}
+              />{" "}
+              в наличии
+            </div>
+          </div>
+        </ParamsSelect>
+        <div className={styles.params__footer}>
+          Подберём аккумулятор и масло конкретно на ваш автомобиль. Цель нашего
+          магазина - предложение широкого ассортимента товаров.
+        </div>
       </div>
     </div>
   );

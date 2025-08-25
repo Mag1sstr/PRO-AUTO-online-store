@@ -13,6 +13,12 @@
   padding: 12px 8px;
   background-color: #000;
 }
+.params__footer {
+  padding: 12px;
+  background-color: var(--red);
+  font-size: 12px;
+  line-height: 1.2;
+}
 
 // slider
 .slider__wrapper {
@@ -48,4 +54,17 @@
       font-size: 14px;
     }
   }
+}
+
+.status__col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.status__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  text-transform: uppercase;
 }

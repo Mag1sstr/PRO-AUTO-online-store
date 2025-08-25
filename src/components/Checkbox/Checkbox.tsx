@@ -2,12 +2,14 @@ import styles from "./Checkbox.module.scss";
 
 interface IProps {
   check: boolean;
-  setCheck: (check: boolean) => void;
+  setCheck?: (check: boolean) => void;
   className?: string;
+  onClick?: () => void;
 }
-function Checkbox({ check, setCheck, className }: IProps) {
+function Checkbox({ check, setCheck, className, onClick }: IProps) {
   const handleClick = () => {
-    setCheck(!check);
+    onClick!();
+    setCheck!(!check);
   };
   return (
     <div
