@@ -10,6 +10,7 @@ import {
   modelChange,
 } from "../../store/slices/filtersSlice";
 import { useFilters } from "../../hooks/useFilters";
+import ParamsSelect from "../ParamsSelect/ParamsSelect";
 
 function Filters() {
   const dispatch = useAppDispatch();
@@ -49,7 +50,14 @@ function Filters() {
 
       <div className={styles.params}>
         <div className={styles.params__title}>ПОДБОР ПАРАМЕТРОВ</div>
-
+        <ParamsSelect title="ЦЕНА">
+          <div className={styles.range}>
+            <div className={styles.range__row}>
+              <input type="number" placeholder="от" />
+              <input type="number" placeholder="до" />
+            </div>
+          </div>
+        </ParamsSelect>
         {/* <div className={styles.slider__wrapper}>
           <input className={styles.min} type="range" min="0" max="200000" />
           <input
