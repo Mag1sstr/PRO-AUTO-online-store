@@ -47,9 +47,33 @@ function Filters() {
         }}
       />
 
-      {/* <div className={styles.params}>
+      <div className={styles.params}>
         <div className={styles.params__title}>ПОДБОР ПАРАМЕТРОВ</div>
-        <div className={styles.slider__wrapper}>
+        <div className={styles.select}>
+          <div className={styles.title}>
+            ЦЕНА{" "}
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M8 4L12 10L8 16" stroke="white" strokeWidth="4" />
+            </svg>
+          </div>
+          <div className={styles.select__drop}>
+            <div className={styles.content}>
+              <div className={styles.range}>
+                <div className={styles.range__row}>
+                  <input type="number" placeholder="от" />
+                  <input type="number" placeholder="до" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className={styles.slider__wrapper}>
           <input className={styles.min} type="range" min="0" max="200000" />
           <input
             className={styles.max}
@@ -58,8 +82,8 @@ function Filters() {
             value="200000"
             max="200000"
           />
-        </div>
-      </div> */}
+        </div> */}
+      </div>
     </div>
   );
 }

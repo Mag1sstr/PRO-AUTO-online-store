@@ -10,7 +10,7 @@ import Pagination from "../Pagination/Pagination";
 import Spinner from "../Spinner/Spinner";
 
 function ProductsList() {
-  const [sortPrice, setSortPrice] = useState(false);
+  const [sortPrice, setSortPrice] = useState<boolean | null>(null);
   const [sortAvailable, setSortAvailable] = useState(false);
   const [view, setView] = useState<"grid" | "list">("grid");
 
