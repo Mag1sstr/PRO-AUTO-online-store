@@ -33,6 +33,7 @@ function SectionFAQ() {
           <div className={styles.col}>
             {[...Array(5)].map((_, index) => (
               <div
+                key={index}
                 className={`${styles.details} ${index === drop && styles.drop}`}
                 onClick={() => handleDrop(index === drop ? null : index)}
               >

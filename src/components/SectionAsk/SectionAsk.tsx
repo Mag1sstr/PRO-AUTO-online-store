@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLang } from "../../hooks/useLang";
 import Button from "../Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
@@ -21,7 +20,6 @@ function SectionAsk() {
     mode: "onChange",
   });
   const { t, lang } = useLang();
-  const [check, setCheck] = useState(false);
 
   const botToken = "8017199839:AAFcar-ypp1puKUT5hCBx4G59l71UNkdu-w";
   const chatId = "747088794";
@@ -76,11 +74,7 @@ function SectionAsk() {
           />
 
           <div className={styles.check}>
-            <Checkbox
-              check={check}
-              setCheck={setCheck}
-              className={styles.edit}
-            />{" "}
+            <Checkbox className={styles.edit} />{" "}
             <p>
               Я согласен на <span>обработку персональных данных</span>
             </p>

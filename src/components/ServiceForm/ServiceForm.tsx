@@ -1,5 +1,4 @@
 import styles from "./ServiceForm.module.scss";
-import { useState } from "react";
 import { useLang } from "../../hooks/useLang";
 import Button from "../Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
@@ -11,8 +10,6 @@ interface IProps {
   question?: boolean;
 }
 function ServiceForm({ question }: IProps) {
-  const [check, setCheck] = useState(false);
-
   const { t, lang } = useLang();
   return (
     <div className={styles.form}>
@@ -35,7 +32,7 @@ function ServiceForm({ question }: IProps) {
         </div>
       </div>
       <div className={styles.check}>
-        <Checkbox check={check} setCheck={setCheck} />
+        <Checkbox />
         <p>
           Я согласен на
           <span> обработку персональных данных</span>
