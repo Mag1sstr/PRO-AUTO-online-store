@@ -130,9 +130,13 @@ function ProductsList() {
         </div>
       </div>
 
-      <div className={styles.products}>
+      <div
+        className={`${styles.products} ${
+          view === "list" && styles.product__list
+        }`}
+      >
         {(sortPrice === null ? data?.items : sortedProducts)?.map((el) => (
-          <ProductCard key={el.id} {...el} />
+          <ProductCard key={el.id} {...el} view={view} />
         ))}
       </div>
 

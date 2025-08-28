@@ -5,6 +5,10 @@
   flex: 1 1;
   margin-bottom: 30px;
 }
+.product__list {
+  display: flex;
+  flex-direction: column;
+}
 
 // header filters
 .header__filters {
