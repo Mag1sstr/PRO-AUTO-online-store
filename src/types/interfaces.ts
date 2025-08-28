@@ -4,6 +4,10 @@ export interface IProductData {
   price: number;
   available: number;
   manufacturer?: string;
+  description: string;
+  category: {
+    name: string;
+  };
 }
 export interface IItems {
   name: string;

@@ -11,7 +11,11 @@ function ProductCardTypeList(el: IProductData) {
         el.available === 0 && styles.not__available
       }`}
     >
-      <div className={styles.available}>{t[lang].filters.available}</div>
+      <div className={styles.available}>
+        {el.available === 0
+          ? t[lang].filters.not_available
+          : t[lang].filters.available}
+      </div>
       <div className={styles.row}>
         <div className={styles.image__wrapper}>
           <img src={prodImg} alt="image" />
@@ -19,7 +23,15 @@ function ProductCardTypeList(el: IProductData) {
         <div className={styles.info}>
           <div className={styles.left}>
             <p className={styles.title}>{el.name}</p>
-            <p className={styles.desc}></p>
+            <p className={styles.desc}>{el.description}</p>
+            <ul className={styles.list}>
+              <li>
+                Производитель: <span>{el.manufacturer}</span>
+              </li>
+              <li>
+                Категория: <span>{el.category?.name}</span>
+              </li>
+            </ul>
           </div>
           <div className={styles.right}></div>
         </div>

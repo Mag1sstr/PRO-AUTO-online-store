@@ -37,6 +37,8 @@ function ProductsList() {
     return <Spinner />;
   }
 
+  console.log(data);
+
   return (
     <>
       <div className={styles.header__filters}>
