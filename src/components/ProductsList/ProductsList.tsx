@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ProductsList.module.scss";
 import { useLang } from "../../hooks/useLang";
 import { useAppDispatch } from "../../store/store";
@@ -8,6 +8,7 @@ import { useGetProductsQuery } from "../../api/api";
 import { useFilters } from "../../hooks/useFilters";
 import Pagination from "../Pagination/Pagination";
 import Spinner from "../Spinner/Spinner";
+import { useWindowWidth } from "../../hooks/useWindowWidth";
 
 function ProductsList() {
   const [sortPrice, setSortPrice] = useState<boolean | null>(null);
@@ -17,6 +18,7 @@ function ProductsList() {
   const dispatch = useAppDispatch();
   const { t, lang } = useLang();
   const { currentPage, available, brandId, modelId, genId } = useFilters();
+  const windowWidth = useWindowWidth();
 
   const { data, isLoading } = useGetProductsQuery({
     page: currentPage,
@@ -37,7 +39,11 @@ function ProductsList() {
     return <Spinner />;
   }
 
-  console.log(data);
+  useEffect(() => {
+    if (windowWidth < 1000) {
+      setView("grid");
+    }
+  }, [windowWidth]);
 
   return (
     <>
@@ -89,47 +95,49 @@ function ProductsList() {
             />
           </svg>
         </p>
-        <div className={styles.view}>
-          <p>{t[lang].catalog.header_filters.view}:</p>
-          <button
-            onClick={() => setView("grid")}
-            className={view === "grid" ? styles.active : ""}
-          >
-            <svg
-              width="24"
-              height="26"
-              viewBox="0 0 24 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+        {windowWidth >= 1000 && (
+          <div className={styles.view}>
+            <p>{t[lang].catalog.header_filters.view}:</p>
+            <button
+              onClick={() => setView("grid")}
+              className={view === "grid" ? styles.active : ""}
             >
-              <rect width="6" height="6" fill="#1D1D1D" />
-              <rect y="10" width="6" height="6" fill="#1D1D1D" />
-              <rect y="20" width="6" height="6" fill="#1D1D1D" />
-              <rect x="9" width="6" height="6" fill="#1D1D1D" />
-              <rect x="9" y="10" width="6" height="6" fill="#1D1D1D" />
-              <rect x="9" y="20" width="6" height="6" fill="#1D1D1D" />
-              <rect x="18" width="6" height="6" fill="#1D1D1D" />
-              <rect x="18" y="10" width="6" height="6" fill="#1D1D1D" />
-              <rect x="18" y="20" width="6" height="6" fill="#1D1D1D" />
-            </svg>
-          </button>
-          <button
-            onClick={() => setView("list")}
-            className={view === "list" ? styles.active : ""}
-          >
-            <svg
-              width="24"
-              height="26"
-              viewBox="0 0 24 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              <svg
+                width="24"
+                height="26"
+                viewBox="0 0 24 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="6" height="6" fill="#1D1D1D" />
+                <rect y="10" width="6" height="6" fill="#1D1D1D" />
+                <rect y="20" width="6" height="6" fill="#1D1D1D" />
+                <rect x="9" width="6" height="6" fill="#1D1D1D" />
+                <rect x="9" y="10" width="6" height="6" fill="#1D1D1D" />
+                <rect x="9" y="20" width="6" height="6" fill="#1D1D1D" />
+                <rect x="18" width="6" height="6" fill="#1D1D1D" />
+                <rect x="18" y="10" width="6" height="6" fill="#1D1D1D" />
+                <rect x="18" y="20" width="6" height="6" fill="#1D1D1D" />
+              </svg>
+            </button>
+            <button
+              onClick={() => setView("list")}
+              className={view === "list" ? styles.active : ""}
             >
-              <rect width="24" height="6" fill="white" />
-              <rect y="10" width="24" height="6" fill="white" />
-              <rect y="20" width="24" height="6" fill="white" />
-            </svg>
-          </button>
-        </div>
+              <svg
+                width="24"
+                height="26"
+                viewBox="0 0 24 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="6" fill="white" />
+                <rect y="10" width="24" height="6" fill="white" />
+                <rect y="20" width="24" height="6" fill="white" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
 
       <div
