@@ -125,7 +125,8 @@
         "card4_text": "Высокое качество по невысокой цене"
       },
       "product_card": {
-        "btn": "подробнее"
+        "btn": "подробнее",
+        "add_cart": "в корзину"
       }
     },
     "cart": {
@@ -302,7 +303,8 @@
         "card4_text": "High quality at a low price"
       },
       "product_card": {
-        "btn": "more details"
+        "btn": "more details",
+        "add_cart": "add to cart"
       }
     },
     "cart": {
