@@ -1,10 +1,10 @@
 import { useLang } from "../../hooks/useLang";
+import { sendToTelegram } from "../../utils/sendToTelegram";
 import Button from "../Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
 import SectionAskInput from "../SectionAskInput/SectionAskInput";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import styles from "./SectionAsk.module.scss";
-import axios from "axios";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
 
@@ -21,24 +21,9 @@ function SectionAsk() {
   });
   const { t, lang } = useLang();
 
-  const botToken = import.meta.env.VITE_BOT_TOKEN;
-  const chatId = import.meta.env.VITE_CHAT_ID;
-
   const submit: SubmitHandler<IFields> = (data) => {
     if (Object.values(data).every((el) => el.length > 0)) {
-      axios
-        .post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-          chat_id: chatId,
-          text: `
-          📩 Вам новая заявка:
-          <b>Имя:</b> ${data.name}
-          <b>Телефон:</b> ${data.tel}
-          <b>Почта:</b> ${data.email}
-          <b>Сообщение:</b> ${data.message}
-          `,
-          parse_mode: "HTML",
-        })
-        .then((resp) => console.log(resp.data));
+      sendToTelegram(data).then(() => toast.success("Вопрос отправлен!"));
     } else {
       toast.error("Заполните все поля!");
     }
