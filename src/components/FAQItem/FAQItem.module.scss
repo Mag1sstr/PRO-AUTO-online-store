@@ -1,0 +1,45 @@
+.details {
+  position: relative;
+  padding: 32px 8px;
+  border-bottom: 2px solid #fff;
+  overflow: hidden;
+  transition: 0.3s;
+
+  &.drop {
+    .details__content {
+      transition: 0.3s;
+      max-height: 70px;
+      margin-top: 20px;
+    }
+    .icon {
+      svg {
+        transform: rotate(45deg);
+      }
+      svg * {
+        stroke: var(--red);
+      }
+    }
+  }
+}
+.icon {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  svg {
+    transition: 0.3s;
+  }
+}
+.details__title {
+  cursor: pointer;
+}
+.details__content {
+  max-height: 0;
+  margin-top: 0;
+  transition: 0.3s;
+  overflow: hidden;
+  p {
+    line-height: 1.2;
+    opacity: 0.7;
+    max-width: 1024px;
+  }
+}
