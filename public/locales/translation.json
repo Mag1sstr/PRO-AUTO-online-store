@@ -175,6 +175,14 @@
       "title": "ОТЗЫВЫ",
       "subtitle": "Для нас ценно любое Ваше мнение.",
       "btn": "ОСТАВИТЬ СВОЙ ОТЗЫВ"
+    },
+    "faq": {
+      "subtitle": "В данном разделе приведены ответа на часто задаваемые вопросы наших клиентов.",
+      "tabs": {
+        "question": "Общие вопросы",
+        "care": "Эксплуатация и уход"
+      },
+      "btn": "ЗАДАТЬ ВОПРОС"
     }
   },
   "en": {
@@ -353,6 +361,14 @@
       "title": "REVIEWS",
       "subtitle": "We value any of your opinions.",
       "btn": "LEAVE YOUR REVIEW"
+    },
+    "faq": {
+      "subtitle": "This section contains answers to frequently asked questions from our clients.",
+      "tabs": {
+        "question": "General questions",
+        "care": "Operation and maintenance"
+      },
+      "btn": "ASK A QUESTION"
     }
   }
 }

@@ -4,6 +4,7 @@ import styles from "./SectionFAQ.module.scss";
 import Button from "../Button/Button";
 import { useModals } from "../../hooks/useModals";
 import FAQItem from "../FAQItem/FAQItem";
+import { useLang } from "../../hooks/useLang";
 
 const faqData = {
   question: [
@@ -67,6 +68,7 @@ function SectionFAQ() {
   const [drop, setDrop] = useState<number | null>(null);
 
   const { setOpenAskModal } = useModals();
+  const { t, lang } = useLang();
 
   const handleOpenModal = () => {
     setOpenAskModal(true);
@@ -83,22 +85,19 @@ function SectionFAQ() {
       <div className="container">
         <div className={styles.inner}>
           <SectionTitle color="white">F. A. Q</SectionTitle>
-          <p className={styles.subtitle}>
-            В данном разделе приведены ответа на часто задаваемые вопросы наших
-            клиентов.
-          </p>
+          <p className={styles.subtitle}>{t[lang].faq.subtitle}</p>
           <div className={styles.switch}>
             <p
               onClick={handleQuestionTab}
               className={tab === "question" ? styles.active : ""}
             >
-              Общие вопросы
+              {t[lang].faq.tabs.question}
             </p>
             <p
               onClick={handleCareTab}
               className={tab === "care" ? styles.active : ""}
             >
-              Эксплуатация и уход
+              {t[lang].faq.tabs.care}
             </p>
           </div>
           <div className={styles.col}>
@@ -113,7 +112,7 @@ function SectionFAQ() {
           </div>
 
           <Button onClick={handleOpenModal} center>
-            ЗАДАТЬ ВОПРОС
+            {t[lang].faq.btn}
           </Button>
         </div>
       </div>
