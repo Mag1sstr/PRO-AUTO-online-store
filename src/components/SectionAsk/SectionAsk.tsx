@@ -21,8 +21,8 @@ function SectionAsk() {
   });
   const { t, lang } = useLang();
 
-  const botToken = "8017199839:AAFcar-ypp1puKUT5hCBx4G59l71UNkdu-w";
-  const chatId = "747088794";
+  const botToken = import.meta.env.VITE_BOT_TOKEN;
+  const chatId = import.meta.env.VITE_CHAT_ID;
 
   const submit: SubmitHandler<IFields> = (data) => {
     if (Object.values(data).every((el) => el.length > 0)) {
