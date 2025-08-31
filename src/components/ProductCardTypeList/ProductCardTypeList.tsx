@@ -34,6 +34,7 @@ function ProductCardTypeList(el: IProductData) {
       className={`${styles.card} ${
         el.available === 0 && styles.not__available
       }`}
+      data-aos="fade-up"
     >
       <div className={styles.available}>
         {el.available === 0

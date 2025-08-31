@@ -35,15 +35,15 @@ function ProductsList() {
       sortPrice ? a.price - b.price : b.price - a.price
     );
 
+  useEffect(() => {
+    if (windowWidth < 1000 && view !== "grid") {
+      setView("grid");
+    }
+  }, [windowWidth, view]);
+
   if (isLoading) {
     return <Spinner />;
   }
-
-  useEffect(() => {
-    if (windowWidth < 1000) {
-      setView("grid");
-    }
-  }, [windowWidth]);
 
   return (
     <>
