@@ -8,12 +8,26 @@ import Checkbox from "../Checkbox/Checkbox";
 import Button from "../Button/Button";
 import { useLang } from "../../hooks/useLang";
 import { useState } from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+
+interface IFields {
+  name: string;
+  email: string;
+  tel: string;
+  message: string;
+}
 
 function ModalAsk() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFields>({ mode: "onChange" });
   const { openAskModal, setOpenAskModal } = useModals();
   const { t, lang } = useLang();
 
-  const [check, setCheck] = useState(false);
+  // const [check, setCheck] = useState(false);
+  const submit: SubmitHandler<IFields> = (data) => {};
   return (
     <ModalWrapper open={openAskModal} setOpen={setOpenAskModal}>
       <ModalTop
@@ -23,22 +37,54 @@ function ModalAsk() {
         image={icon}
         title="Задать вопрос"
       />
-      <div className={styles.content}>
-        <ModalInput title={t[lang].modals.name} />
-        <ModalInput title={t[lang].modals.tel} />
-        <ModalInput title={t[lang].modals.email} />
-        <ModalInput title={t[lang].modals.message} />
+      <form className={styles.content} onSubmit={handleSubmit(submit)}>
+        <ModalInput
+          title={t[lang].modals.name}
+          register={register("name", {
+            required: t[lang].errors.req,
+          })}
+          error={errors.name?.message}
+        />
+        <ModalInput
+          title={t[lang].modals.tel}
+          register={register("tel", {
+            required: t[lang].errors.req,
+            pattern: {
+              value: /^((\+7|7|8)+([0-9]){10})$/,
+              message: t[lang].errors.phone,
+            },
+          })}
+          error={errors.tel?.message}
+        />
+        <ModalInput
+          title={t[lang].modals.email}
+          register={register("email", {
+            required: t[lang].errors.req,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: t[lang].errors.email,
+            },
+          })}
+          error={errors.email?.message}
+        />
+        <ModalInput
+          title={t[lang].modals.message}
+          register={register("message", {
+            required: t[lang].errors.req,
+          })}
+          error={errors.message?.message}
+        />
 
         <div className={styles.check}>
-          <Checkbox check={check} setCheck={setCheck} />
+          <Checkbox />
           <p>
             Я согласен на <span>обработку персональных данных</span>
           </p>
         </div>
-        <Button end red fontSize={12}>
+        <Button type="submit" end red fontSize={12}>
           ОТПРАВИТЬ
         </Button>
-      </div>
+      </form>
     </ModalWrapper>
   );
 }
