@@ -13,9 +13,12 @@ import {
 import { useModals } from "../../hooks/useModals";
 import Button from "../Button/Button";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 
 function ProductCardTypeList(el: IProductData) {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const [count, setCount] = useState(0);
   const { t, lang } = useLang();
   const { setOpenAddProduct } = useModals();
@@ -23,7 +26,7 @@ function ProductCardTypeList(el: IProductData) {
   const handleAddToCart = () => {
     if (el.available === 1) {
       dispatch(setProductCount(count === 0 ? 1 : count));
-      dispatch(setProductId(el.id));
+      dispatch(setProductId({ id: el.id, name: el.name }));
       setOpenAddProduct(true);
     } else {
       toast.error(t[lang].toast.not_available);
@@ -102,7 +105,12 @@ function ProductCardTypeList(el: IProductData) {
                   </svg>
                 </div>
               </button>
-              <Button red onClick={handleAddToCart}>
+              <Button
+                className={styles.btn}
+                red
+                width={"100%"}
+                onClick={() => navigate(ROUTES.PRODUCT(el.id))}
+              >
                 {t[lang].catalog.product_card.btn}
               </Button>
             </div>

@@ -132,6 +132,7 @@
   transition: 0.3s ease-in-out;
   p {
     padding-right: 12px;
+    transition: 0.3s;
   }
   span {
     display: block;
@@ -144,9 +145,7 @@
     background-color: var(--red);
     color: #fff;
     p {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(23px);
     }
   }
   &:active {

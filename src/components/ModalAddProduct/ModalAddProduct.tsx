@@ -34,8 +34,6 @@ function ModalAddProduct() {
     }
   };
 
-  console.log(productId);
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (user) {
