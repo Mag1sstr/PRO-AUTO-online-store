@@ -1,5 +1,5 @@
 import { useEffect, type FormEvent } from "react";
-import { useAddToCartMutation, useGetSingleProductQuery } from "../../api/api";
+import { useAddToCartMutation } from "../../api/api";
 import { useModals } from "../../hooks/useModals";
 import ModalTop from "../ModalTop/ModalTop";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
@@ -18,10 +18,6 @@ function ModalAddProduct() {
     (state) => state.selectProduct
   );
 
-  const { data: product } = useGetSingleProductQuery(productId, {
-    skip: productId === null,
-  });
-
   const [addToCart, { isSuccess: isAddToCartSuccesss }] =
     useAddToCartMutation();
 
@@ -37,12 +33,15 @@ function ModalAddProduct() {
       dispatch(setProductCount(productCount - 1));
     }
   };
+
+  console.log(productId);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (user) {
       addToCart({
         count: productCount,
-        productId: productId!,
+        productId: productId!.id,
       });
     } else {
       toast.error("Войдите в аккаунт!");
@@ -64,38 +63,37 @@ function ModalAddProduct() {
         title="Добавить в корзину"
         text="Добавьте товар в корзину"
       />
-      {product && (
-        <form onSubmit={handleSubmit}>
-          <div className={styles.content}>
-            <p className={styles.title}>{product.name}</p>
-            <div className={styles.count}>
-              Количество:{" "}
-              <div className={styles.counter}>
-                <button type="button" onClick={decreaseCount}>
-                  -
-                </button>
-                <p>{productCount}</p>
-                <button type="button" onClick={increaseCount}>
-                  +
-                </button>
-              </div>
-            </div>
 
-            <div className={styles.buttons}>
-              <p
-                onClick={() => {
-                  setOpenAddProduct(false);
-                }}
-              >
-                Продолжить покупки
-              </p>
-              <Button type="submit" red fontSize={12}>
-                Добавить
-              </Button>
+      <form onSubmit={handleSubmit}>
+        <div className={styles.content}>
+          <p className={styles.title}>{productId?.name}</p>
+          <div className={styles.count}>
+            Количество:{" "}
+            <div className={styles.counter}>
+              <button type="button" onClick={decreaseCount}>
+                -
+              </button>
+              <p>{productCount}</p>
+              <button type="button" onClick={increaseCount}>
+                +
+              </button>
             </div>
           </div>
-        </form>
-      )}
+
+          <div className={styles.buttons}>
+            <p
+              onClick={() => {
+                setOpenAddProduct(false);
+              }}
+            >
+              Продолжить покупки
+            </p>
+            <Button type="submit" red fontSize={12}>
+              Добавить
+            </Button>
+          </div>
+        </div>
+      </form>
     </ModalWrapper>
   );
 }

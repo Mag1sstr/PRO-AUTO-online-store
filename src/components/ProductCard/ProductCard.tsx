@@ -31,7 +31,7 @@ function ProductCard(el: IProps) {
   const handleAddToCart = () => {
     if (el.available === 1) {
       setOpenAddProduct(true);
-      dispatch(setProductId(el.id));
+      dispatch(setProductId({ id: el.id, name: el.name }));
       dispatch(setProductCount(count === 0 ? 1 : count));
     } else {
       toast.error(t[lang].toast.not_available);

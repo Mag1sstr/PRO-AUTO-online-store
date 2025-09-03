@@ -54,7 +54,7 @@ function SingleProduct() {
   const handleAddToCart = () => {
     if (data?.available === 1) {
       dispatch(setProductCount(count === 0 ? 1 : count));
-      dispatch(setProductId(data?.id));
+      dispatch(setProductId({ id: data.id, name: data.name }));
       setOpenAddProduct(true);
     } else {
       toast.error(t[lang].toast.not_available);

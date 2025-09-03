@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface IState {
-  productId: null | number;
+  productId: { id: number; name: string } | null;
   productCount: number;
 }
 const initialState: IState = {
