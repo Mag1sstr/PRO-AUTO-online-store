@@ -7,8 +7,9 @@ import ModalInput from "../ModalInput/ModalInput";
 import Checkbox from "../Checkbox/Checkbox";
 import Button from "../Button/Button";
 import { useLang } from "../../hooks/useLang";
-import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { sendToTelegram } from "../../utils/sendToTelegram";
+import { toast } from "react-toastify";
 
 interface IFields {
   name: string;
@@ -27,7 +28,12 @@ function ModalAsk() {
   const { t, lang } = useLang();
 
   // const [check, setCheck] = useState(false);
-  const submit: SubmitHandler<IFields> = (data) => {};
+  const submit: SubmitHandler<IFields> = (data) => {
+    sendToTelegram(data).then(() => {
+      toast.success("Вопрос отправлен!");
+      setOpenAskModal(false);
+    });
+  };
   return (
     <ModalWrapper open={openAskModal} setOpen={setOpenAskModal}>
       <ModalTop
