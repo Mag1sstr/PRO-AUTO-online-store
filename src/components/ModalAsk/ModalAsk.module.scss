@@ -14,3 +14,37 @@
     }
   }
 }
+.modal {
+  position: relative;
+  overflow: hidden;
+}
+.image {
+  margin-bottom: 30px;
+}
+.success__banner {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background-color: #fff;
+  color: var(--green);
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  transform: translateY(-100%);
+
+  p {
+    text-align: center;
+    max-width: 223px;
+  }
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-0%);
+  }
+}

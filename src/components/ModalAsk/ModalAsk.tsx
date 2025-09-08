@@ -10,6 +10,8 @@ import { useLang } from "../../hooks/useLang";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { sendToTelegram } from "../../utils/sendToTelegram";
 import { toast } from "react-toastify";
+import { useState } from "react";
+import successIcon from "../../assets/icons/success.png";
 
 interface IFields {
   name: string;
@@ -19,6 +21,7 @@ interface IFields {
 }
 
 function ModalAsk() {
+  const [isSuccess, setIsSuccess] = useState(false);
   const {
     register,
     handleSubmit,
@@ -27,19 +30,32 @@ function ModalAsk() {
   const { openAskModal, setOpenAskModal } = useModals();
   const { t, lang } = useLang();
 
-  // const [check, setCheck] = useState(false);
   const submit: SubmitHandler<IFields> = (data) => {
     sendToTelegram(data).then(() => {
       toast.success("Вопрос отправлен!");
-      setOpenAskModal(false);
+      setIsSuccess(true);
     });
   };
+  console.log(isSuccess);
+
   return (
-    <ModalWrapper open={openAskModal} setOpen={setOpenAskModal}>
+    <ModalWrapper
+      open={openAskModal}
+      setOpen={setOpenAskModal}
+      success={isSuccess}
+      modalStyles={`${styles.modal}`}
+    >
+      <div
+        className={`${styles.success__banner} ${isSuccess && styles.active}`}
+      >
+        <div className={styles.image}>
+          <img src={successIcon} alt="icon" />
+        </div>
+        <p>ВАШЕ ПИСЬМО УСПЕШНО ОТПРАВЛЕНО!</p>
+      </div>
       <ModalTop
         text="Менеджеры компании с радостью ответят на ваши вопросы и помогут с выбором продукции."
         setOpen={setOpenAskModal}
-        // icon={icon}
         image={icon}
         title="Задать вопрос"
       />

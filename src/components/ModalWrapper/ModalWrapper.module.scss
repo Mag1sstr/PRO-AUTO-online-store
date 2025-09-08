@@ -10,6 +10,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.success {
+    .modal {
+      outline-color: var(--green);
+    }
+  }
 }
 .open {
   visibility: visible;
@@ -20,6 +26,8 @@
   width: 500px;
   background-color: #fff;
   transition: 0.3s;
+
+  outline: 4px solid transparent;
 }
 .wrapper.open .modal {
   margin-top: 0;
