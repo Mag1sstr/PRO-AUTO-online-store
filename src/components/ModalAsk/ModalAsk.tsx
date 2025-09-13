@@ -63,13 +63,13 @@ function ModalAsk() {
         <div className={styles.image}>
           <img src={successIcon} alt="icon" />
         </div>
-        <p>ВАШЕ ПИСЬМО УСПЕШНО ОТПРАВЛЕНО!</p>
+        <p>{t[lang].modals.ask.success_text}</p>
       </div>
       <ModalTop
-        text="Менеджеры компании с радостью ответят на ваши вопросы и помогут с выбором продукции."
+        text={t[lang].modals.ask.modaltop_text}
         setOpen={setOpenAskModal}
         image={icon}
-        title="Задать вопрос"
+        title={t[lang].modals.ask.modaltop_title}
       />
       <form className={styles.content} onSubmit={handleSubmit(submit)}>
         <ModalInput
@@ -116,7 +116,7 @@ function ModalAsk() {
           </p>
         </div>
         <Button type="submit" end red fontSize={12}>
-          ОТПРАВИТЬ
+          {t[lang].modals.ask.btn}
         </Button>
       </form>
     </ModalWrapper>

@@ -69,7 +69,10 @@
         "sec_btn": "Уже есть аккаунт?"
       },
       "ask": {
-        "success_text": "ВАШЕ ПИСЬМО УСПЕШНО ОТПРАВЛЕНО!"
+        "success_text": "ВАШЕ ПИСЬМО УСПЕШНО ОТПРАВЛЕНО!",
+        "btn": "ОТПРАВИТЬ",
+        "modaltop_text": "Менеджеры компании с радостью ответят на ваши вопросы и помогут с выбором продукции.",
+        "modaltop_title": "задать вопрос"
       },
       "email": "Почта",
       "password": "Пароль",
@@ -258,7 +261,10 @@
         "sec_btn": "Do you have an account?"
       },
       "ask": {
-        "success_text": "YOUR LETTER HAS BEEN SUCCESSFULLY SENT!"
+        "success_text": "YOUR LETTER HAS BEEN SUCCESSFULLY SENT!",
+        "btn": "SEND",
+        "modaltop_text": "The company's managers will be happy to answer your questions and help you choose products.",
+        "modaltop_title": "ask a question"
       },
       "email": "E-mail",
       "password": "Password",
