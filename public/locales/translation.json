@@ -68,6 +68,9 @@
         "btn": "Зарегистрироваться",
         "sec_btn": "Уже есть аккаунт?"
       },
+      "ask": {
+        "success_text": "ВАШЕ ПИСЬМО УСПЕШНО ОТПРАВЛЕНО!"
+      },
       "email": "Почта",
       "password": "Пароль",
       "name": "Ваше имя",
@@ -253,6 +256,9 @@
         "text": "Create a new account",
         "btn": "Sign Up",
         "sec_btn": "Do you have an account?"
+      },
+      "ask": {
+        "success_text": "YOUR LETTER HAS BEEN SUCCESSFULLY SENT!"
       },
       "email": "E-mail",
       "password": "Password",
