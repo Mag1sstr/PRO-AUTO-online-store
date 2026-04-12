@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { IItems } from "../../types/interfaces";
 import type { AppDispatch } from "../store";
 import axios from "axios";
@@ -12,6 +12,7 @@ interface IFiltersSlice {
   brandId: number;
   modelId: number;
   genId: number;
+  rangeValue: { min: number; max: number };
 }
 
 const initialState: IFiltersSlice = {
@@ -23,12 +24,16 @@ const initialState: IFiltersSlice = {
   modelId: 0,
   brandId: 0,
   genId: 0,
+  rangeValue: { min: 0, max: 0 },
 };
 
 export const filtersSlice = createSlice({
   name: "filtersSlice",
   initialState,
   reducers: {
+    setRange(state, action: PayloadAction<{ min: number; max: number }>) {
+      state.rangeValue = action.payload;
+    },
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
     },
@@ -117,6 +122,7 @@ export const {
   setBrandId,
   setGenId,
   setModelId,
+  setRange,
 } = filtersSlice.actions;
 
 export default filtersSlice.reducer;

@@ -9,6 +9,7 @@ import {
   getBrands,
   modelChange,
   setAvailable,
+  setRange,
 } from "../../store/slices/filtersSlice";
 import { useFilters } from "../../hooks/useFilters";
 import ParamsSelect from "../ParamsSelect/ParamsSelect";
@@ -17,7 +18,7 @@ import Checkbox from "../Checkbox/Checkbox";
 function Filters() {
   const dispatch = useAppDispatch();
   const { t, lang } = useLang();
-  const { brands, models, gens } = useFilters();
+  const { brands, models, gens, rangeValue } = useFilters();
   const available = useAppSelector((state) => state.filters.available);
 
   useEffect(() => {
@@ -56,8 +57,22 @@ function Filters() {
         <ParamsSelect title="ЦЕНА">
           <div className={styles.range}>
             <div className={styles.range__row}>
-              <input type="number" placeholder="от" />
-              <input type="number" placeholder="до" />
+              <input
+                type="number"
+                value={rangeValue.min}
+                onChange={(e) =>
+                  dispatch(setRange({ ...rangeValue, min: +e.target.value }))
+                }
+                placeholder="от"
+              />
+              <input
+                type="number"
+                value={rangeValue.max}
+                onChange={(e) =>
+                  dispatch(setRange({ ...rangeValue, max: +e.target.value }))
+                }
+                placeholder="до"
+              />
             </div>
           </div>
         </ParamsSelect>

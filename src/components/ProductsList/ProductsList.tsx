@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 import styles from "./ProductsList.module.scss";
 import { useLang } from "../../hooks/useLang";
 import { useAppDispatch } from "../../store/store";
-import { setAvailable, setCurrentPage } from "../../store/slices/filtersSlice";
+import {
+  setAvailable,
+  setCurrentPage,
+  setRange,
+} from "../../store/slices/filtersSlice";
 import ProductCard from "../ProductCard/ProductCard";
 import { useGetProductsQuery } from "../../api/api";
 import { useFilters } from "../../hooks/useFilters";
 import Pagination from "../Pagination/Pagination";
 import Spinner from "../Spinner/Spinner";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
+import { useDebounce } from "../../hooks/useDebounce";
 
 function ProductsList() {
   const [sortPrice, setSortPrice] = useState<boolean | null>(null);
@@ -17,8 +22,13 @@ function ProductsList() {
 
   const dispatch = useAppDispatch();
   const { t, lang } = useLang();
-  const { currentPage, available, brandId, modelId, genId } = useFilters();
+  const { currentPage, available, brandId, modelId, genId, rangeValue } =
+    useFilters();
   const windowWidth = useWindowWidth();
+  const deboucedRange = useDebounce<{ min: number; max: number }>(
+    rangeValue,
+    500,
+  );
 
   const { data, isLoading } = useGetProductsQuery({
     page: currentPage,
@@ -32,8 +42,21 @@ function ProductsList() {
   const sortedProducts =
     data &&
     [...data.items].sort((a, b) =>
-      sortPrice ? a.price - b.price : b.price - a.price
+      sortPrice ? a.price - b.price : b.price - a.price,
     );
+
+  useEffect(() => {
+    if (data?.items) {
+      dispatch(
+        setRange({
+          ...rangeValue,
+          max: Math.max(...data.items.map((el) => el.price)),
+        }),
+      );
+    }
+  }, [data?.items]);
+
+  console.log(rangeValue);
 
   useEffect(() => {
     if (windowWidth < 1000 && view !== "grid") {
@@ -145,9 +168,14 @@ function ProductsList() {
           view === "list" && styles.product__list
         }`}
       >
-        {(sortPrice === null ? data?.items : sortedProducts)?.map((el) => (
-          <ProductCard key={el.id} {...el} view={view} />
-        ))}
+        {(sortPrice === null ? data?.items : sortedProducts)
+          ?.filter(
+            (el) =>
+              el.price >= deboucedRange.min && el.price <= deboucedRange.max,
+          )
+          .map((el) => (
+            <ProductCard key={el.id} {...el} view={view} />
+          ))}
       </div>
 
       <Pagination

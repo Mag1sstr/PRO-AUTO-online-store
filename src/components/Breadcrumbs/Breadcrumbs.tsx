@@ -4,6 +4,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
 import { useLang } from "../../hooks/useLang";
 
+const breadcrumbsNames = {
+  cart: "Корзина",
+  news: "Новости",
+};
+
 function Breadcrumbs() {
   const ref = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
