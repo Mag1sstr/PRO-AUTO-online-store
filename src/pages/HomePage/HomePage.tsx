@@ -5,9 +5,11 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import News from "../../components/News/News";
 import Services from "../../components/Services/Services";
+import { useMetadata } from "../../hooks/useMetadata";
 // import styles from "./HomePage.module.scss";
 
 function HomePage() {
+  useMetadata({ title: "Главная" });
   return (
     <>
       <Header />
