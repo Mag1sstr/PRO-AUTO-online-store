@@ -49,7 +49,7 @@ function ServiceOverview() {
       <section className={styles.wrapper}>
         <div className="container">
           <div className={styles.center}>
-            <h2 className={styles.title}>услуги</h2>
+            <h2 className={styles.title}>{t[lang].services.title}</h2>
             <p className={styles.text}>
               Менеджеры компании с радостью ответят на ваши вопросы и помогут с
               выбором продукции.
