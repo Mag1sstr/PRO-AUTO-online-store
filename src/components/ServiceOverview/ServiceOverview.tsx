@@ -50,10 +50,7 @@ function ServiceOverview() {
         <div className="container">
           <div className={styles.center}>
             <h2 className={styles.title}>{t[lang].services.title}</h2>
-            <p className={styles.text}>
-              Менеджеры компании с радостью ответят на ваши вопросы и помогут с
-              выбором продукции.
-            </p>
+            <p className={styles.text}>{t[lang].services.text}</p>
           </div>
           <div className={styles.row}>
             {services.map((el) => (
