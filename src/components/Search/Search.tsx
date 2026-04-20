@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Button from "../Button/Button";
 import styles from "./Search.module.scss";
 import { useModals } from "../../hooks/useModals";
@@ -6,6 +6,7 @@ import { useGetProductsQuery } from "../../api/api";
 import { useDebounce } from "../../hooks/useDebounce";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
+import { useClickOutside } from "../../hooks/useClickOutside";
 function Search() {
   const { openSearch, setOpenSearch } = useModals();
   const [searchValue, setSearchValue] = useState("");
@@ -14,15 +15,26 @@ function Search() {
 
   const { data } = useGetProductsQuery(
     { page: 1, size: 17 },
-    { skip: !deboucedValue.length }
+    { skip: !deboucedValue.length },
   );
 
   const handleCloseSearch = () => {
     setSearchValue("");
     setOpenSearch(false);
   };
+  const ref = useRef<HTMLDivElement>(null);
+
+  useClickOutside(ref, () => {
+    if (openSearch) {
+      handleCloseSearch();
+    }
+  });
+
   return (
-    <section className={`${styles.search} ${openSearch && styles.open}`}>
+    <section
+      ref={ref}
+      className={`${styles.search} ${openSearch && styles.open}`}
+    >
       <div className="container">
         <div className={styles.row}>
           <div className={styles.field}>
@@ -74,7 +86,7 @@ function Search() {
               el.name
                 .toLowerCase()
                 .trim()
-                .includes(deboucedValue.toLowerCase().trim())
+                .includes(deboucedValue.toLowerCase().trim()),
             )
             .map((product) => (
               <Link to={ROUTES.PRODUCT(product.id)}>
@@ -85,7 +97,7 @@ function Search() {
             el.name
               .toLowerCase()
               .trim()
-              .includes(deboucedValue.toLowerCase().trim())
+              .includes(deboucedValue.toLowerCase().trim()),
           ).length && <li>Не найдено</li>}
         </ul>
       </div>
