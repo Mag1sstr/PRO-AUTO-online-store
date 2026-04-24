@@ -28,7 +28,7 @@ function Search() {
     if (openSearch) {
       handleCloseSearch();
     }
-  });
+  }, [openSearch]);
 
   return (
     <section
@@ -89,8 +89,8 @@ function Search() {
                 .includes(deboucedValue.toLowerCase().trim()),
             )
             .map((product) => (
-              <Link to={ROUTES.PRODUCT(product.id)}>
-                <li key={product.id}>{product.name}</li>
+              <Link key={product.id} to={ROUTES.PRODUCT(product.id)}>
+                <li>{product.name}</li>
               </Link>
             ))}
           {!data?.items.filter((el) =>
