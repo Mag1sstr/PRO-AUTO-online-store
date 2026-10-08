@@ -51,11 +51,8 @@ function Header({ slider = true }: IProps) {
 
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const { count } = useGetCartQuery(null, {
-    refetchOnMountOrArgChange: true,
-    selectFromResult: ({ data }) => ({
-      count: data?.items.length,
-    }),
+  const { data } = useGetCartQuery(null, {
+    skip: !user,
   });
 
   const handleOpenSearch = () => {
@@ -67,10 +64,8 @@ function Header({ slider = true }: IProps) {
   }, [location]);
 
   useEffect(() => {
-    if (count === 0) {
-      setOpenCart(false);
-    }
-  }, [count]);
+    if (!data?.items.length) setOpenCart(false);
+  }, [data]);
 
   return (
     <header
@@ -168,12 +163,10 @@ function Header({ slider = true }: IProps) {
               </div>
               <div
                 onClick={() => {
-                  if (count === 0) {
-                    setOpenCart(false);
-                    toast.error("Корзина пуста");
-                  } else {
-                    setOpenCart((prev) => !prev);
-                  }
+                  if (!user) return toast.error("Вы не вошли в аккаунт");
+                  if (user && !data?.items.length)
+                    return toast.error("Корзина пуста");
+                  setOpenCart((prev) => !prev);
                 }}
                 className={`${styles.cart} ${openCart && styles.cart__active}`}
               >
@@ -207,7 +200,7 @@ function Header({ slider = true }: IProps) {
                   />
                 </svg>
                 <CartDrop />
-                {count! > 0 && <div className={styles.counter}>{count}</div>}
+                {/* {count! > 0 && <div className={styles.counter}>{count}</div>} */}
               </div>
             </div>
           </div>
