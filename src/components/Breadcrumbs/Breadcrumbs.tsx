@@ -3,6 +3,7 @@ import styles from "./Breadcrumbs.module.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes/routes";
 import { useLang } from "../../hooks/useLang";
+import { useGetSingleProductQuery } from "../../api/api";
 
 const breadcrumbsNames = {
   cart: "Корзина",
@@ -11,18 +12,25 @@ const breadcrumbsNames = {
 
 function Breadcrumbs() {
   const ref = useRef<HTMLDivElement | null>(null);
-  const location = useLocation();
+  const location = useLocation().pathname.split("/").filter(Boolean);
+  const productId =
+    location[0] === "catalog" && location[1] !== undefined ? location[1] : null;
   const navigate = useNavigate();
   const { t, lang } = useLang();
+  const { data: product } = useGetSingleProductQuery(productId, {
+    skip: !productId,
+    refetchOnMountOrArgChange: true,
+  });
 
   const pathnames = [
     "home",
-    ...location.pathname.split("/").filter((el) => el),
+    ...location,
   ] as (keyof (typeof t)[typeof lang]["paths"])[];
 
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [location]);
+  console.log(product);
 
   return (
     <section ref={ref} className={styles.wrapper}>
@@ -39,7 +47,9 @@ function Breadcrumbs() {
                 key={path}
                 className={`${styles.item} ${isLastPath && styles.active}`}
               >
-                {t[lang].paths[path]}
+                {path === productId && product
+                  ? product.name
+                  : t[lang].paths[path]}
                 {!isLastPath && (
                   <svg
                     width="20"
